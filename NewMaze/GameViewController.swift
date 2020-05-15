@@ -23,8 +23,8 @@ class GameViewController: UIViewController {
             if let sceneNode = scene.rootNode as! GameScene? {
                 
                 // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
+//                sceneNode.entities = scene.entities
+//                sceneNode.graphs = scene.graphs
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
@@ -37,10 +37,22 @@ class GameViewController: UIViewController {
                     
                     view.showsFPS = true
                     view.showsNodeCount = true
+//                    view.showsPhysics = true
+                    
+//                    newScene(scene: "Minigame")
+                    
                 }
             }
         }
     }
+    
+
+        func newScene(scene : String) {
+//            let VC = UIStoryboard(name: "Main", bundle:  Bundle.main).instantiateViewController(withIdentifier: scene) as? UINavigationController
+//            print(VC as Any)
+            let VC = self.storyboard!.instantiateViewController(withIdentifier: scene) as! UINavigationController
+            self.navigationController?.present(VC, animated: false, completion: nil)
+        }
 
     override var shouldAutorotate: Bool {
         return true
@@ -57,4 +69,5 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 }
