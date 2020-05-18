@@ -245,7 +245,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collisionA == playerCategory && collisionB == holeCategory {
             
-            let myScene = secondScene(fileNamed: "secondvc")
+            let myScene = ThirdHaptic(fileNamed: "thirdHaptic")
                            myScene?.scaleMode = .aspectFill
                            self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
 //            game.newScene(scene: "Minigame")
