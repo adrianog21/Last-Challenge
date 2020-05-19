@@ -16,7 +16,6 @@
 		13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C162472E53300732BC8 /* firstHaptic.sks */; };
 		13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C182472E54900732BC8 /* secondHaptic.sks */; };
 		13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1A2472E56400732BC8 /* thirdHaptic.sks */; };
-		13B72C1F2472E80200732BC8 /* fourthHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1E2472E80200732BC8 /* fourthHaptic.sks */; };
 		13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C202472EF6600732BC8 /* hapticViewController.swift */; };
 		7B5C62D1246D6269008244C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62D0246D6269008244C0 /* AppDelegate.swift */; };
 		7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B5C62D2246D6269008244C0 /* GameScene.sks */; };
@@ -39,7 +38,6 @@
 		13B72C162472E53300732BC8 /* firstHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = firstHaptic.sks; sourceTree = "<group>"; };
 		13B72C182472E54900732BC8 /* secondHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondHaptic.sks; sourceTree = "<group>"; };
 		13B72C1A2472E56400732BC8 /* thirdHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdHaptic.sks; sourceTree = "<group>"; };
-		13B72C1E2472E80200732BC8 /* fourthHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = fourthHaptic.sks; path = "../../../Downloads/Haptic Game/Haptic Game/fourthHaptic.sks"; sourceTree = "<group>"; };
 		13B72C202472EF6600732BC8 /* hapticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hapticViewController.swift; sourceTree = "<group>"; };
 		7B5C62CD246D6269008244C0 /* NewMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5C62D0246D6269008244C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				13B72C162472E53300732BC8 /* firstHaptic.sks */,
 				13B72C182472E54900732BC8 /* secondHaptic.sks */,
 				13B72C1A2472E56400732BC8 /* thirdHaptic.sks */,
-				13B72C1E2472E80200732BC8 /* fourthHaptic.sks */,
 				13B72C0C246D974700732BC8 /* secondScene.swift */,
 				7B5C62D8246D6269008244C0 /* GameViewController.swift */,
 				13B72C202472EF6600732BC8 /* hapticViewController.swift */,
@@ -168,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5C62E9246D62DD008244C0 /* MyTileSet.sks in Resources */,
-				13B72C1F2472E80200732BC8 /* fourthHaptic.sks in Resources */,
 				13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */,
 				13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */,
 				7B5C62DC246D6269008244C0 /* Main.storyboard in Resources */,

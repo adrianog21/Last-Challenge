@@ -59,7 +59,7 @@
         <!--Haptic View Controller-->
         <scene sceneID="bR9-Tj-iYK">
             <objects>
-                <viewController id="j0x-Hh-cqt" customClass="hapticViewController" customModule="NewMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Haptic" storyboardIdentifier="Haptic" id="j0x-Hh-cqt" customClass="hapticViewController" customModule="NewMaze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hn-mc-IWo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -16,9 +16,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerCategory:UInt32 = 0x1 << 1
     let wallCategory:UInt32 = 0x1 << 2
     
-    var game = GameViewController()
-//    let newScene = LoadLevel()
-    
     var tileNodes = [SKSpriteNode]()
     
     var npos = CGPoint()
@@ -248,8 +245,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let myScene = ThirdHaptic(fileNamed: "thirdHaptic")
                            myScene?.scaleMode = .aspectFill
                            self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
-//            game.newScene(scene: "Minigame")
-//            LoadScene.play()
+
+            gamecontroller?.newScene(scene: "Minigame")
+            
             print("New Scene")
 
         }
