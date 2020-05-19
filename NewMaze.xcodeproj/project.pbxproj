@@ -17,6 +17,9 @@
 		13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C182472E54900732BC8 /* secondHaptic.sks */; };
 		13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1A2472E56400732BC8 /* thirdHaptic.sks */; };
 		13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C202472EF6600732BC8 /* hapticViewController.swift */; };
+		7B2214192473F3BD00410A2D /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2214182473F3BD00410A2D /* MenuController.swift */; };
+		7B22141F2473FBA900410A2D /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B22141E2473FBA900410A2D /* MenuScene.sks */; };
+		7B2214212473FBCF00410A2D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2214202473FBCF00410A2D /* MenuScene.swift */; };
 		7B5C62D1246D6269008244C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62D0246D6269008244C0 /* AppDelegate.swift */; };
 		7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B5C62D2246D6269008244C0 /* GameScene.sks */; };
 		7B5C62D7246D6269008244C0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62D6246D6269008244C0 /* GameScene.swift */; };
@@ -39,6 +42,9 @@
 		13B72C182472E54900732BC8 /* secondHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondHaptic.sks; sourceTree = "<group>"; };
 		13B72C1A2472E56400732BC8 /* thirdHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdHaptic.sks; sourceTree = "<group>"; };
 		13B72C202472EF6600732BC8 /* hapticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hapticViewController.swift; sourceTree = "<group>"; };
+		7B2214182473F3BD00410A2D /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		7B22141E2473FBA900410A2D /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		7B2214202473FBCF00410A2D /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		7B5C62CD246D6269008244C0 /* NewMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5C62D0246D6269008244C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5C62D2246D6269008244C0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -63,6 +69,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B2214152473F34100410A2D /* Haptic */ = {
+			isa = PBXGroup;
+			children = (
+				13B72C202472EF6600732BC8 /* hapticViewController.swift */,
+				13B72C102472E4E400732BC8 /* SecondHaptic.swift */,
+				13B72C122472E4F500732BC8 /* ThirdHaptic.swift */,
+				13B72C142472E51600732BC8 /* FourthHaptic.swift */,
+				13B72C182472E54900732BC8 /* secondHaptic.sks */,
+				13B72C162472E53300732BC8 /* firstHaptic.sks */,
+				13B72C1A2472E56400732BC8 /* thirdHaptic.sks */,
+				13B72C0E2472E4CD00732BC8 /* FirstHaptic.swift */,
+			);
+			path = Haptic;
+			sourceTree = "<group>";
+		};
+		7B2214162473F38100410A2D /* Maze */ = {
+			isa = PBXGroup;
+			children = (
+				7B5C62E8246D62DD008244C0 /* MyTileSet.sks */,
+				7B5C62D8246D6269008244C0 /* GameViewController.swift */,
+				7B5C62D6246D6269008244C0 /* GameScene.swift */,
+				7B5C62D2246D6269008244C0 /* GameScene.sks */,
+			);
+			path = Maze;
+			sourceTree = "<group>";
+		};
+		7B2214172473F39F00410A2D /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				7B2214182473F3BD00410A2D /* MenuController.swift */,
+				7B22141E2473FBA900410A2D /* MenuScene.sks */,
+				7B2214202473FBCF00410A2D /* MenuScene.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		7B5C62C4246D6269008244C0 = {
 			isa = PBXGroup;
 			children = (
@@ -82,23 +124,14 @@
 		7B5C62CF246D6269008244C0 /* NewMaze */ = {
 			isa = PBXGroup;
 			children = (
+				7B2214172473F39F00410A2D /* Menu */,
+				7B2214162473F38100410A2D /* Maze */,
+				7B2214152473F34100410A2D /* Haptic */,
 				7B5C62D0246D6269008244C0 /* AppDelegate.swift */,
-				7B5C62D2246D6269008244C0 /* GameScene.sks */,
 				13B72C0A246D95D500732BC8 /* secondvc.sks */,
-				7B5C62D6246D6269008244C0 /* GameScene.swift */,
-				13B72C0E2472E4CD00732BC8 /* FirstHaptic.swift */,
-				13B72C102472E4E400732BC8 /* SecondHaptic.swift */,
-				13B72C122472E4F500732BC8 /* ThirdHaptic.swift */,
-				13B72C142472E51600732BC8 /* FourthHaptic.swift */,
-				13B72C162472E53300732BC8 /* firstHaptic.sks */,
-				13B72C182472E54900732BC8 /* secondHaptic.sks */,
-				13B72C1A2472E56400732BC8 /* thirdHaptic.sks */,
 				13B72C0C246D974700732BC8 /* secondScene.swift */,
-				7B5C62D8246D6269008244C0 /* GameViewController.swift */,
-				13B72C202472EF6600732BC8 /* hapticViewController.swift */,
 				7B5C62EC246D79C4008244C0 /* secondvc.swift */,
 				7B5C62DA246D6269008244C0 /* Main.storyboard */,
-				7B5C62E8246D62DD008244C0 /* MyTileSet.sks */,
 				7B5C62DD246D626B008244C0 /* Assets.xcassets */,
 				7B5C62DF246D626B008244C0 /* LaunchScreen.storyboard */,
 				7B5C62E2246D626B008244C0 /* Info.plist */,
@@ -167,6 +200,7 @@
 				7B5C62E9246D62DD008244C0 /* MyTileSet.sks in Resources */,
 				13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */,
 				13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */,
+				7B22141F2473FBA900410A2D /* MenuScene.sks in Resources */,
 				7B5C62DC246D6269008244C0 /* Main.storyboard in Resources */,
 				7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */,
 				13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */,
@@ -188,9 +222,11 @@
 				13B72C152472E51600732BC8 /* FourthHaptic.swift in Sources */,
 				7B5C62D7246D6269008244C0 /* GameScene.swift in Sources */,
 				13B72C0D246D974700732BC8 /* secondScene.swift in Sources */,
+				7B2214192473F3BD00410A2D /* MenuController.swift in Sources */,
 				7B5C62D9246D6269008244C0 /* GameViewController.swift in Sources */,
 				13B72C112472E4E400732BC8 /* SecondHaptic.swift in Sources */,
 				7B5C62ED246D79C4008244C0 /* secondvc.swift in Sources */,
+				7B2214212473FBCF00410A2D /* MenuScene.swift in Sources */,
 				7B5C62D1246D6269008244C0 /* AppDelegate.swift in Sources */,
 				13B72C0F2472E4CD00732BC8 /* FirstHaptic.swift in Sources */,
 			);
@@ -337,7 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2Z8XQCA75N;
+				DEVELOPMENT_TEAM = 3B75F79YB3;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -355,7 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2Z8XQCA75N;
+				DEVELOPMENT_TEAM = 3B75F79YB3;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

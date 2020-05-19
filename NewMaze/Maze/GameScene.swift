@@ -69,6 +69,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scene!.addChild(gameCamera)
         camera = gameCamera
+        gameCamera.xScale = gameCamera.xScale * 2
+        gameCamera.yScale = gameCamera.yScale * 2
         
          }
     
@@ -133,12 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
 //                    if tiledefinition.name == "wall corner dx down" || tiledefinition.name == "wall corner sx down" || tiledefinition.name == "wall centre down" || tiledefinition.name == "wall dx" || tiledefinition.name == "wall sx" || tiledefinition.name == "wall corner dx up" || tiledefinition.name == "wall corner sx up" || tiledefinition.name == "roof dx" || tiledefinition.name == "roof sx" || tiledefinition.name == "roof corner dx up" || tiledefinition.name == "roof corner sx up" || tiledefinition.name == "roof centre up"
 //                    {
-//                        let action =  SKAction.wait(forDuration: 1) //Try different time durations
-//                        scene!.run(action, completion:
-//                        {
-//                            tileNode.shadowCastBitMask = 1
-//
-//                        })
+                        
 //                    }
                     
                     
@@ -208,8 +205,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 tile.shadowCastBitMask = 0
                 
             }else{
-                tile.shadowCastBitMask = 1
-                
+
+                let action =  SKAction.wait(forDuration: 1) //Try different time durations
+                scene!.run(action, completion:
+                {
+                    tile.shadowCastBitMask = 1
+
+                })
             }
         }
     }
