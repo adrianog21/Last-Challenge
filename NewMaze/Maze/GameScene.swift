@@ -41,7 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lightNode.position = CGPoint(x: 0, y: 0)
         lightNode.categoryBitMask = 0b0001
         lightNode.lightColor = .white
-        lightNode.falloff = 1.7
+        lightNode.falloff = 1.5
 //        scene!.addChild(lightNode)
         
         pointing.position = CGPoint(x: 64, y: 0)
@@ -69,8 +69,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scene!.addChild(gameCamera)
         camera = gameCamera
-        gameCamera.xScale = gameCamera.xScale * 2
-        gameCamera.yScale = gameCamera.yScale * 2
+        gameCamera.xScale = gameCamera.xScale * 1.3
+        gameCamera.yScale = gameCamera.yScale * 1.3
         
          }
     
@@ -128,15 +128,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                        tileNode.physicsBody?.allowsRotation = false
 //                       tileNode.physicsBody?.friction = 1
                        tileNode.physicsBody?.isDynamic = false
+                    tileNode.lightingBitMask = 1
                     
                     
                     self.addChild(tileNode)
-                    tileNode.lightingBitMask = 1
                     
-//                    if tiledefinition.name == "wall corner dx down" || tiledefinition.name == "wall corner sx down" || tiledefinition.name == "wall centre down" || tiledefinition.name == "wall dx" || tiledefinition.name == "wall sx" || tiledefinition.name == "wall corner dx up" || tiledefinition.name == "wall corner sx up" || tiledefinition.name == "roof dx" || tiledefinition.name == "roof sx" || tiledefinition.name == "roof corner dx up" || tiledefinition.name == "roof corner sx up" || tiledefinition.name == "roof centre up"
-//                    {
-                        
-//                    }
+                    if tiledefinition.name == "black center"
+                    {
+                        tileNode.lightingBitMask = 0
+                    }else{
+                        let action =  SKAction.wait(forDuration: 2.1) //Try different time durations
+                        scene!.run(action, completion:
+                        {
+                            tileNode.shadowCastBitMask = 1
+
+                        })
+                    }
                     
                     
 //                    print(tiledefinition.name)
@@ -200,18 +207,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for tile in tileNodes {
             let distance = CGPoint(x: (tile.position.x - player.position.x).magnitude, y: (tile.position.y - player.position.y).magnitude)
             
-            if distance.x + distance.y >= 450 {
-                
-                tile.shadowCastBitMask = 0
-                
+            if distance.x + distance.y >= 750 {
+
+                tile.isHidden = true
+
             }else{
+                tile.isHidden = false
 
-                let action =  SKAction.wait(forDuration: 1) //Try different time durations
-                scene!.run(action, completion:
-                {
-                    tile.shadowCastBitMask = 1
-
-                })
+//                let action =  SKAction.wait(forDuration: 1) //Try different time durations
+//                scene!.run(action, completion:
+//                {
+//                    tile.shadowCastBitMask = 1
+//
+//                })
             }
         }
     }

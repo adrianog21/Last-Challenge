@@ -14,33 +14,13 @@ class Menu : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let scene = GKScene(fileNamed: "MenuScene") {
-                    
-                    // Get the SKScene from the loaded GKScene
-                    if let sceneNode = scene.rootNode as! MenuScene? {
-                        
-                        // Copy gameplay related content over to the scene
-        //                sceneNode.entities = scene.entities
-        //                sceneNode.graphs = scene.graphs
-                        
-                        // Set the scale mode to scale to fit the window
-                        sceneNode.scaleMode = .aspectFill
-                        
-                        // Present the scene
-                        if let view = self.view as! SKView? {
-                            view.presentScene(sceneNode)
-                            
-                            view.ignoresSiblingOrder = true
-                            
-                            view.showsFPS = true
-                            view.showsNodeCount = true
-        //                    view.showsPhysics = true
-                            
-        //                    newScene(scene: "Minigame")
-                            
-                        }
-                    }
-                }
+        if let view = self.view as! SKView? {
+               // Load the SKScene from 'GameScene.sks'
+        if let scene = SKScene(fileNamed: "MenuScene") {
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .aspectFill
+                       // Present the scene
+            view.presentScene(scene)
         
 //        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
     }
@@ -50,5 +30,7 @@ class Menu : UIViewController{
 //
 //        }
 //    }
+}
+}
 }
 
