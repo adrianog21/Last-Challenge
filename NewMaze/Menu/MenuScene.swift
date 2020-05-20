@@ -6,61 +6,32 @@
 //  Copyright © 2020 Adriano Gatto. All rights reserved.
 //
 
-import Foundation
-import SpriteKit
 import UIKit
-import GameplayKit
+import SpriteKit
 
-class MenuScene : SKScene {
-    
+class MenuScene: SKScene {
+
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        print("ciao")
         
-//          if let scene = GKScene(fileNamed: "MenuScene") {
-//                    
-//                    // Get the SKScene from the loaded GKScene
-//                    if let sceneNode = scene.rootNode as! MenuScene? {
-//                        
-//                        print("111")
-//                        // Copy gameplay related content over to the scene
-//        //                sceneNode.entities = scene.entities
-//        //                sceneNode.graphs = scene.graphs
-//                        
-//                        // Set the scale mode to scale to fit the window
-//                        sceneNode.scaleMode = .aspectFill
-//                        
-//                        // Present the scene
-//                        if let view = self.view as! SKView? {
-//                            view.presentScene(sceneNode)
-//        
-//    }
-//            }
-//        }
+        let texture = SKTexture(imageNamed: "Background")
         
-        let texture = SKTexture(imageNamed: "Group 113.png")
-
-             for i in 0 ... 1 {
-                
-                       let background = SKSpriteNode(texture: texture)
-                background.zPosition = -30
-                background.anchorPoint = .zero
-                background.position = CGPoint(x: 110, y: 110)
-                background.size = CGSize(width: texture.size().width, height: texture.size().height)
-                
-                addChild(background)
-                print("added")
-
-                       let moveLeft = SKAction.moveTo(x: -background.frame.width, duration: 10)
-                       let reset = SKAction.moveTo(x: background.frame.width, duration: 0)
-                       let loop = SKAction.sequence([moveLeft, reset])
-                       let repeatAction = SKAction.repeatForever(loop)
-                background.run(repeatAction)
+        for i in 0 ... 3 {
+            let background = SKSpriteNode(texture: texture)
+            background.anchorPoint = .zero
+            background.size = CGSize(width: texture.size().width * 2, height: texture.size().height * 2)
+            let start = CGPoint(x: (((background.size.width - 16.7) * CGFloat(i)) - 900), y: -210)
+            background.position = start
+            
+            addChild(background)
+            
+        let moveleft = SKAction.moveTo(x: (start.x - background.size.width), duration: 10)
+        let movereset = SKAction.moveTo(x: start.x, duration: 0)
+            let loop = SKAction.sequence([moveleft, movereset])
+            let moverepeat = SKAction.repeatForever(loop)
+            
+            background.run(moverepeat)
         }
     }
-    
-    override func update(_ currentTime: TimeInterval) {
-        
-        
-    
-}
 }
