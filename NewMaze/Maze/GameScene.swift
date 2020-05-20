@@ -120,26 +120,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     let tileNode = SKSpriteNode(texture: tileTexture, size: tileTexture.size())
                        tileNode.position = CGPoint(x: x, y: y)
                     
-                    tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
                     
-                       
-                    tileNode.physicsBody?.linearDamping = 0
-                       tileNode.physicsBody?.affectedByGravity = false
-                       tileNode.physicsBody?.allowsRotation = false
-//                       tileNode.physicsBody?.friction = 1
-                       tileNode.physicsBody?.isDynamic = false
-                    tileNode.lightingBitMask = 1
                     
                     
                     self.addChild(tileNode)
                     
                     if tiledefinition.name == "black center"
                     {
-                        tileNode.lightingBitMask = 0
+                        tileNode.lightingBitMask = 1
+
+//                        tileNode.lightingBitMask = 0
                     }else{
                         let action =  SKAction.wait(forDuration: 2.1) //Try different time durations
                         scene!.run(action, completion:
                         {
+                            tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
+                                                
+                                                   
+                                                tileNode.physicsBody?.linearDamping = 0
+                                                   tileNode.physicsBody?.affectedByGravity = false
+                                                   tileNode.physicsBody?.allowsRotation = false
+                            //                       tileNode.physicsBody?.friction = 1
+                                                   tileNode.physicsBody?.isDynamic = false
+                                                tileNode.lightingBitMask = 1
+                            
                             tileNode.shadowCastBitMask = 1
 
                         })
@@ -182,10 +186,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-      move = true
         if let touch = touches.first {
             npos = touch.location(in: scene!)
           }
+        move = true
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -207,12 +211,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for tile in tileNodes {
             let distance = CGPoint(x: (tile.position.x - player.position.x).magnitude, y: (tile.position.y - player.position.y).magnitude)
             
-            if distance.x + distance.y >= 750 {
+            if distance.x + distance.y > 600 {
 
                 tile.isHidden = true
 
             }else{
-                tile.isHidden = false
+                
+                let action =  SKAction.wait(forDuration: 0.1) //Try different time durations
+                scene!.run(action, completion:
+                {
+                    tile.isHidden = false
+
+                })
 
 //                let action =  SKAction.wait(forDuration: 1) //Try different time durations
 //                scene!.run(action, completion:
@@ -228,7 +238,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let angle = atan2((npos.y - player.position.y) , (npos.x - player.position.x))
         player.zRotation = angle
         
-        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 3) , y: (player.position.y + sin(angle) * 3))
+        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 2.1) , y: (player.position.y + sin(angle) * 3))
         
         if move == true{
             player.position = playerMove
