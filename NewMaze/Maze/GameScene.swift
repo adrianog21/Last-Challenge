@@ -41,7 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lightNode.position = CGPoint(x: 0, y: 0)
         lightNode.categoryBitMask = 0b0001
         lightNode.lightColor = .white
-        lightNode.falloff = 1.2
+        lightNode.falloff = 1.3
 //        scene!.addChild(lightNode)
         
         pointing.position = CGPoint(x: 64, y: 0)
@@ -58,7 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.position = CGPoint(x: 0, y: 0)
         player.texture = SKTexture(imageNamed: "sphere cream.png")
-        player.size = CGSize(width: 100, height: 100)
+        player.size = CGSize(width: 80, height: 80)
         player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.allowsRotation = false
@@ -85,17 +85,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     giveTileMapPhysics(map: someTileMap)
                     someTileMap.removeFromParent()
                 }
-                break
+//                break
             }
             
-//            if (node.name == "camera1"){
-//                gameCamera = (node as? SKCameraNode)!
-//            }
-            
+            if (node.name == "HapticUp") {
+                if let scar:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                    
+                    scar.physicsBody?.isDynamic = false
+                    scar.lightingBitMask = 1
+                    scar.physicsBody?.categoryBitMask = holeCategory
+                    scar.physicsBody?.contactTestBitMask = playerCategory
+                }
+            }else if node.name == "HapticDown"{
+                if let scar:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    scar.lightingBitMask = 1
+                    
+                }
+            }
         }
+        
     }
-    
-    
+        
+        
     func giveTileMapPhysics(map: SKTileMapNode){
            
            let tilemap = map
