@@ -243,7 +243,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let angle = atan2((npos.y - player.position.y) , (npos.x - player.position.x))
         player.zRotation = angle
         
-        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 2.1) , y: (player.position.y + sin(angle) * 3))
+        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 3.7) , y: (player.position.y + sin(angle) * 3.7))
         
         if move == true{
             player.position = playerMove

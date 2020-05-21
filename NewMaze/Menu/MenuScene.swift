@@ -21,12 +21,12 @@ class MenuScene: SKScene {
             let background = SKSpriteNode(texture: texture)
             background.anchorPoint = .zero
             background.size = CGSize(width: texture.size().width * 2, height: texture.size().height * 2)
-            let start = CGPoint(x: (((background.size.width - 17) * CGFloat(i)) - 900), y: -210)
+            let start = CGPoint(x: (((background.size.width ) * CGFloat(i)) - 900), y: -180)
             background.position = start
             
             addChild(background)
             
-        let moveleft = SKAction.moveTo(x: (start.x - background.size.width), duration: 10)
+        let moveleft = SKAction.moveTo(x: (start.x - background.size.width), duration: 21)
         let movereset = SKAction.moveTo(x: start.x, duration: 0)
             let loop = SKAction.sequence([moveleft, movereset])
             let moverepeat = SKAction.repeatForever(loop)
