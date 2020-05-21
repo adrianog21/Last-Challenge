@@ -41,7 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lightNode.position = CGPoint(x: 0, y: 0)
         lightNode.categoryBitMask = 0b0001
         lightNode.lightColor = .white
-        lightNode.falloff = 1.5
+        lightNode.falloff = 1.2
 //        scene!.addChild(lightNode)
         
         pointing.position = CGPoint(x: 64, y: 0)
@@ -58,8 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.position = CGPoint(x: 0, y: 0)
         player.texture = SKTexture(imageNamed: "sphere cream.png")
-        player.size = CGSize(width: 60, height: 60)
-        player.physicsBody = SKPhysicsBody(circleOfRadius: 21)
+        player.size = CGSize(width: 100, height: 100)
+        player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.allowsRotation = false
         
@@ -216,13 +216,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for tile in tileNodes {
             let distance = CGPoint(x: (tile.position.x - player.position.x).magnitude, y: (tile.position.y - player.position.y).magnitude)
             
-            if distance.x + distance.y > 800 {
+            if distance.x + distance.y >= 900 {
 
-                tile.isHidden = true
+                let action =  SKAction.wait(forDuration: 0.05) //Try different time durations
+                scene!.run(action, completion:
+                {
+                    tile.isHidden = true
 
+                })
             }else{
                 
-                let action =  SKAction.wait(forDuration: 0.1) //Try different time durations
+                let action =  SKAction.wait(forDuration: 0.2) //Try different time durations
                 scene!.run(action, completion:
                 {
                     tile.isHidden = false
