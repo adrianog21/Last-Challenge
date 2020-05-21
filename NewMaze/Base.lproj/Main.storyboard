@@ -131,14 +131,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title 2" translatesAutoresizingMaskIntoConstraints="NO" id="aX5-Ct-UFD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title font" translatesAutoresizingMaskIntoConstraints="NO" id="aX5-Ct-UFD">
                                 <rect key="frame" x="328" y="20" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ti-Ki-Ffl">
-                                <rect key="frame" x="395" y="254" width="107" height="43"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ti-Ki-Ffl">
+                                <rect key="frame" x="347" y="192" width="176" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="play button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="play button 2">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                </state>
+                                <state key="selected" image="play button 2">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="large" weight="heavy"/>
+                                </state>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="push" animates="NO" id="2pd-BS-1Bb"/>
                                 </connections>
@@ -175,7 +181,7 @@
         <segue reference="2pd-BS-1Bb"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="play button" width="107" height="43"/>
-        <image name="title 2" width="190" height="29"/>
+        <image name="play button 2" width="118" height="50"/>
+        <image name="title font" width="143" height="45"/>
     </resources>
 </document>

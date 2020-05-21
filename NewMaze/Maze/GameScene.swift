@@ -72,6 +72,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameCamera.xScale = gameCamera.xScale * 1.8
         gameCamera.yScale = gameCamera.yScale * 1.8
         
+        let emitter = SKEmitterNode(fileNamed: "Dust")
+        emitter?.position = .zero
+        emitter?.advanceSimulationTime(30)
+        addChild(emitter!)
+        
          }
     
     override func didMove(to view: SKView) {
@@ -172,15 +177,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                    print(tiledefinition.name)
                     tileNode.position = CGPoint(x: tileNode.position.x + startingLocation.x, y: tileNode.position.y + startingLocation.y)
                     
-                    if tiledefinition.name == "scar up" {
-                        
-                        tileNode.physicsBody?.categoryBitMask = holeCategory
-                        print(tileTexture)
-                        tileNode.physicsBody?.contactTestBitMask = playerCategory
-                        } else{
+//                    if tiledefinition.name == "scar up" {
+//                        
+//                        tileNode.physicsBody?.categoryBitMask = holeCategory
+//                        print(tileTexture)
+//                        tileNode.physicsBody?.contactTestBitMask = playerCategory
+//                        } else{
                             tileNode.physicsBody?.categoryBitMask = wallCategory
-
-                    }
+//
+//                    }
                     tileNodes.append(tileNode)
                        
                    }
@@ -261,7 +266,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let angle = atan2((npos.y - player.position.y) , (npos.x - player.position.x))
         player.zRotation = angle
         
-        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 3.7) , y: (player.position.y + sin(angle) * 3.7))
+        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 5) , y: (player.position.y + sin(angle) * 5))
         
         if move == true{
             player.position = playerMove
