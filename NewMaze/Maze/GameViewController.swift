@@ -13,7 +13,10 @@ import GameplayKit
 weak var gamecontroller = GameViewController()
 
 class GameViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var blackView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gamecontroller = self
@@ -42,7 +45,7 @@ class GameViewController: UIViewController {
                     view.showsNodeCount = true
 //                    view.showsPhysics = true
                     
-//                    newScene(scene: "Minigame")
+                    UIView.animate(withDuration: 2, animations: {self.blackView.alpha = 0})
                     
                 }
             }

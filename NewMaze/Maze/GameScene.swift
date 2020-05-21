@@ -133,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     else if tiledefinition.name == "corner dx down" || tiledefinition.name == "corner dx up" || tiledefinition.name == "corner sx down" || tiledefinition.name == "corner sx up"
                     {
                         
-                        let action =  SKAction.wait(forDuration: 0.5) //Try different time durations
+                        let action =  SKAction.wait(forDuration: 0.1) //Try different time durations
                         scene!.run(action, completion:
                             {
                                 tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
