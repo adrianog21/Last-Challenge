@@ -21,7 +21,7 @@ class MenuScene: SKScene {
             let background = SKSpriteNode(texture: texture)
             background.anchorPoint = .zero
             background.size = CGSize(width: texture.size().width * 2, height: texture.size().height * 2)
-            let start = CGPoint(x: (((background.size.width - 16.7) * CGFloat(i)) - 900), y: -210)
+            let start = CGPoint(x: (((background.size.width - 17) * CGFloat(i)) - 900), y: -210)
             background.position = start
             
             addChild(background)

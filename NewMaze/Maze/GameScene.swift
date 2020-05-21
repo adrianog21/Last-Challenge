@@ -69,8 +69,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scene!.addChild(gameCamera)
         camera = gameCamera
-        gameCamera.xScale = gameCamera.xScale * 1.3
-        gameCamera.yScale = gameCamera.yScale * 1.3
+        gameCamera.xScale = gameCamera.xScale * 1.8
+        gameCamera.yScale = gameCamera.yScale * 1.8
         
          }
     
@@ -127,28 +127,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     if tiledefinition.name == "black center"
                     {
-                        tileNode.lightingBitMask = 1
+                        tileNode.lightingBitMask = 0
 
-//                        tileNode.lightingBitMask = 0
-                    }else{
-                        let action =  SKAction.wait(forDuration: 2.1) //Try different time durations
+                    }
+                    else if tiledefinition.name == "corner dx down" || tiledefinition.name == "corner dx up" || tiledefinition.name == "corner sx down" || tiledefinition.name == "corner sx up"
+                    {
+                        
+                        let action =  SKAction.wait(forDuration: 0.5) //Try different time durations
                         scene!.run(action, completion:
-                        {
-                            tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
-                                                
-                                                   
-                                                tileNode.physicsBody?.linearDamping = 0
-                                                   tileNode.physicsBody?.affectedByGravity = false
-                                                   tileNode.physicsBody?.allowsRotation = false
-                            //                       tileNode.physicsBody?.friction = 1
-                                                   tileNode.physicsBody?.isDynamic = false
-                                                tileNode.lightingBitMask = 1
-                            
-                            tileNode.shadowCastBitMask = 1
-
+                            {
+                                tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
+                              
+                                tileNode.physicsBody?.isDynamic = false
+                                tileNode.lightingBitMask = 1
+                                
+                                
+                                tileNode.shadowCastBitMask = 1
+                                
+                                
                         })
                     }
-                    
+                    else{
+                        
+                        tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
+                        
+                        tileNode.physicsBody?.isDynamic = false
+                        tileNode.lightingBitMask = 1
+                }
                     
 //                    print(tiledefinition.name)
                     tileNode.position = CGPoint(x: tileNode.position.x + startingLocation.x, y: tileNode.position.y + startingLocation.y)
@@ -211,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for tile in tileNodes {
             let distance = CGPoint(x: (tile.position.x - player.position.x).magnitude, y: (tile.position.y - player.position.y).magnitude)
             
-            if distance.x + distance.y > 600 {
+            if distance.x + distance.y > 800 {
 
                 tile.isHidden = true
 
