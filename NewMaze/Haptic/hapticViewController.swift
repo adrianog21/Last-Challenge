@@ -35,7 +35,6 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         view.transform  = CGAffineTransform(rotationAngle: -90 * (.pi/180))
         return view
     }
-    
     func pickerView2(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData2.count
 
