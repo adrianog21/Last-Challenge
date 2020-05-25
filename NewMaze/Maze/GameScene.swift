@@ -75,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
         emitter?.advanceSimulationTime(30)
-        addChild(emitter!)
+//        addChild(emitter!)
         
          }
     
@@ -251,13 +251,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     tile.isHidden = false
 
                 })
-
-//                let action =  SKAction.wait(forDuration: 1) //Try different time durations
-//                scene!.run(action, completion:
-//                {
-//                    tile.shadowCastBitMask = 1
-//
-//                })
             }
         }
     }
@@ -289,10 +282,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collisionB:UInt32 = contact.bodyB.categoryBitMask
         
         if collisionA == playerCategory && collisionB == holeCategory {
-            
-//            let myScene = ThirdHaptic(fileNamed: "thirdHaptic")
-//                           myScene?.scaleMode = .aspectFill
-//                           self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
 
             gamecontroller?.newScene(scene: "Haptic")
             
