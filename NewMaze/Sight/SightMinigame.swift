@@ -95,7 +95,7 @@ class SightGame: SKScene {
             vector[ind].zPosition = 0
             vector[ind].name = "Win"
             addChild(vector[ind])
-            let seconds = 1.0
+            let seconds = 5.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 vector[ind].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + seconds*2){
