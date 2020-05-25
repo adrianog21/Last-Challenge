@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cwh-RG-6JI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qxx-hc-cS0">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.79464285714278" y="134.78260869565219"/>
+            <point key="canvasLocation" x="929" y="135"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="veP-HA-f3i">
@@ -48,24 +48,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOI-Pl-IOW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2798" y="-736"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gMu-ho-MED">
-            <objects>
-                <navigationController restorationIdentifier="Maze" storyboardIdentifier="Maze" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="0hI-Ok-Kmx" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="SXt-Zm-TOW"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kw9-4T-05B">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="TcC-2C-mID"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WCH-oH-0CY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
         <!--Haptic View Controller-->
         <scene sceneID="bR9-Tj-iYK">
@@ -138,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf4-aH-dro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2798" y="135"/>
+            <point key="canvasLocation" x="3541.0714285714284" y="134.78260869565219"/>
         </scene>
         <!--Menu-->
         <scene sceneID="LCP-h8-sJ6">
@@ -153,7 +135,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ti-Ki-Ffl">
-                                <rect key="frame" x="347" y="192" width="176" height="89"/>
+                                <rect key="frame" x="347" y="137" width="176" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="play button 2">
@@ -163,7 +145,35 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="push" animates="NO" id="2pd-BS-1Bb"/>
+                                    <segue destination="BV1-FR-VrT" kind="push" id="8eL-9m-H6d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mA-nV-xFo">
+                                <rect key="frame" x="347" y="304" width="176" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="play button 2">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                </state>
+                                <state key="selected" image="play button 2">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="large" weight="heavy"/>
+                                </state>
+                                <connections>
+                                    <segue destination="KvN-QM-FJD" kind="push" id="4P3-Va-GFw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-UZ-Hjb">
+                                <rect key="frame" x="347" y="207" width="176" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="play button 2">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                </state>
+                                <state key="selected" image="play button 2">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="large" weight="heavy"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cwh-RG-6JI" kind="push" id="ew6-hk-Y8P"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,9 +189,10 @@
         <!--Navigation Controller-->
         <scene sceneID="TX3-Pg-fHY">
             <objects>
-                <navigationController restorationIdentifier="Start" storyboardIdentifier="Start" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="qxx-hc-cS0" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Start" storyboardIdentifier="Start" automaticallyAdjustsScrollViewInsets="NO" id="qxx-hc-cS0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CJk-MF-pHq">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -198,6 +209,7 @@
             <objects>
                 <navigationController restorationIdentifier="Sight" storyboardIdentifier="Sight" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="cwh-RG-6JI" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="uyT-lh-76j"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fZe-aT-GuN">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -208,13 +220,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8SF-an-Oxk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="138"/>
+            <point key="canvasLocation" x="2596.875" y="137.68115942028987"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fUY-Ez-Dqh">
             <objects>
                 <navigationController restorationIdentifier="Haptic" storyboardIdentifier="Haptic" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="KvN-QM-FJD" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="W1i-G0-FLE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fre-7x-6LT">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -227,9 +240,28 @@
             </objects>
             <point key="canvasLocation" x="1853.5714285714284" y="1008.6956521739131"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0eo-8a-LOs">
+            <objects>
+                <navigationController restorationIdentifier="MazeGame" storyboardIdentifier="MazeGame" automaticallyAdjustsScrollViewInsets="NO" id="4Zv-cw-shx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LCL-lm-gq4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aRW-eW-wXv">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="TMz-o5-Jnq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OcQ-Fi-izw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="138"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TcC-2C-mID"/>
+        <segue reference="8eL-9m-H6d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="play button 2" width="118" height="50"/>

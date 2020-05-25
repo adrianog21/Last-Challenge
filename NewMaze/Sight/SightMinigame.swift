@@ -26,7 +26,9 @@ class SightGame: SKScene {
             if node.name == "Win"{
                 addChild(winLable)
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                sightController?.newScene(scene: "Start")
+//                sightController?.newScene(scene: "Start")
+                gamecontroller?.newScene(scene: "MazeGame")
+                print("123")
 //                }
             }
             else if node.name == "Lose"{
