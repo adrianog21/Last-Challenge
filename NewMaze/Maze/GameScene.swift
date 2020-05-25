@@ -75,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
         emitter?.advanceSimulationTime(30)
-//        addChild(emitter!)
+        addChild(emitter!)
         
          }
     
