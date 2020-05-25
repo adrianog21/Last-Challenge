@@ -283,7 +283,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collisionA == playerCategory && collisionB == holeCategory {
 
-            gamecontroller?.newScene(scene: "Sight")
+            gamecontroller?.newScene(scene: "Haptic")
             
             print("New Scene")
 
