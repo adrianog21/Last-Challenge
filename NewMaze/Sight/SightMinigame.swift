@@ -25,9 +25,9 @@ class SightGame: SKScene {
             let node = self.atPoint(pos)
             if node.name == "Win"{
                 addChild(winLable)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                    gamecontroller?.newScene(scene: "Sight")
-                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                sightController?.newScene(scene: "Start")
+//                }
             }
             else if node.name == "Lose"{
                 let back = SightGame(size: self.size)

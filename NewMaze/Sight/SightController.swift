@@ -10,6 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+weak var sightController = SightController()
 
 class SightController: UIViewController {
     
@@ -29,6 +30,13 @@ class SightController: UIViewController {
         skView.presentScene(scene)
         
     }
+    
+            func newScene(scene : String) {
+    //            let VC = UIStoryboard(name: "Main", bundle:  Bundle.main).instantiateViewController(withIdentifier: scene) as? UINavigationController
+    //            print(VC as Any)
+                let VC = self.storyboard!.instantiateViewController(withIdentifier: scene) as! UINavigationController
+                self.navigationController?.present(VC, animated: false, completion: nil)
+            }
 
     override var shouldAutorotate: Bool {
         return false
