@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 
 
-class GameViewController: UIViewController {
+class SightController: UIViewController {
     
 
     

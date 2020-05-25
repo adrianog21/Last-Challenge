@@ -294,7 +294,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                            myScene?.scaleMode = .aspectFill
                            self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
 
-            gamecontroller?.newScene(scene: "Minigame")
+            gamecontroller?.newScene(scene: "Sight")
             
             print("New Scene")
 
