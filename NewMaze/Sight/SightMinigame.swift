@@ -68,22 +68,20 @@ class SightGame: SKScene {
         let image13 = SKSpriteNode(imageNamed: "13")
         let image14 = SKSpriteNode(imageNamed: "14")
         let image15 = SKSpriteNode(imageNamed: "15")
+        let untouch = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         let imageVector: [SKSpriteNode] = [image0,image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,image11,image12,image13,image14,image15]
         
-        let retry = SKSpriteNode(imageNamed: "refreshbutton")
-        retry.scale(to: CGSize(width: size.width/10, height: size.height/10))
-        retry.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        retry.position = CGPoint(x: size.width-50, y: size.height-60)
-        addChild(retry)
-        retry.name = "Retry"
-        
+        untouch.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        untouch.position = CGPoint(x: size.width*0.5, y: size.height*0.5)
+        untouch.zPosition = 1
+        addChild(untouch)
         let index = Int.random(in: 0...15)
-        randomImage(vector: imageVector, ind: index)
+        randomImage(vector: imageVector, ind: index, nocheat: untouch)
 
     }
     
     
-    func randomImage(vector: [SKSpriteNode], ind: Int){
+    func randomImage(vector: [SKSpriteNode], ind: Int, nocheat: SKSpriteNode){
         switch ind {
         case 0,1,2,3:
             vector[0].name = "Lose"
@@ -98,7 +96,8 @@ class SightGame: SKScene {
             let seconds = 5.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 vector[ind].removeFromParent()
-                DispatchQueue.main.asyncAfter(deadline: .now() + seconds*2){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                    nocheat.removeFromParent()
                     self.position(node: vector[0], node2: vector[1], node3: vector[2], node4: vector[3])
                 }
             }
@@ -112,10 +111,11 @@ class SightGame: SKScene {
             vector[ind].zPosition = 0
             vector[ind].name = "Win"
             addChild(vector[ind])
-            let seconds = 1.0
+            let seconds = 5.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 vector[ind].removeFromParent()
-                DispatchQueue.main.asyncAfter(deadline: .now() + seconds*2){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                    nocheat.removeFromParent()
                     self.position(node: vector[4], node2: vector[5], node3: vector[6], node4: vector[7])
                 }
             }
@@ -129,10 +129,11 @@ class SightGame: SKScene {
             vector[ind].zPosition = 0
             vector[ind].name = "Win"
             addChild(vector[ind])
-            let seconds = 1.0
+            let seconds = 5.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 vector[ind].removeFromParent()
-                DispatchQueue.main.asyncAfter(deadline: .now() + seconds*2){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                    nocheat.removeFromParent()
                     self.position(node: vector[8], node2: vector[9], node3: vector[10], node4: vector[11])
                 }
             }
@@ -146,10 +147,11 @@ class SightGame: SKScene {
             vector[ind].zPosition = 0
             vector[ind].name = "Win"
             addChild(vector[ind])
-            let seconds = 1.0
+            let seconds = 5.0
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 vector[ind].removeFromParent()
-                DispatchQueue.main.asyncAfter(deadline: .now() + seconds*2){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                    nocheat.removeFromParent()
                     self.position(node: vector[12], node2: vector[13], node3: vector[14], node4: vector[15])
                 }
             }
