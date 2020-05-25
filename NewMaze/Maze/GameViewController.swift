@@ -54,11 +54,19 @@ class GameViewController: UIViewController {
     
 
         func newScene(scene : String) {
+            print(scene)
+
+            if scene == "MazeGame"{
+                _ = navigationController?.popViewController(animated: true)
+                _ = navigationController?.popToRootViewController(animated: true)
+            }else{
 //            let VC = UIStoryboard(name: "Main", bundle:  Bundle.main).instantiateViewController(withIdentifier: scene) as? UINavigationController
 //            print(VC as Any)
             let VC = self.storyboard!.instantiateViewController(withIdentifier: scene) as! UINavigationController
             self.navigationController?.present(VC, animated: false, completion: nil)
+//                self.navigationController.pre
         }
+    }
 
     override var shouldAutorotate: Bool {
         return true
