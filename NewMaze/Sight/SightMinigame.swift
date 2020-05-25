@@ -18,21 +18,22 @@ class SightGame: SKScene {
             let winLable = SKLabelNode(text: "HAI VINTO")
             winLable.fontColor = UIColor.green
             winLable.position = CGPoint(x: size.width/2, y: size.height/2)
-            let loseLable = SKLabelNode(text: "HAI PERSO")
-            loseLable.fontColor = UIColor.red
-            loseLable.position = CGPoint(x: size.width/2, y: size.height/2)
+//            let loseLable = SKLabelNode(text: "HAI PERSO")
+//            loseLable.fontColor = UIColor.red
+//            loseLable.position = CGPoint(x: size.width/2, y: size.height/2)
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             if node.name == "Win"{
                 addChild(winLable)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    gamecontroller?.newScene(scene: "Sight")
+                }
             }
             else if node.name == "Lose"{
-                addChild(loseLable)
-            }
-            else if node.name == "Retry"{
                 let back = SightGame(size: self.size)
                 self.view?.presentScene(back)
             }
+            
             else{
                  print("mira meglio")
             }
