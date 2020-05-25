@@ -75,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
         emitter?.advanceSimulationTime(30)
-//        addChild(emitter!)
+        addChild(emitter!)
         
          }
     
@@ -283,7 +283,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collisionA == playerCategory && collisionB == holeCategory {
 
-            gamecontroller?.newScene(scene: "Haptic")
+            gamecontroller?.newScene(scene: "Sight")
             
             print("New Scene")
 
