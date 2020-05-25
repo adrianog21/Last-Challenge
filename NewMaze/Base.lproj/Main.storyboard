@@ -52,7 +52,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gMu-ho-MED">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="0hI-Ok-Kmx" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Maze" storyboardIdentifier="Maze" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="0hI-Ok-Kmx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="SXt-Zm-TOW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kw9-4T-05B">
