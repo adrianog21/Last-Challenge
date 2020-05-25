@@ -290,11 +290,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if collisionA == playerCategory && collisionB == holeCategory {
             
-            let myScene = ThirdHaptic(fileNamed: "thirdHaptic")
-                           myScene?.scaleMode = .aspectFill
-                           self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
+//            let myScene = ThirdHaptic(fileNamed: "thirdHaptic")
+//                           myScene?.scaleMode = .aspectFill
+//                           self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
 
-            gamecontroller?.newScene(scene: "Sight")
+            gamecontroller?.newScene(scene: "Haptic")
             
             print("New Scene")
 
