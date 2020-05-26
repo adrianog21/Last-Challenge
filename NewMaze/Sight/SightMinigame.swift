@@ -18,29 +18,35 @@ class SightGame: SKScene {
             let winLable = SKLabelNode(text: "HAI VINTO")
             winLable.fontColor = UIColor.green
             winLable.position = CGPoint(x: size.width/2, y: size.height/2)
-//            let loseLable = SKLabelNode(text: "HAI PERSO")
-//            loseLable.fontColor = UIColor.red
-//            loseLable.position = CGPoint(x: size.width/2, y: size.height/2)
+            //            let loseLable = SKLabelNode(text: "HAI PERSO")
+            //            loseLable.fontColor = UIColor.red
+            //            loseLable.position = CGPoint(x: size.width/2, y: size.height/2)
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             if node.name == "Win"{
                 addChild(winLable)
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//                sightController?.newScene(scene: "Start")
-                gamecontroller?.newScene(scene: "MazeGame")
-                print("123")
-//                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "Start")
+                    vc.view.frame = (self.view?.frame)!
+                    vc.view.layoutIfNeeded()
+                    UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                        {
+                            self.view?.window?.rootViewController = vc
+                    }, completion: { completed in
+                    })
+                }
             }
             else if node.name == "Lose"{
                 let back = SightGame(size: self.size)
                 self.view?.presentScene(back)
             }
-            
+                
             else{
-                 print("mira meglio")
+                print("mira meglio")
             }
-
-        
+            
+            
             
         }
     }
@@ -80,7 +86,7 @@ class SightGame: SKScene {
         addChild(untouch)
         let index = Int.random(in: 0...15)
         randomImage(vector: imageVector, ind: index, nocheat: untouch)
-
+        
     }
     
     
@@ -104,7 +110,7 @@ class SightGame: SKScene {
                     self.position(node: vector[0], node2: vector[1], node3: vector[2], node4: vector[3])
                 }
             }
-            case 4,5,6,7:
+        case 4,5,6,7:
             vector[4].name = "Lose"
             vector[5].name = "Lose"
             vector[6].name = "Lose"
@@ -122,7 +128,7 @@ class SightGame: SKScene {
                     self.position(node: vector[4], node2: vector[5], node3: vector[6], node4: vector[7])
                 }
             }
-            case 8,9,10,11:
+        case 8,9,10,11:
             vector[8].name = "Lose"
             vector[9].name = "Lose"
             vector[10].name = "Lose"
@@ -140,7 +146,7 @@ class SightGame: SKScene {
                     self.position(node: vector[8], node2: vector[9], node3: vector[10], node4: vector[11])
                 }
             }
-            case 12,13,14,15:
+        case 12,13,14,15:
             vector[12].name = "Lose"
             vector[13].name = "Lose"
             vector[14].name = "Lose"
