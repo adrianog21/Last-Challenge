@@ -12,9 +12,10 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let holeCategory:UInt32 = 0x1 << 0
+    let hapticCategory:UInt32 = 0x1 << 0
     let playerCategory:UInt32 = 0x1 << 1
     let wallCategory:UInt32 = 0x1 << 2
+    let sightCategory:UInt32 = 0x1 << 4
     
     var tileNodes = [SKSpriteNode]()
     
@@ -49,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pointing.size = CGSize(width: 32, height: 10)
         pointing.physicsBody = SKPhysicsBody(rectangleOf: pointing.size)
         pointing.physicsBody?.affectedByGravity = false
-        pointing.physicsBody?.contactTestBitMask = holeCategory
+        pointing.physicsBody?.contactTestBitMask = hapticCategory
         pointing.physicsBody?.collisionBitMask = playerCategory
         pointing.physicsBody?.categoryBitMask = playerCategory
         let constraint = SKConstraint.distance(SKRange(lowerLimit: 50 , upperLimit: 72), to: player)
@@ -100,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     scar.physicsBody?.isDynamic = false
                     scar.lightingBitMask = 1
-                    scar.physicsBody?.categoryBitMask = holeCategory
+                    scar.physicsBody?.categoryBitMask = hapticCategory
                     scar.physicsBody?.contactTestBitMask = playerCategory
                 }
             }else if node.name == "HapticDown"{
@@ -110,6 +111,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 }
             }
+            
+            if (node.name == "SightUp") {
+                           if let scar:SKSpriteNode = node as? SKSpriteNode{
+                               
+                               scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                               
+                               scar.physicsBody?.isDynamic = false
+                               scar.lightingBitMask = 1
+                               scar.physicsBody?.categoryBitMask = sightCategory
+                               scar.physicsBody?.contactTestBitMask = playerCategory
+                           }
+                       }else if node.name == "SightDown"{
+                           if let scar:SKSpriteNode = node as? SKSpriteNode{
+                               
+                               scar.lightingBitMask = 1
+                               
+                           }
+                       }
         }
         
     }
@@ -281,9 +300,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collisionA:UInt32 = contact.bodyA.categoryBitMask
         let collisionB:UInt32 = contact.bodyB.categoryBitMask
         
-        if collisionA == playerCategory && collisionB == holeCategory {
+        if collisionA == playerCategory && collisionB == hapticCategory {
 
             gamecontroller?.newScene(scene: "Haptic")
+            
+            print("New Scene")
+
+        }
+        if collisionA == playerCategory && collisionB == sightCategory {
+
+            gamecontroller?.newScene(scene: "Sight")
             
             print("New Scene")
 
