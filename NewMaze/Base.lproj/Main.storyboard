@@ -159,7 +159,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KvN-QM-FJD" kind="push" id="4P3-Va-GFw"/>
+                                    <segue destination="j0x-Hh-cqt" kind="push" id="6QL-TJ-dgV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-UZ-Hjb">
@@ -173,7 +173,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cwh-RG-6JI" kind="push" id="ew6-hk-Y8P"/>
+                                    <segue destination="mbY-RX-yCk" kind="push" id="NJy-Ed-YI3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -261,6 +261,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="NJy-Ed-YI3"/>
+        <segue reference="6QL-TJ-dgV"/>
         <segue reference="8eL-9m-H6d"/>
     </inferredMetricsTieBreakers>
     <resources>
