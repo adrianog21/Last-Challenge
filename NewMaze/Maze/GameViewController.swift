@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
                     
                     view.showsFPS = true
 //                    view.showsNodeCount = true
+                    
 //                    view.showsPhysics = true
                     
                     UIView.animate(withDuration: 3, animations: {self.blackView.alpha = 0})
