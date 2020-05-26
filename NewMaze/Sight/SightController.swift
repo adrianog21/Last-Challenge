@@ -26,6 +26,7 @@ class SightController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
+        skView.backgroundColor = .black
         scene.scaleMode = .resizeFill
         skView.presentScene(scene)
         
