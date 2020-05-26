@@ -27,7 +27,7 @@ class SightGame: SKScene {
                 addChild(winLable)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "Start")
+                    let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
                     vc.view.frame = (self.view?.frame)!
                     vc.view.layoutIfNeeded()
                     UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
@@ -61,6 +61,7 @@ class SightGame: SKScene {
     
     
     override func sceneDidLoad() {
+        self.backgroundColor = .black
         let image0 = SKSpriteNode(imageNamed: "0")
         let image1 = SKSpriteNode(imageNamed: "1")
         let image2 = SKSpriteNode(imageNamed: "2")
