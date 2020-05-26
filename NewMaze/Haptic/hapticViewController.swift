@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+var hapticController = hapticViewController()
+
 class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -35,7 +37,6 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         view.transform  = CGAffineTransform(rotationAngle: -90 * (.pi/180))
         return view
     }
-    
     func pickerView2(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData2.count
 
@@ -109,13 +110,19 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    if let view = self.view as! SKView? {
+        if let view = self.view as! SKView? {
                // Load the SKScene from 'GameScene.sks'
-        if let scene = SKScene(fileNamed: "FirstHaptic") {
+            if let scene = SKScene(fileNamed: "FirstHaptic"){
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
                        // Present the scene
             view.presentScene(scene)
+            }
+        
+//        let scene = SKScene(fileNamed: "FirstHaptic")
+//        let skView = view as! SKView
+//        scene?.scaleMode = .aspectFill
+//        skView.presentScene(scene)
             
             pickerData = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
             "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -148,10 +155,11 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             picker2.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
             picker3.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
             
-        }
         
         
-    }
+            }
+        
+    
         
         
        
