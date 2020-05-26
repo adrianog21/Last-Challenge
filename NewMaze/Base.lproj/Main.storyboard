@@ -128,19 +128,6 @@
                     <view key="view" contentMode="scaleToFill" id="VWX-E1-YO1" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6th-zp-jGB">
-                                <rect key="frame" x="424" y="324" width="58" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="push" id="QwQ-b3-X2r"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qBh-ZZ-eWW"/>
                     </view>
@@ -242,11 +229,11 @@
         <!--Navigation Controller-->
         <scene sceneID="0eo-8a-LOs">
             <objects>
-                <navigationController restorationIdentifier="MazeGame" storyboardIdentifier="MazeGame" automaticallyAdjustsScrollViewInsets="NO" id="4Zv-cw-shx" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="MazeGame" storyboardIdentifier="MazeGame" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="4Zv-cw-shx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LCL-lm-gq4"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aRW-eW-wXv">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -260,7 +247,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8eL-9m-H6d"/>
+        <segue reference="TMz-o5-Jnq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Artboard" width="357" height="392"/>
