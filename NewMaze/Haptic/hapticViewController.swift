@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-weak var hapticController = hapticViewController()
+var hapticController = hapticViewController()
 
 class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -112,13 +112,13 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         if let view = self.view as! SKView? {
                // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "SecondHaptic"){
+            if let scene = SKScene(fileNamed: "FirstHaptic"){
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
                        // Present the scene
             view.presentScene(scene)
             }
-        }
+        
 //        let scene = SKScene(fileNamed: "FirstHaptic")
 //        let skView = view as! SKView
 //        scene?.scaleMode = .aspectFill
@@ -157,6 +157,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
         
         
+            }
         
     
         
