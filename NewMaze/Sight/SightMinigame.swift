@@ -18,7 +18,7 @@ class SightGame: SKScene {
             let winLable = SKLabelNode(text: "HAI VINTO")
             winLable.fontColor = UIColor.green
             winLable.position = CGPoint(x: size.width/2, y: size.height/2)
-            //            let loseLable = SKLabelNode(text: "HAI PERSO")
+            //            let loseLable = SKLabelNode(text: "RIPROVA")
             //            loseLable.fontColor = UIColor.red
             //            loseLable.position = CGPoint(x: size.width/2, y: size.height/2)
             let pos = touch.location(in: self)
@@ -45,9 +45,6 @@ class SightGame: SKScene {
             else{
                 print("mira meglio")
             }
-            
-            
-            
         }
     }
     
@@ -66,6 +63,7 @@ class SightGame: SKScene {
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
         emitter?.advanceSimulationTime(30)
+        emitter?.particleAlpha = 1
         addChild(emitter!)
         let image0 = SKSpriteNode(imageNamed: "0")
         let image1 = SKSpriteNode(imageNamed: "1")
