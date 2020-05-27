@@ -62,6 +62,7 @@ class SightGame: SKScene {
     
     override func sceneDidLoad() {
         self.backgroundColor = .black
+        
         let image0 = SKSpriteNode(imageNamed: "0")
         let image1 = SKSpriteNode(imageNamed: "1")
         let image2 = SKSpriteNode(imageNamed: "2")
@@ -81,10 +82,12 @@ class SightGame: SKScene {
         let untouch = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         let imageVector: [SKSpriteNode] = [image0,image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,image11,image12,image13,image14,image15]
         
+        
         untouch.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         untouch.position = CGPoint(x: size.width*0.5, y: size.height*0.5)
         untouch.zPosition = 1
         addChild(untouch)
+        
         let index = Int.random(in: 0...15)
         randomImage(vector: imageVector, ind: index, nocheat: untouch)
         
