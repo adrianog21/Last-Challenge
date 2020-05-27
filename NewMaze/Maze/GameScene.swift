@@ -311,6 +311,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
     }
     
+    fileprivate func enterAudio() {
+        let music = Bundle.main.path(forResource: "enter.mp3", ofType: nil)
+        let url = URL(fileURLWithPath: music!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+            
+        } catch {
+            print(error)
+        }
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         let collisionA:UInt32 = contact.bodyA.categoryBitMask
         let collisionB:UInt32 = contact.bodyB.categoryBitMask
@@ -320,6 +332,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gamecontroller?.newScene(scene: "Haptic")
             
             print("New Scene")
+            
+            enterAudio()
 
         }
         if collisionA == playerCategory && collisionB == sightCategory {
@@ -327,6 +341,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gamecontroller?.newScene(scene: "Sight")
             
             print("New Scene")
+            
+            enterAudio()
 
         }
         
