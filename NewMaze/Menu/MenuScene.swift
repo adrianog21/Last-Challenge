@@ -10,23 +10,29 @@ import UIKit
 import SpriteKit
 
 class MenuScene: SKScene {
+    
 
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        print("ciao")
+        
+        let emitter = SKEmitterNode(fileNamed: "Dust")
+        emitter?.position = .zero
+        emitter?.advanceSimulationTime(30)
+        addChild(emitter!)
         
         let texture = SKTexture(imageNamed: "Background")
         
         for i in 0 ... 3 {
             let background = SKSpriteNode(texture: texture)
             background.anchorPoint = .zero
+            background.alpha = 0.3
             background.size = CGSize(width: texture.size().width * 2, height: texture.size().height * 2)
             let start = CGPoint(x: (((background.size.width ) * CGFloat(i)) - 900), y: -180)
             background.position = start
             
             addChild(background)
             
-        let moveleft = SKAction.moveTo(x: (start.x - background.size.width), duration: 21)
+        let moveleft = SKAction.moveTo(x: (start.x - background.size.width), duration: 72)
         let movereset = SKAction.moveTo(x: start.x, duration: 0)
             let loop = SKAction.sequence([moveleft, movereset])
             let moverepeat = SKAction.repeatForever(loop)
