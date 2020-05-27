@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -18,6 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let sightCategory:UInt32 = 0x1 << 4
     
     let velocity = CGFloat(7.5)
+    
+    var audioPlayer: AVAudioPlayer?
     
     var tileNodes = [SKSpriteNode]()
     
@@ -84,6 +87,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
+        
+        let music = Bundle.main.path(forResource: "unsecure.mp3", ofType: nil)
+               let url = URL(fileURLWithPath: music!)
+               do {
+                   audioPlayer = try AVAudioPlayer(contentsOf: url)
+                               audioPlayer?.play()
+                   
+               } catch {
+                   print(error)
+               }
         
         for node in self.children{
             if (node.name == "TileMap") {

@@ -32,6 +32,8 @@
 		7B5C62E1246D626B008244C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5C62DF246D626B008244C0 /* LaunchScreen.storyboard */; };
 		7B5C62E9246D62DD008244C0 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B5C62E8246D62DD008244C0 /* MyTileSet.sks */; };
 		7B5C62ED246D79C4008244C0 /* secondvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62EC246D79C4008244C0 /* secondvc.swift */; };
+		7BC910C9247ED1D9000D5979 /* unsecure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BC910C8247ED1D9000D5979 /* unsecure.mp3 */; };
+		7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BC910CA247ED1EB000D5979 /* enter.mp3 */; };
 		9A658677247C0B75008FA5D0 /* SightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A658676247C0B75008FA5D0 /* SightController.swift */; };
 		9A7501E924756B4800D6B5B1 /* SightMinigame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7501E824756B4800D6B5B1 /* SightMinigame.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		7B5C62E2246D626B008244C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B5C62E8246D62DD008244C0 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		7B5C62EC246D79C4008244C0 /* secondvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondvc.swift; sourceTree = "<group>"; };
+		7BC910C8247ED1D9000D5979 /* unsecure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unsecure.mp3; sourceTree = "<group>"; };
+		7BC910CA247ED1EB000D5979 /* enter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = enter.mp3; sourceTree = "<group>"; };
 		9A658676247C0B75008FA5D0 /* SightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightController.swift; sourceTree = "<group>"; };
 		9A7501E824756B4800D6B5B1 /* SightMinigame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightMinigame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +142,7 @@
 		7B5C62CF246D6269008244C0 /* NewMaze */ = {
 			isa = PBXGroup;
 			children = (
+				7BC910C7247ED1B6000D5979 /* Audio */,
 				7B2214172473F39F00410A2D /* Menu */,
 				7B2214162473F38100410A2D /* Maze */,
 				7B2214152473F34100410A2D /* Haptic */,
@@ -151,6 +156,15 @@
 				7B5C62E2246D626B008244C0 /* Info.plist */,
 			);
 			path = NewMaze;
+			sourceTree = "<group>";
+		};
+		7BC910C7247ED1B6000D5979 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				7BC910CA247ED1EB000D5979 /* enter.mp3 */,
+				7BC910C8247ED1D9000D5979 /* unsecure.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		9A7501E32475692600D6B5B1 /* Sight */ = {
@@ -224,12 +238,14 @@
 				13B72C1B2472E56400732BC8 /* ThirdHaptic.sks in Resources */,
 				13B72C172472E53300732BC8 /* FirstHaptic.sks in Resources */,
 				7B22141F2473FBA900410A2D /* MenuScene.sks in Resources */,
+				7BC910C9247ED1D9000D5979 /* unsecure.mp3 in Resources */,
 				7B5C62DC246D6269008244C0 /* Main.storyboard in Resources */,
 				7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */,
 				13B72C192472E54900732BC8 /* SecondHaptic.sks in Resources */,
 				13534BB9247C0F0A0092B21B /* FourthHaptic.sks in Resources */,
 				13B72C0B246D95D500732BC8 /* secondvc.sks in Resources */,
 				7B5C62DE246D626B008244C0 /* Assets.xcassets in Resources */,
+				7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */,
 				7B1D3A4A2476B0F900588D10 /* Dust.sks in Resources */,
 				7B1D3A4B2476B0F900588D10 /* Assets.xcassets in Resources */,
 				7B5C62E1246D626B008244C0 /* LaunchScreen.storyboard in Resources */,
