@@ -62,7 +62,10 @@ class SightGame: SKScene {
     
     override func sceneDidLoad() {
         self.backgroundColor = .black
-        
+        let emitter = SKEmitterNode(fileNamed: "Dust")
+        emitter?.position = .zero
+        emitter?.advanceSimulationTime(30)
+        addChild(emitter!)
         let image0 = SKSpriteNode(imageNamed: "0")
         let image1 = SKSpriteNode(imageNamed: "1")
         let image2 = SKSpriteNode(imageNamed: "2")
