@@ -61,6 +61,7 @@ class SightGame: SKScene {
     
     
     override func sceneDidLoad() {
+        // Background e Particelle
         self.backgroundColor = .black
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
