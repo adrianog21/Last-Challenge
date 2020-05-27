@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13534BB9247C0F0A0092B21B /* FourthHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13534BB8247C0F0A0092B21B /* FourthHaptic.sks */; };
+		13534BB9247C0F0A0092B21B /* fourthHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13534BB8247C0F0A0092B21B /* fourthHaptic.sks */; };
 		13B72C0B246D95D500732BC8 /* secondvc.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C0A246D95D500732BC8 /* secondvc.sks */; };
 		13B72C0D246D974700732BC8 /* secondScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C0C246D974700732BC8 /* secondScene.swift */; };
 		13B72C0F2472E4CD00732BC8 /* FirstHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C0E2472E4CD00732BC8 /* FirstHaptic.swift */; };
 		13B72C112472E4E400732BC8 /* SecondHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C102472E4E400732BC8 /* SecondHaptic.swift */; };
 		13B72C132472E4F500732BC8 /* ThirdHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C122472E4F500732BC8 /* ThirdHaptic.swift */; };
 		13B72C152472E51600732BC8 /* FourthHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C142472E51600732BC8 /* FourthHaptic.swift */; };
-		13B72C172472E53300732BC8 /* FirstHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C162472E53300732BC8 /* FirstHaptic.sks */; };
-		13B72C192472E54900732BC8 /* SecondHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C182472E54900732BC8 /* SecondHaptic.sks */; };
-		13B72C1B2472E56400732BC8 /* ThirdHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1A2472E56400732BC8 /* ThirdHaptic.sks */; };
+		13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C162472E53300732BC8 /* firstHaptic.sks */; };
+		13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C182472E54900732BC8 /* secondHaptic.sks */; };
+		13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1A2472E56400732BC8 /* thirdHaptic.sks */; };
 		13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C202472EF6600732BC8 /* hapticViewController.swift */; };
 		7B1D3A4724745C9800588D10 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1D3A4624745C9800588D10 /* MenuScene.swift */; };
 		7B1D3A4A2476B0F900588D10 /* Dust.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D3A482476B0F900588D10 /* Dust.sks */; };
@@ -39,16 +39,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13534BB8247C0F0A0092B21B /* FourthHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FourthHaptic.sks; sourceTree = "<group>"; };
+		13534BB8247C0F0A0092B21B /* fourthHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fourthHaptic.sks; sourceTree = "<group>"; };
 		13B72C0A246D95D500732BC8 /* secondvc.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondvc.sks; sourceTree = "<group>"; };
 		13B72C0C246D974700732BC8 /* secondScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondScene.swift; sourceTree = "<group>"; };
 		13B72C0E2472E4CD00732BC8 /* FirstHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstHaptic.swift; sourceTree = "<group>"; };
 		13B72C102472E4E400732BC8 /* SecondHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHaptic.swift; sourceTree = "<group>"; };
 		13B72C122472E4F500732BC8 /* ThirdHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdHaptic.swift; sourceTree = "<group>"; };
 		13B72C142472E51600732BC8 /* FourthHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthHaptic.swift; sourceTree = "<group>"; };
-		13B72C162472E53300732BC8 /* FirstHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FirstHaptic.sks; sourceTree = "<group>"; };
-		13B72C182472E54900732BC8 /* SecondHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SecondHaptic.sks; sourceTree = "<group>"; };
-		13B72C1A2472E56400732BC8 /* ThirdHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ThirdHaptic.sks; sourceTree = "<group>"; };
+		13B72C162472E53300732BC8 /* firstHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = firstHaptic.sks; sourceTree = "<group>"; };
+		13B72C182472E54900732BC8 /* secondHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondHaptic.sks; sourceTree = "<group>"; };
+		13B72C1A2472E56400732BC8 /* thirdHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdHaptic.sks; sourceTree = "<group>"; };
 		13B72C202472EF6600732BC8 /* hapticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hapticViewController.swift; sourceTree = "<group>"; };
 		7B1D3A4624745C9800588D10 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		7B1D3A482476B0F900588D10 /* Dust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Dust.sks; sourceTree = "<group>"; };
@@ -91,10 +91,10 @@
 				13B72C102472E4E400732BC8 /* SecondHaptic.swift */,
 				13B72C122472E4F500732BC8 /* ThirdHaptic.swift */,
 				13B72C142472E51600732BC8 /* FourthHaptic.swift */,
-				13B72C162472E53300732BC8 /* FirstHaptic.sks */,
-				13B72C182472E54900732BC8 /* SecondHaptic.sks */,
-				13B72C1A2472E56400732BC8 /* ThirdHaptic.sks */,
-				13534BB8247C0F0A0092B21B /* FourthHaptic.sks */,
+				13B72C162472E53300732BC8 /* firstHaptic.sks */,
+				13B72C182472E54900732BC8 /* secondHaptic.sks */,
+				13B72C1A2472E56400732BC8 /* thirdHaptic.sks */,
+				13534BB8247C0F0A0092B21B /* fourthHaptic.sks */,
 			);
 			path = Haptic;
 			sourceTree = "<group>";
@@ -235,14 +235,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5C62E9246D62DD008244C0 /* MyTileSet.sks in Resources */,
-				13B72C1B2472E56400732BC8 /* ThirdHaptic.sks in Resources */,
-				13B72C172472E53300732BC8 /* FirstHaptic.sks in Resources */,
+				13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */,
+				13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */,
 				7B22141F2473FBA900410A2D /* MenuScene.sks in Resources */,
 				7BC910C9247ED1D9000D5979 /* unsecure.mp3 in Resources */,
 				7B5C62DC246D6269008244C0 /* Main.storyboard in Resources */,
 				7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */,
-				13B72C192472E54900732BC8 /* SecondHaptic.sks in Resources */,
-				13534BB9247C0F0A0092B21B /* FourthHaptic.sks in Resources */,
+				13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */,
+				13534BB9247C0F0A0092B21B /* fourthHaptic.sks in Resources */,
 				13B72C0B246D95D500732BC8 /* secondvc.sks in Resources */,
 				7B5C62DE246D626B008244C0 /* Assets.xcassets in Resources */,
 				7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */,
