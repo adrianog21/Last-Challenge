@@ -42,7 +42,7 @@ class SecondHaptic: SKScene {
                    if nodesArray.first?.name == "fourthButton" {
     //                let transition = SKTransition.reveal(with: .down, duration: 0)
     //                   let secondscene = SKScene(size: self.size)
-                       let myScene = FourthHaptic(fileNamed: "fourthHaptic")
+                       let myScene = FourthHaptic(fileNamed: "FourthHaptic")
                        myScene?.scaleMode = .aspectFill
                        self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
                     
@@ -50,13 +50,13 @@ class SecondHaptic: SKScene {
                    }
                    
                    if nodesArray.first?.name == "thirdButton" {
-                       let myScene = ThirdHaptic(fileNamed: "thirdHaptic")
+                       let myScene = ThirdHaptic(fileNamed: "ThirdHaptic")
                        myScene?.scaleMode = .aspectFill
                        self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))               }
                 
                 if nodesArray.first?.name == "firstButton" {
                     
-                    let myScene = FirstHaptic(fileNamed: "firstHaptic")
+                    let myScene = FirstHaptic(fileNamed: "FirstHaptic")
                     myScene?.scaleMode = .aspectFill
                     self.scene?.view?.presentScene(myScene!, transition: SKTransition.fade(withDuration: 0))
 //                self.view?.presentScene(SKScene(fileNamed:"firstScene"))               }
