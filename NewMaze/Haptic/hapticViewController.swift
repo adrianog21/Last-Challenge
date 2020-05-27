@@ -119,7 +119,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 //            view.presentScene(scene)
 //            }
         
-        let scene = SKScene(fileNamed: "FirstHaptic")
+        let scene = SKScene(fileNamed: "firstHaptic")
         let skView = view as! SKView
         scene?.scaleMode = .aspectFill
         skView.presentScene(scene)
