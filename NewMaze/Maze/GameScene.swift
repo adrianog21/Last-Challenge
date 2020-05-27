@@ -17,6 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let wallCategory:UInt32 = 0x1 << 2
     let sightCategory:UInt32 = 0x1 << 4
     
+    let velocity = CGFloat(7.5)
+    
     var tileNodes = [SKSpriteNode]()
     
     var npos = CGPoint()
@@ -278,7 +280,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let angle = atan2((npos.y - player.position.y) , (npos.x - player.position.x))
         player.zRotation = angle
         
-        let playerMove = CGPoint(x: (player.position.x + cos(angle) * 5) , y: (player.position.y + sin(angle) * 5))
+        let playerMove = CGPoint(x: (player.position.x + cos(angle) * velocity) , y: (player.position.y + sin(angle) * velocity))
         
         if move == true{
             player.position = playerMove
