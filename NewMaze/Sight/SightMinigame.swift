@@ -6,10 +6,21 @@
 //  Copyright © 2020 Adriano Gatto. All rights reserved.
 //
 
-
 import SpriteKit
 import GameplayKit
 import Foundation
+
+extension SKSpriteNode {
+
+    func addGlow(radius: Float = 30) {
+        let effectNode = SKEffectNode()
+        effectNode.zPosition = -10
+        effectNode.shouldRasterize = true
+        addChild(effectNode)
+        effectNode.addChild(SKSpriteNode(texture: texture))
+        effectNode.filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius":radius])
+    }
+}
 
 class SightGame: SKScene {
     
@@ -18,9 +29,6 @@ class SightGame: SKScene {
             let winLable = SKLabelNode(text: "HAI VINTO")
             winLable.fontColor = UIColor.green
             winLable.position = CGPoint(x: size.width/2, y: size.height/2)
-            //            let loseLable = SKLabelNode(text: "RIPROVA")
-            //            loseLable.fontColor = UIColor.red
-            //            loseLable.position = CGPoint(x: size.width/2, y: size.height/2)
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             if node.name == "Win"{
@@ -65,32 +73,25 @@ class SightGame: SKScene {
         emitter?.advanceSimulationTime(30)
         emitter?.particleAlpha = 1
         addChild(emitter!)
-        let image0 = SKSpriteNode(imageNamed: "0")
-        let image1 = SKSpriteNode(imageNamed: "1")
-        let image2 = SKSpriteNode(imageNamed: "2")
-        let image3 = SKSpriteNode(imageNamed: "3")
-        let image4 = SKSpriteNode(imageNamed: "4")
-        let image5 = SKSpriteNode(imageNamed: "5")
-        let image6 = SKSpriteNode(imageNamed: "6")
-        let image7 = SKSpriteNode(imageNamed: "7")
-        let image8 = SKSpriteNode(imageNamed: "8")
-        let image9 = SKSpriteNode(imageNamed: "9")
-        let image10 = SKSpriteNode(imageNamed: "10")
-        let image11 = SKSpriteNode(imageNamed: "11")
-        let image12 = SKSpriteNode(imageNamed: "12")
-        let image13 = SKSpriteNode(imageNamed: "13")
-        let image14 = SKSpriteNode(imageNamed: "14")
-        let image15 = SKSpriteNode(imageNamed: "15")
-        let untouch = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
-        let imageVector: [SKSpriteNode] = [image0,image1,image2,image3,image4,image5,image6,image7,image8,image9,image10,image11,image12,image13,image14,image15]
+        
+//
+        var imageVector: [SKSpriteNode] = [SKSpriteNode](repeating: .init(imageNamed: "0"), count: 16)
+        for i in 0...15 {
+            imageVector[i] = SKSpriteNode(imageNamed: "\(i)")
+            imageVector[i].addGlow()
+            imageVector[i].name = "aggiunto\(i)"
+            print(imageVector[i].name as Any)
+        }
         
         
+        let untouch = SKSpriteNode(color: .clear, size: CGSize(width: 0, height: 0))
         untouch.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         untouch.position = CGPoint(x: size.width*0.5, y: size.height*0.5)
         untouch.zPosition = 1
-        addChild(untouch)
+//        addChild(untouch)
         
-        let index = Int.random(in: 0...15)
+//        let index = Int.random(in: 0...15)
+        let index = 2
         randomImage(vector: imageVector, ind: index, nocheat: untouch)
         
     }
@@ -112,7 +113,7 @@ class SightGame: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 vector[ind].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    nocheat.removeFromParent()
+//                    nocheat.removeFromParent()
                     self.position(node: vector[0], node2: vector[1], node3: vector[2], node4: vector[3])
                 }
             }
@@ -208,8 +209,9 @@ class SightGame: SKScene {
         node4.position = CGPoint(x: size.width/2, y: size.height/2)
         addChild(node4)
         node4.run(movementLD)
+        
     }
-    
+
 }
 
 
