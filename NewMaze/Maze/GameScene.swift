@@ -75,8 +75,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scene!.addChild(gameCamera)
         camera = gameCamera
-        gameCamera.xScale = gameCamera.xScale * 1.8
-        gameCamera.yScale = gameCamera.yScale * 1.8
+        gameCamera.xScale = gameCamera.xScale * 1.9
+        gameCamera.yScale = gameCamera.yScale * 1.9
         
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
