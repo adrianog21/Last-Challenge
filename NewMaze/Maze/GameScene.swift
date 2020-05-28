@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let wallCategory:UInt32 = 0x1 << 2
     let sightCategory:UInt32 = 0x1 << 4
     
-    let velocity = CGFloat(7.5)
+    let velocity = CGFloat(7.2)
     
     var audioPlayer: AVAudioPlayer?
     
