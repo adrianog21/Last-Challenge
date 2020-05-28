@@ -40,6 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    //Scene
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
@@ -69,9 +70,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.allowsRotation = false
         
+        var textures:[SKTexture] = []
+        for i in 1...4 {
+            textures.append(SKTexture(imageNamed: "player\(i)"))
+        }
+//        textures.append(textures[3])
+//        textures.append(textures[2])
+//        textures.append(textures[1])
+        
+        let playerAnimation = SKAction.animate(with: textures, timePerFrame: 0.1)
+        let rotatePlayer = SKAction.rotate(byAngle: 90, duration: 1)
+        
         scene!.addChild(player)
         player.addChild(lightNode)
         player.addChild(pointing)
+        player.run(SKAction.repeatForever(playerAnimation))
+        player.run(SKAction.repeatForever(rotatePlayer))
         
         scene!.addChild(gameCamera)
         camera = gameCamera
@@ -308,6 +322,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerMovement()
        
         showShadows()
+        
+        player.zRotation += 10
        
     }
     
