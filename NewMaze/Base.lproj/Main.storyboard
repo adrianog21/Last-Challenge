@@ -20,6 +20,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsn-Nd-eIO">
+                                <rect key="frame" x="785" y="36" width="63" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="RESET">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="BV1-FR-VrT" eventType="touchUpInside" id="j2h-c6-TXb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -27,6 +38,7 @@
                     <navigationItem key="navigationItem" id="3pT-YY-bhD"/>
                     <connections>
                         <outlet property="blackView" destination="eLC-Oe-wem" id="pv9-Rn-Mph"/>
+                        <outlet property="resetButton" destination="Gsn-Nd-eIO" id="g6N-Gf-HaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -251,7 +263,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Artboard" width="357" height="392"/>
-        <image name="play button 2" width="118" height="50"/>
-        <image name="title font" width="143" height="45"/>
+        <image name="play button 2" width="52" height="37"/>
+        <image name="title font" width="135" height="36"/>
     </resources>
 </document>

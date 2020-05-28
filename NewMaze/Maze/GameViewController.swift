@@ -15,6 +15,7 @@ weak var gamecontroller = GameViewController()
 class GameViewController: UIViewController {
     
     
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var blackView: UIImageView!
     
     override func viewDidLoad() {
@@ -53,6 +54,11 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func reset(_ sender: Any) {
+        level.resetData()
+    }
+    
     
 
         func newScene(scene : String) {

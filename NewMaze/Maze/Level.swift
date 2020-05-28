@@ -16,23 +16,23 @@ var level = Level()
 struct Level {
     var xPosition = Float()
     var yPosition = Float()
-    var deafults = UserDefaults.standard
+    var defaults = UserDefaults.standard
     
     mutating func lastX(xPos: Float) {
 //        xPosition = deafults.float(forKey: "X")
-        deafults.set(xPos, forKey: "X")
+        defaults.set(xPos, forKey: "X")
 //        print(xPosition)
     }
     
     mutating func lastY(yPos: Float) {
 //        yPosition = deafults.float(forKey: "Y")
-        deafults.set(yPos, forKey: "Y")
+        defaults.set(yPos, forKey: "Y")
 //        print(yPosition)
     }
     
     mutating func getPosition() -> CGPoint{
-        yPosition = deafults.float(forKey: "Y")
-        xPosition = deafults.float(forKey: "X")
+        yPosition = defaults.float(forKey: "Y")
+        xPosition = defaults.float(forKey: "X")
 
         let newPos = CGPoint(x: CGFloat(xPosition), y: CGFloat(yPosition))
         return newPos
@@ -40,5 +40,6 @@ struct Level {
     
     mutating func resetData() {
         UserDefaults.resetStandardUserDefaults()
+        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
     }
 }
