@@ -30,8 +30,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let player = SKSpriteNode()
     let pointing = SKSpriteNode()
     
+    var hapticKey = SKSpriteNode()
+    var sightKey = SKSpriteNode()
+    
     
     var move = false
+    var getHaptic = false
+    var getSight = false
+    
     var point = SKNode()
     
     let gameCamera = SKCameraNode()
@@ -63,7 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pointing.constraints = [constraint]
 
         
-        player.position = CGPoint(x: 0, y: 0)
         player.texture = SKTexture(imageNamed: "sphere cream.png")
         player.size = CGSize(width: 80, height: 80)
         player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
@@ -102,15 +107,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
+        player.position = level.getPosition()
+        
+        //PLAY MUSIC
         let music = Bundle.main.path(forResource: "unsecure.mp3", ofType: nil)
-               let url = URL(fileURLWithPath: music!)
-               do {
-                   audioPlayer = try AVAudioPlayer(contentsOf: url)
-                               audioPlayer?.play()
-                   
-               } catch {
-                   print(error)
-               }
+        let url = URL(fileURLWithPath: music!)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1
+//            audioPlayer?.play()
+            
+        } catch {
+            print(error)
+        }
         
         for node in self.children{
             if (node.name == "TileMap") {
@@ -120,7 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     giveTileMapPhysics(map: someTileMap)
                     someTileMap.removeFromParent()
                 }
-//                break
+                //                break
             }
             
             if (node.name == "HapticUp") {
@@ -142,22 +151,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             if (node.name == "SightUp") {
-                           if let scar:SKSpriteNode = node as? SKSpriteNode{
-                               
-                               scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-                               
-                               scar.physicsBody?.isDynamic = false
-                               scar.lightingBitMask = 1
-                               scar.physicsBody?.categoryBitMask = sightCategory
-                               scar.physicsBody?.contactTestBitMask = playerCategory
-                           }
-                       }else if node.name == "SightDown"{
-                           if let scar:SKSpriteNode = node as? SKSpriteNode{
-                               
-                               scar.lightingBitMask = 1
-                               
-                           }
-                       }
+                if let scar:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                    
+                    scar.physicsBody?.isDynamic = false
+                    scar.lightingBitMask = 1
+                    scar.physicsBody?.categoryBitMask = sightCategory
+                    scar.physicsBody?.contactTestBitMask = playerCategory
+                }
+            }else if node.name == "SightDown"{
+                if let scar:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    scar.lightingBitMask = 1
+                    
+                }
+            }
+            
+            if node.name == "HapticKey"{
+                if let hk:SKSpriteNode = node as? SKSpriteNode{
+                    hapticKey = hk
+                    hapticKey.position = hk.position
+                }
+            }
+            if node.name == "SightKey"{
+                if let sk:SKSpriteNode = node as? SKSpriteNode{
+                    sightKey = sk
+                    sightKey.position = sk.position
+                }
+            }
+            
         }
         
     }
@@ -257,9 +280,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    fileprivate func keyTouch() {
+        
+        let hapticX = hapticKey.position.x.magnitude - npos.x.magnitude
+        let haptixY = hapticKey.position.y.magnitude - npos.y.magnitude
+        
+        let haptic2X = hapticKey.position.x.magnitude - player.position.x.magnitude
+        let haptic2Y = hapticKey.position.y.magnitude - player.position.y.magnitude
+        
+        if hapticX.magnitude + haptixY.magnitude < 100 && haptic2X.magnitude + haptic2Y.magnitude < 200 && getHaptic == false {
+            hapticKey.alpha = 0
+            print("HK")
+            getHaptic = true
+        }
+        
+        let sightX = sightKey.position.x.magnitude - npos.x.magnitude
+        let sightY = sightKey.position.y.magnitude - npos.y.magnitude
+        
+        let sight2X = sightKey.position.x.magnitude - player.position.x.magnitude
+        let sight2Y = sightKey.position.y.magnitude - player.position.y.magnitude
+        
+        if sightX.magnitude + sightY.magnitude < 50 && sight2X.magnitude + sight2Y.magnitude < 100 && getSight == false {
+            sightKey.alpha = 0
+            print("SK")
+            getSight = true
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             npos = touch.location(in: scene!)
+            
+            keyTouch()
           }
         move = true
     }
@@ -308,12 +360,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.zRotation = angle
         
         let playerMove = CGPoint(x: (player.position.x + cos(angle) * velocity) , y: (player.position.y + sin(angle) * velocity))
+
+        gameCamera.position = player.position
+        self.camera?.position = player.position
         
         if move == true{
             player.position = playerMove
-            
-            gameCamera.position = player.position
-            self.camera?.position = player.position
+
+            level.lastY(yPos: Float(player.position.y))
+            level.lastX(xPos: Float(player.position.x))
         }
     }
     

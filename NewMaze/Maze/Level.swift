@@ -7,3 +7,38 @@
 //
 
 import Foundation
+import GameplayKit
+import UIKit
+import SpriteKit
+
+var level = Level()
+
+struct Level {
+    var xPosition = Float()
+    var yPosition = Float()
+    var deafults = UserDefaults.standard
+    
+    mutating func lastX(xPos: Float) {
+//        xPosition = deafults.float(forKey: "X")
+        deafults.set(xPos, forKey: "X")
+//        print(xPosition)
+    }
+    
+    mutating func lastY(yPos: Float) {
+//        yPosition = deafults.float(forKey: "Y")
+        deafults.set(yPos, forKey: "Y")
+//        print(yPosition)
+    }
+    
+    mutating func getPosition() -> CGPoint{
+        yPosition = deafults.float(forKey: "Y")
+        xPosition = deafults.float(forKey: "X")
+
+        let newPos = CGPoint(x: CGFloat(xPosition), y: CGFloat(yPosition))
+        return newPos
+    }
+    
+    mutating func resetData() {
+        UserDefaults.resetStandardUserDefaults()
+    }
+}
