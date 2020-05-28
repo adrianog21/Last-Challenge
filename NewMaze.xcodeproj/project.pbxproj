@@ -417,7 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9P87Y7WRW6;
+				DEVELOPMENT_TEAM = ZMTKR653B3;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -435,7 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9P87Y7WRW6;
+				DEVELOPMENT_TEAM = ZMTKR653B3;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
