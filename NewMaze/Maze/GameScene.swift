@@ -79,13 +79,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        textures.append(textures[1])
         
         let playerAnimation = SKAction.animate(with: textures, timePerFrame: 0.1)
-        let rotatePlayer = SKAction.rotate(byAngle: 90, duration: 1)
+//        let rotatePlayer = SKAction.rotate(byAngle: 90, duration: 1)
         
         scene!.addChild(player)
         player.addChild(lightNode)
         player.addChild(pointing)
         player.run(SKAction.repeatForever(playerAnimation))
-        player.run(SKAction.repeatForever(rotatePlayer))
+//        player.run(SKAction.repeatForever(rotatePlayer))
         
         scene!.addChild(gameCamera)
         camera = gameCamera
@@ -323,8 +323,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
         showShadows()
         
-        player.zRotation += 10
-       
     }
     
     fileprivate func enterAudio() {
