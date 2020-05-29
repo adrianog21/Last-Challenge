@@ -57,9 +57,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         lightNode.falloff = 1.3
 //        scene!.addChild(lightNode)
         
-        pointing.position = CGPoint(x: 64, y: 0)
+        pointing.position = CGPoint(x: 0, y: 64)
 //        pointing.color = .white
-        pointing.size = CGSize(width: 32, height: 10)
+        pointing.size = CGSize(width: 10, height: 35)
         pointing.physicsBody = SKPhysicsBody(rectangleOf: pointing.size)
         pointing.physicsBody?.affectedByGravity = false
         pointing.physicsBody?.contactTestBitMask = hapticCategory
@@ -70,18 +70,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         player.texture = SKTexture(imageNamed: "sphere cream.png")
-        player.size = CGSize(width: 80, height: 80)
+//        player.size = CGSize(width: 80, height: 80)
         player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.allowsRotation = false
         
         var textures:[SKTexture] = []
-        for i in 1...4 {
+        for i in 1...5 {
             textures.append(SKTexture(imageNamed: "player\(i)"))
         }
-//        textures.append(textures[3])
-//        textures.append(textures[2])
-//        textures.append(textures[1])
+        textures.append(textures[3])
+        textures.append(textures[2])
+        textures.append(textures[1])
         
         let playerAnimation = SKAction.animate(with: textures, timePerFrame: 0.1)
 //        let rotatePlayer = SKAction.rotate(byAngle: 90, duration: 1)
@@ -172,12 +172,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let hk:SKSpriteNode = node as? SKSpriteNode{
                     hapticKey = hk
                     hapticKey.position = hk.position
+                    if level.defaults.bool(forKey: "HapticKey") == true || level.defaults.bool(forKey: "HapticGame") == false {
+                        hapticKey.isHidden = true
+                    }
                 }
             }
             if node.name == "SightKey"{
                 if let sk:SKSpriteNode = node as? SKSpriteNode{
                     sightKey = sk
                     sightKey.position = sk.position
+                    if level.defaults.bool(forKey: "SightKey") == true || level.defaults.bool(forKey: "SightGame") == false {
+                        sightKey.isHidden = true
+                    }
                 }
             }
             
@@ -292,6 +298,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hapticKey.alpha = 0
             print("HK")
             getHaptic = true
+            level.getKey(key: "HapticKey")
         }
         
         let sightX = sightKey.position.x.magnitude - npos.x.magnitude
@@ -303,6 +310,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if sightX.magnitude + sightY.magnitude < 50 && sight2X.magnitude + sight2Y.magnitude < 100 && getSight == false {
             sightKey.alpha = 0
             print("SK")
+            level.getKey(key: "SightKey")
             getSight = true
         }
     }
@@ -357,7 +365,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     fileprivate func playerMovement() {
         let angle = atan2((npos.y - player.position.y) , (npos.x - player.position.x))
-        player.zRotation = angle
+//        player.zRotation = angle
+        let newSize = player.texture?.size() as! CGSize
+        player.size = CGSize(width: newSize.width/2, height: newSize.height/2)
         
         let playerMove = CGPoint(x: (player.position.x + cos(angle) * velocity) , y: (player.position.y + sin(angle) * velocity))
 

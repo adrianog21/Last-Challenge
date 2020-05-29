@@ -32,6 +32,7 @@ class SightGame: SKScene {
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             if node.name == "Win"{
+                level.defaults.set(true, forKey: "SightGame")
                 addChild(winLable)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
