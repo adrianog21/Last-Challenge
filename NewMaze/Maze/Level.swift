@@ -2,9 +2,10 @@
 //  Level.swift
 //  NewMaze
 //
-//  Created by Adriano Gatto on 28/05/2020.
+//  Created by Adriano Gatto on 29/05/2020.
 //  Copyright © 2020 Adriano Gatto. All rights reserved.
 //
+
 
 import Foundation
 import GameplayKit
@@ -16,7 +17,14 @@ var level = Level()
 struct Level {
     var xPosition = Float()
     var yPosition = Float()
+//    var sightKey = false
+//    var hapticKaey = false
     var defaults = UserDefaults.standard
+    
+//    init() {
+//        defaults.set(sightKey, forKey: "SightKey")
+//        defaults.set(hapticKaey, forKey: "HapticKey")
+//    }
     
     mutating func lastX(xPos: Float) {
 //        xPosition = deafults.float(forKey: "X")
@@ -41,5 +49,15 @@ struct Level {
     mutating func resetData() {
         UserDefaults.resetStandardUserDefaults()
         defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+    }
+    
+    mutating func getKey(key : String){
+        print(defaults.bool(forKey: "HapticKey"))
+        defaults.set(true, forKey: key)
+        print(defaults.bool(forKey: "HapticKey"))
+    }
+    
+    mutating func getMinigame(game : String){
+        defaults.set(true, forKey: game)
     }
 }
