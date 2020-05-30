@@ -12,7 +12,7 @@ import Foundation
 
 var counter = 0
 
-
+//  MARK:- GLOW EFFECT
 extension SKSpriteNode {
     func addGlow(radius: Float = 30) {
         let effectNode = SKEffectNode()
@@ -25,7 +25,7 @@ extension SKSpriteNode {
 }
 
 class SightGame: SKScene {
-    
+//    MARK:- WINNER OR LOSER?
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             
@@ -38,6 +38,7 @@ class SightGame: SKScene {
             
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
+//          WINNER
             if node.name == "Win"{
                 counter = 0
                 level.defaults.set(true, forKey: "SightGame")
@@ -54,6 +55,7 @@ class SightGame: SKScene {
                     })
                 }
             }
+//          LOSER
             else if node.name == "Lose"{
                 counter += 1
                 if counter != 3 {
@@ -87,13 +89,14 @@ class SightGame: SKScene {
     
     
     override func sceneDidLoad() {
+//      BACKGROUND E PARTICELLE
         self.backgroundColor = .black
         let emitter = SKEmitterNode(fileNamed: "Dust")
         emitter?.position = .zero
         emitter?.advanceSimulationTime(30)
         emitter?.particleAlpha = 1
         addChild(emitter!)
-//        GameOver Scene
+//MARK:- GAME OVER SCENE
         if counter == 3 {
 
             let movementLable = SKAction.move(to: CGPoint(x: size.width/2, y: size.height/2), duration: 2)
@@ -104,7 +107,7 @@ class SightGame: SKScene {
             gameover.run(movementLable)
             
         }
-//      Normale svolgimento
+//MARK:- NORMAL FLOW
         else{
         let lives = 3-counter
         let heart = SKSpriteNode(imageNamed: "heart25")
@@ -116,14 +119,14 @@ class SightGame: SKScene {
             livesLable.position = CGPoint(x: heart.position.x+30, y: heart.position.y-7)
             addChild(heart)
             addChild(livesLable)
-        //Dichiarazione di tutti gli sprite tramite vettore
+        //SPRITE DECLARATION IN AN ARRAY
         var imageVector: [SKSpriteNode] = [SKSpriteNode](repeating: .init(imageNamed: "0"), count: 16)
         for i in 0...15 {
             imageVector[i] = SKSpriteNode(imageNamed: "\(i)")
             imageVector[i].addGlow()
         }
         
-        //Nodo sopra la scena per non permettere il tocco nei primi secondi di gioco
+        //COVER ALL OVER THE SCENE IN ORDER TO AVOID TOUCH IN THE STARTING OF THE GAME
         let untouch = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         untouch.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         untouch.position = CGPoint(x: size.width*0.5, y: size.height*0.5)
@@ -135,7 +138,7 @@ class SightGame: SKScene {
         }
     }
     
-    
+//MARK:- WINNING IMAGE
     func randomImage(vector: [SKSpriteNode], ind: Int, nocheat: SKSpriteNode){
         switch ind {
         case 0,1,2,3:
@@ -210,7 +213,7 @@ class SightGame: SKScene {
             print("Davide De Vita")
         }
     }
-    
+//MARK:- DECISION SCENE
     func position(node: SKSpriteNode, node2: SKSpriteNode, node3: SKSpriteNode, node4:SKSpriteNode) {
         
         let left = size.width*0.25
