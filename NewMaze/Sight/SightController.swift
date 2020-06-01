@@ -23,8 +23,8 @@ class SightController: UIViewController {
         let scene = SightGame(size: view.bounds.size)
         let skView = view as! SKView
         skView.preferredFramesPerSecond = 30
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         skView.ignoresSiblingOrder = true
         skView.backgroundColor = .black
         scene.scaleMode = .resizeFill
