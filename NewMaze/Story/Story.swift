@@ -15,12 +15,21 @@ class Story : UIViewController{
     
     var audioPlayer: AVAudioPlayer?
     
-    var first = "Juliet, when we made love you used to cry"
-    var second = "You said 'I love you like the stars above, I'll love you 'til I die'"
-    var third = "Juliet, the dice was loaded from the start"
-    var fourth = "And I bet, and you exploded into my heart"
-    var fifth = "I can't do everything but I'd do anything for you"
-    var sixth = "I can't do anything except be in love with you..."
+    var start1 = "Welcome. \n Your body is lost somewhere along with your senses. \n You were not supposed to be conscious and hear me."
+    var start2 = "Don’t despair, \n this is your chance to acquire your human vitality back \n before irreversibly sinking into the darkness."
+    var start3 = "I am going to light up the way, \n following your every direction. \n This is going to feel like a maze..."
+    var start4 = "It is."
+    var start5 = "I wonder… \n Slits of light may still be open. \n find them and try to force your senses back"
+    
+    var firstGameDone1 = "You are starting to feel your senses again… \n It may feel frightening at first."
+    var firstGameDone2 = "However you still need more to be free to live again. \n Continue your journey."
+    var allGamesDone1 = "You have never felt this human in a long time. \n And I am starting to fade back into your consciousness…"
+    var allGamesDone2 = "Time is killer now. \n Here’s my last advice…"
+    var allGamesDone3 = "Now you are able to feel the presence of three pulses. \n Before they were unreachable for your senseless essence."
+    var allGamesDone = "Find them and find your way out \n Hurry with the last help I can offer!"
+    
+    var firstFail1 = "Seems like you were not stable enough to withstand the impact of acquiring this sense back yet."
+    var firstFail2 = "The attempt left you a bit disoriented… \n But don’t give up, find the right path again."
     
     var words = [String]()
     
@@ -44,12 +53,12 @@ class Story : UIViewController{
 //        scene.scaleMode = .resizeFill
 //        skView.presentScene(scene)
         
-        words.append(third)
-        words.append(fourth)
-        words.append(first)
-        words.append(second)
-        words.append(fifth)
-        words.append(sixth)
+//        words.append(third)
+//        words.append(fourth)
+//        words.append(first)
+//        words.append(second)
+//        words.append(fifth)
+//        words.append(sixth)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(start))
         self.view.addGestureRecognizer(gesture)
         loveText.alpha = 0
