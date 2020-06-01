@@ -153,17 +153,16 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             if pickerData[pickerView.selectedRow(inComponent: 0)] == "H" && pickerData[pickerView.selectedRow(inComponent: 1)] == "I" && pickerData[pickerView.selectedRow(inComponent: 2)] == "F" && pickerData[pickerView.selectedRow(inComponent: 3)] == "E"            {
                 
-                
-                
-                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                   let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
-                                   vc.view.frame = (self.view?.frame)!
-                                   vc.view.layoutIfNeeded()
-                                   UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
-                                       {
-                                           self.view?.window?.rootViewController = vc
-                                   }, completion: { completed in
-                                   })
+                level.getMinigame(game: "HapticGame")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
+                vc.view.frame = (self.view?.frame)!
+                vc.view.layoutIfNeeded()
+                UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                    {
+                        self.view?.window?.rootViewController = vc
+                }, completion: { completed in
+                })
             }
         }
         

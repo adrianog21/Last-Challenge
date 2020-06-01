@@ -21,10 +21,17 @@ struct Level {
 //    var hapticKaey = false
     var defaults = UserDefaults.standard
     
-//    init() {
-//        defaults.set(sightKey, forKey: "SightKey")
-//        defaults.set(hapticKaey, forKey: "HapticKey")
-//    }
+    init() {
+        defaults.bool(forKey: "SightKey")
+        defaults.bool(forKey: "HapticKey")
+        defaults.bool(forKey: "SightGame")
+        defaults.bool(forKey: "HapticGame")
+        
+        defaults.bool(forKey: "FirstPlay")
+        defaults.bool(forKey: "FirstGame")
+        defaults.bool(forKey: "FirstLose")
+        defaults.bool(forKey: "Allgames")
+    }
     
     mutating func lastX(xPos: Float) {
 //        xPosition = deafults.float(forKey: "X")
@@ -52,12 +59,18 @@ struct Level {
     }
     
     mutating func getKey(key : String){
-        print(defaults.bool(forKey: "HapticKey"))
+        print(defaults.bool(forKey: key))
         defaults.set(true, forKey: key)
-        print(defaults.bool(forKey: "HapticKey"))
+        print(defaults.bool(forKey: key))
     }
     
     mutating func getMinigame(game : String){
+        print(defaults.bool(forKey: game))
         defaults.set(true, forKey: game)
+        print(defaults.bool(forKey: game))
+    }
+    
+    mutating func story(progress : String){
+        defaults.set(true, forKey: progress)
     }
 }

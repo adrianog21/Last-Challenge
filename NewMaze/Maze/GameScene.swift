@@ -172,18 +172,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let hk:SKSpriteNode = node as? SKSpriteNode{
                     hapticKey = hk
                     hapticKey.position = hk.position
-                    if level.defaults.bool(forKey: "HapticKey") == true || level.defaults.bool(forKey: "HapticGame") == false {
-                        hapticKey.isHidden = true
-                    }
+                   
                 }
             }
             if node.name == "SightKey"{
                 if let sk:SKSpriteNode = node as? SKSpriteNode{
                     sightKey = sk
                     sightKey.position = sk.position
-                    if level.defaults.bool(forKey: "SightKey") == true || level.defaults.bool(forKey: "SightGame") == false {
-                        sightKey.isHidden = true
-                    }
+                   
                 }
             }
             
@@ -294,10 +290,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let haptic2X = hapticKey.position.x.magnitude - player.position.x.magnitude
         let haptic2Y = hapticKey.position.y.magnitude - player.position.y.magnitude
         
-        if hapticX.magnitude + haptixY.magnitude < 100 && haptic2X.magnitude + haptic2Y.magnitude < 200 && getHaptic == false {
-            hapticKey.alpha = 0
+        if hapticX.magnitude + haptixY.magnitude < 100 && haptic2X.magnitude + haptic2Y.magnitude < 200{
+//            hapticKey.alpha = 0
             print("HK")
-            getHaptic = true
+//            getHaptic = true
             level.getKey(key: "HapticKey")
         }
         
@@ -307,11 +303,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sight2X = sightKey.position.x.magnitude - player.position.x.magnitude
         let sight2Y = sightKey.position.y.magnitude - player.position.y.magnitude
         
-        if sightX.magnitude + sightY.magnitude < 50 && sight2X.magnitude + sight2Y.magnitude < 100 && getSight == false {
-            sightKey.alpha = 0
+        if sightX.magnitude + sightY.magnitude < 100 && sight2X.magnitude + sight2Y.magnitude < 200{
+//            sightKey.alpha = 0
             print("SK")
             level.getKey(key: "SightKey")
-            getSight = true
+//            getSight = true
         }
     }
     
@@ -387,6 +383,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerMovement()
        
         showShadows()
+        
+        showKeys()
+        
+    }
+    
+    func showKeys(){
+        if level.defaults.bool(forKey: "SightKey") == true || level.defaults.bool(forKey: "SightGame") == false {
+            sightKey.isHidden = true
+        }
+        
+        if level.defaults.bool(forKey: "HapticKey") == true || level.defaults.bool(forKey: "HapticGame") == false {
+            hapticKey.isHidden = true
+        }
         
     }
     
