@@ -32,7 +32,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let label = UILabel(frame: CGRect(x: 5, y: 0, width: view.frame.width, height: view.frame.height))
         label.text = pickerData[row]
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.medium)
+        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.medium)
         label.textColor = .white
         view.addSubview(label)
         
@@ -67,8 +67,8 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             view.presentScene(scene)
         }
             
-            pickerData = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
-            "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+            pickerData = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+            "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
             
             
         
@@ -151,7 +151,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             
             
-            if pickerData[pickerView.selectedRow(inComponent: 0)] == "h" && pickerData[pickerView.selectedRow(inComponent: 1)] == "i" && pickerData[pickerView.selectedRow(inComponent: 2)] == "f" && pickerData[pickerView.selectedRow(inComponent: 3)] == "e"            {
+            if pickerData[pickerView.selectedRow(inComponent: 0)] == "H" && pickerData[pickerView.selectedRow(inComponent: 1)] == "I" && pickerData[pickerView.selectedRow(inComponent: 2)] == "F" && pickerData[pickerView.selectedRow(inComponent: 3)] == "E"            {
                 
                 
                 
