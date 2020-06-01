@@ -115,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.numberOfLoops = -1
-//            audioPlayer?.play()
+            audioPlayer?.play()
             
         } catch {
             print(error)
