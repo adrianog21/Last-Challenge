@@ -36,7 +36,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         label.textColor = .white
         view.addSubview(label)
         
-        view.transform  = CGAffineTransform(rotationAngle: -90 * (.pi/180))
+//        view.transform  = CGAffineTransform(rotationAngle: -90 * (.pi/180))
         return view
     }
     
@@ -48,12 +48,37 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     var pickerData: [String] = [String]()
     
-    var selectedValues: [Character] = []
+    var selectedValues: [Character] = ["A", "A", "A", "A"]
     
     
     
     @IBOutlet weak var picker: UIPickerView!
     
+    @IBAction func control(_ sender: Any) {
+        
+        if selectedValues[0] == "H" && selectedValues[1] == "I" && selectedValues[2] == "F" && selectedValues[3] == "E" {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
+        vc.view.frame = (self.view?.frame)!
+        vc.view.layoutIfNeeded()
+        UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+            {
+                self.view?.window?.rootViewController = vc
+        }, completion: { completed in
+        })
+    }
+        else {
+            
+            let label = UILabel(frame: CGRect(x: 400, y: 200, width: 200, height: 21))
+            label.center = CGPoint(x: 160, y: 285)
+            label.textAlignment = .center
+            label.text = "Riprova"
+            label.textColor = .white
+            self.view.addSubview(label)
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +101,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.picker.dataSource = self
             
             
-        picker.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
+//       picker.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
         
     }
 
@@ -176,26 +201,10 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         print(selectedValues)
         
         
-        changeScene()
+//        changeScene()
         
-        selectedValues.removeAll()
+//        selectedValues.removeAll()
         
-        
-        
-        
-        
-//        if selectedValue == "h"{
-//            if let view = self.view as! SKView? {
-//                   // Load the SKScene from 'GameScene.sks'
-//            if let scene = SKScene(fileNamed: "MyScene") {
-//                // Set the scale mode to scale to fit the window
-//                scene.scaleMode = .aspectFill
-//                           // Present the scene
-//                view.presentScene(scene)
-//            }
-//        }
-//
-//           }
     }
     
 
