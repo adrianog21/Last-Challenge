@@ -32,7 +32,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let label = UILabel(frame: CGRect(x: 5, y: 0, width: view.frame.width, height: view.frame.height))
         label.text = pickerData[row]
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.medium)
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.medium)
         label.textColor = .white
         view.addSubview(label)
         

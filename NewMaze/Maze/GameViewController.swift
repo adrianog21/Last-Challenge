@@ -14,6 +14,29 @@ weak var gamecontroller = GameViewController()
 
 class GameViewController: UIViewController {
     
+    @IBOutlet weak var minutesLabel: UILabel!
+    
+    @IBOutlet weak var secondsLabel: UILabel!
+    
+    var OurTimer = Timer()
+    var seconds = 60
+    var minutes = 15
+    
+    func startTimer() {
+        OurTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action) , userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func Action() {
+        seconds -= 1
+        if seconds == 0 {
+         minutes -= 1
+            seconds = 59
+        }
+        secondsLabel.text = String(seconds)
+        minutesLabel.text = String(minutes)
+    }
+    
     
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var blackView: UIImageView!
@@ -50,6 +73,7 @@ class GameViewController: UIViewController {
                     
                     UIView.animate(withDuration: 3, animations: {self.blackView.alpha = 0})
                     
+                    startTimer()
                 }
             }
         }
