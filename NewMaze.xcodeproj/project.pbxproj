@@ -18,6 +18,9 @@
 		13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C182472E54900732BC8 /* secondHaptic.sks */; };
 		13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1A2472E56400732BC8 /* thirdHaptic.sks */; };
 		13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C202472EF6600732BC8 /* hapticViewController.swift */; };
+		4E5C3F24248A895E006282C7 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C3F23248A895E006282C7 /* SoundViewController.swift */; };
+		4E5C3F28248A89D6006282C7 /* SoundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C3F27248A89D6006282C7 /* SoundScene.swift */; };
+		4E5C3F2A248A8CFB006282C7 /* SoundScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C3F29248A8CFB006282C7 /* SoundScene.sks */; };
 		7B1D3A4724745C9800588D10 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1D3A4624745C9800588D10 /* MenuScene.swift */; };
 		7B1D3A4A2476B0F900588D10 /* Dust.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D3A482476B0F900588D10 /* Dust.sks */; };
 		7B1D3A4B2476B0F900588D10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D3A492476B0F900588D10 /* Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		13B72C182472E54900732BC8 /* secondHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondHaptic.sks; sourceTree = "<group>"; };
 		13B72C1A2472E56400732BC8 /* thirdHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdHaptic.sks; sourceTree = "<group>"; };
 		13B72C202472EF6600732BC8 /* hapticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hapticViewController.swift; sourceTree = "<group>"; };
+		4E5C3F23248A895E006282C7 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
+		4E5C3F27248A89D6006282C7 /* SoundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScene.swift; sourceTree = "<group>"; };
+		4E5C3F29248A8CFB006282C7 /* SoundScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SoundScene.sks; sourceTree = "<group>"; };
 		7B1D3A4624745C9800588D10 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		7B1D3A482476B0F900588D10 /* Dust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Dust.sks; sourceTree = "<group>"; };
 		7B1D3A492476B0F900588D10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E5C3F22248A8943006282C7 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				4E5C3F23248A895E006282C7 /* SoundViewController.swift */,
+				4E5C3F27248A89D6006282C7 /* SoundScene.swift */,
+				4E5C3F29248A8CFB006282C7 /* SoundScene.sks */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		7B2214152473F34100410A2D /* Haptic */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +163,7 @@
 		7B5C62CF246D6269008244C0 /* NewMaze */ = {
 			isa = PBXGroup;
 			children = (
+				4E5C3F22248A8943006282C7 /* Sound */,
 				7BE02ED224855AFF00E21A65 /* Story */,
 				7BC910C7247ED1B6000D5979 /* Audio */,
 				7B2214172473F39F00410A2D /* Menu */,
@@ -252,6 +269,7 @@
 				13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */,
 				13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */,
 				7B22141F2473FBA900410A2D /* MenuScene.sks in Resources */,
+				4E5C3F2A248A8CFB006282C7 /* SoundScene.sks in Resources */,
 				7BC910C9247ED1D9000D5979 /* unsecure.mp3 in Resources */,
 				7B5C62DC246D6269008244C0 /* Main.storyboard in Resources */,
 				7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */,
@@ -273,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E5C3F28248A89D6006282C7 /* SoundScene.swift in Sources */,
 				9A658677247C0B75008FA5D0 /* SightController.swift in Sources */,
 				13B72C132472E4F500732BC8 /* ThirdHaptic.swift in Sources */,
 				13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */,
@@ -282,6 +301,7 @@
 				7B2214192473F3BD00410A2D /* MenuController.swift in Sources */,
 				7BE02ED424855B1A00E21A65 /* Story.swift in Sources */,
 				7B5C62D9246D6269008244C0 /* GameViewController.swift in Sources */,
+				4E5C3F24248A895E006282C7 /* SoundViewController.swift in Sources */,
 				13B72C112472E4E400732BC8 /* SecondHaptic.swift in Sources */,
 				7B5C62ED246D79C4008244C0 /* secondvc.swift in Sources */,
 				7B1D3A4724745C9800588D10 /* MenuScene.swift in Sources */,
