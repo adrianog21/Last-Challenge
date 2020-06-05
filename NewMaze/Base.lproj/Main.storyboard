@@ -91,8 +91,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-uX-0yH">
+                                <rect key="frame" x="545" y="142" width="318" height="101"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Artboard" translatesAutoresizingMaskIntoConstraints="NO" id="bMV-F1-3hY">
-                                <rect key="frame" x="-29" y="-18" width="479" height="420"/>
+                                <rect key="frame" x="-29" y="-18" width="592" height="420"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIw-HP-t4K">
@@ -106,18 +110,14 @@
                                     <segue destination="BV1-FR-VrT" kind="push" id="mn3-U6-JSZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slt-l9-n48">
-                                <rect key="frame" x="642" y="282" width="79" height="53"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slt-l9-n48">
+                                <rect key="frame" x="649" y="288" width="111" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Check"/>
+                                <state key="normal" image="check"/>
                                 <connections>
                                     <action selector="control:" destination="j0x-Hh-cqt" eventType="touchUpInside" id="jWz-aG-ouS"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-uX-0yH">
-                                <rect key="frame" x="448" y="157" width="421" height="101"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Iwi-dE-lNX"/>
@@ -278,6 +278,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Artboard" width="357" height="392"/>
+        <image name="check" width="111" height="68"/>
         <image name="play button 2" width="60" height="43"/>
         <image name="title font" width="268" height="69"/>
     </resources>
