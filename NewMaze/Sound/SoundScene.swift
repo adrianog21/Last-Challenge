@@ -19,6 +19,7 @@ class SoundScene: SKScene {
     var npos = CGPoint()
     
     var lastpos = CGFloat()
+    var soundPos = CGFloat()
     
     override func sceneDidLoad() {
     super.sceneDidLoad()
@@ -27,6 +28,7 @@ class SoundScene: SKScene {
         rose.position = .zero
         rose.size = rose.texture?.size() as! CGSize
         addChild(rose)
+        soundPos = CGFloat.random(in: -179...179)
     }
     
     override func didMove(to view: SKView) {
@@ -55,7 +57,17 @@ class SoundScene: SKScene {
         lastpos = rose.zRotation
     }
     
-    override func update(_ currentTime: TimeInterval) {
+    fileprivate func checkPosition() {
+        var newAngle = rose.zRotation * CGFloat(180/Float.pi)
         
+        if newAngle > soundPos - 10 && newAngle < soundPos + 10 {
+            print("s")
+            soundPos = CGFloat.random(in: -179...179)
+            print(soundPos)
+        }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        checkPosition()
     }
 }
