@@ -17,6 +17,8 @@ class SoundScene: SKScene {
     let rose = SKSpriteNode()
     
     var npos = CGPoint()
+    var angle = CGFloat()
+    var angle2 = CGFloat()
     
     var lastpos = CGFloat()
     var soundPos = CGFloat()
@@ -38,7 +40,8 @@ class SoundScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
            if let touch = touches.first {
                npos = touch.location(in: scene!)
-//               lastpos = rose.zRotation
+            angle = atan2((npos.y - 0) , (npos.x - 0))
+               lastpos = rose.zRotation
 //            print(lastpos)
              }
        }
@@ -47,8 +50,8 @@ class SoundScene: SKScene {
            for touch in touches {
                npos = touch.location(in: scene!)
 
-            var angle = atan2((npos.y - 0) , (npos.x - 0)) 
-            rose.zRotation = angle - lastpos
+            angle2 = atan2((npos.y - 0) , (npos.x - 0))
+            rose.zRotation = (angle2 - angle) + lastpos
 //            print(rose.zRotation)
            }
        }
