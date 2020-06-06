@@ -20,6 +20,12 @@ class SoundScene: SKScene {
     
     let rose = SKSpriteNode()
     let button = SKSpriteNode()
+    var din = SKSpriteNode()
+    var din2 = SKSpriteNode()
+    var din3 = SKSpriteNode()
+    var din4 = SKSpriteNode()
+    var din5 = SKSpriteNode()
+    var din6 = SKSpriteNode()
     
     var npos = CGPoint()
     var newAngle = CGFloat()
@@ -43,6 +49,44 @@ class SoundScene: SKScene {
         button.position = CGPoint(x: 300, y: -100)
         button.name = "button"
         addChild(button)
+        
+        din.texture = SKTexture(imageNamed: "plumbobùùù")
+        din.size = CGSize(width: 10.3, height: 17)
+        din.position = CGPoint(x: 0, y: 150)
+        din.xScale = CGFloat(1)
+        rose.addChild(din)
+        
+        din2.texture = SKTexture(imageNamed: "plumbobùùù")
+        din2.size = CGSize(width: 10.3, height: 17)
+        din2.position = CGPoint(x: 0, y: 150)
+        din2.xScale = CGFloat(-1)
+        rose.addChild(din2)
+        
+        din3.texture = SKTexture(imageNamed: "plumbobùùù")
+        din3.size = CGSize(width: 10.3, height: 17)
+        din3.position = CGPoint(x: 0, y: 150)
+        din3.xScale = CGFloat(0.75)
+        rose.addChild(din3)
+        
+        din4.texture = SKTexture(imageNamed: "plumbobùùù")
+        din4.size = CGSize(width: 10.3, height: 17)
+        din4.position = CGPoint(x: 0, y: 150)
+        din4.xScale = CGFloat(0.25)
+        rose.addChild(din4)
+        
+        din5.texture = SKTexture(imageNamed: "plumbobùùù")
+        din5.size = CGSize(width: 10.3, height: 17)
+        din5.position = CGPoint(x: 0, y: 150)
+        din5.xScale = CGFloat(-0.25)
+        rose.addChild(din5)
+        
+        din6.texture = SKTexture(imageNamed: "plumbobùùù")
+        din6.size = CGSize(width: 10.3, height: 17)
+        din6.position = CGPoint(x: 0, y: 150)
+        din6.xScale = CGFloat(-0.75)
+        rose.addChild(din6)
+        
+        
         
     }
     
@@ -96,6 +140,23 @@ class SoundScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        var rotation = -0.01
         
+        din3.xScale += CGFloat(rotation)
+        din4.xScale += CGFloat(rotation)
+        din5.xScale += CGFloat(rotation)
+        din6.xScale += CGFloat(rotation)
+        if din3.xScale <= -1 {
+            din3.xScale = 1
+        }
+        if din4.xScale <= -1 {
+            din4.xScale = 1
+        }
+        if din5.xScale <= -1 {
+            din5.xScale = 1
+        }
+        if din6.xScale <= -1 {
+            din6.xScale = 1
+        }
     }
 }
