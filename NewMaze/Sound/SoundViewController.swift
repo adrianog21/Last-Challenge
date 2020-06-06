@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class SoundViewController: UIViewController {
+class SoundViewController: UIViewController, TransitionDelegate {
     
     
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class SoundViewController: UIViewController {
                    // Load the SKScene from 'GameScene.sks'
                    if let scene = SKScene(fileNamed: "SoundScene") {
                        
-                       
+                       scene.delegate = self as TransitionDelegate
                        // Set the scale mode to scale to fit the window
                        scene.scaleMode = .aspectFill
 
@@ -46,4 +46,16 @@ class SoundViewController: UIViewController {
             return true
         }
     }
+    
+    func returnToMainMenu(){
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//         guard  let storyboard = appDelegate.window?.rootViewController?.storyboard else { return }
+//         if let vc = storyboard.instantiateInitialViewController() {
+//             print("go to main menu")
+//             self.present(vc, animated: false, completion: nil)
+//         }
+        
+        let VC = self.storyboard!.instantiateViewController(withIdentifier: level.nextScene) as! UINavigationController
+        self.navigationController?.present(VC, animated: false, completion: nil)
+     }
 }

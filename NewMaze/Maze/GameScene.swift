@@ -336,6 +336,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             level.getKey(key: "SightKey")
 //            getSight = true
         }
+        
+        let soundX = soundKey.position.x.magnitude - npos.x.magnitude
+        let soundY = soundKey.position.y.magnitude - npos.y.magnitude
+        
+        let sound2X = soundKey.position.x.magnitude - player.position.x.magnitude
+        let sound2Y = soundKey.position.y.magnitude - player.position.y.magnitude
+        
+        if soundX.magnitude + soundY.magnitude < 100 && sound2X.magnitude + sound2Y.magnitude < 200{
+            //            sightKey.alpha = 0
+            print("AK")
+            level.getKey(key: "SoundKey")
+            //            getSight = true
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -424,6 +437,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hapticKey.isHidden = true
         }
         
+        if level.defaults.bool(forKey: "SoundKey") == true || level.defaults.bool(forKey: "SoundGame") == false {
+                   soundKey.isHidden = true
+               }
+        
     }
     
     fileprivate func enterAudio() {
@@ -443,31 +460,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collisionB:UInt32 = contact.bodyB.categoryBitMask
         
         if collisionA == playerCategory && collisionB == hapticCategory {
+            level.lastY(yPos: Float(player.position.y - 30))
 
             gamecontroller?.newScene(scene: "Haptic")
             
             print("New Scene")
             
             enterAudio()
-
         }
         if collisionA == playerCategory && collisionB == sightCategory {
+            level.lastY(yPos: Float(player.position.y - 30))
 
             gamecontroller?.newScene(scene: "Sight")
             
             print("New Scene")
             
             enterAudio()
-
         }
         if collisionA == playerCategory && collisionB == soundCategory {
+            level.lastY(yPos: Float(player.position.y - 30))
 
             gamecontroller?.newScene(scene: "Sound")
             
             print("New Scene")
             
             enterAudio()
-
         }
         
     }

@@ -69,6 +69,10 @@ struct Level {
         print(defaults.bool(forKey: game))
         defaults.set(true, forKey: game)
         print(defaults.bool(forKey: game))
+        
+        if defaults.bool(forKey: "HapticGame") == true && defaults.bool(forKey: "SightGame") == true && defaults.bool(forKey: "SoundGame") == true {
+            defaults.set(true, forKey: "timer")
+        }
     }
     
     mutating func story(progress : String){
@@ -80,6 +84,7 @@ struct Level {
         if scene == "Lose" && defaults.bool(forKey: "FirstLose") == false{
             defaults.set(true, forKey: "FirstLose")
             nextScene = "Story"
+            defaults.set(2, forKey: "story")
         }else if scene == "Lose" && defaults.bool(forKey: "FirstLose") == true{
             nextScene = "MazeGame"
         }
@@ -87,6 +92,7 @@ struct Level {
         if scene == "Play" && defaults.bool(forKey: "FirstPlay") == false{
                    defaults.set(true, forKey: "FirstPlay")
                    nextScene = "Story"
+            defaults.set(0, forKey: "story")
 //            print(nextScene)
                }else if scene == "Play" && defaults.bool(forKey: "FirstPlay") == true{
                    nextScene = "MazeGame"
@@ -96,6 +102,7 @@ struct Level {
              if scene == "Win" && defaults.bool(forKey: "FirstWin") == false{
                  defaults.set(true, forKey: "FirstWin")
                  nextScene = "Story"
+                defaults.set(1, forKey: "story")
              }else if scene == "Win" && defaults.bool(forKey: "FirstWin") == true{
                  nextScene = "MazeGame"
              }

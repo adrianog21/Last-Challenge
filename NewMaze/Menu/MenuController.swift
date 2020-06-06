@@ -39,6 +39,13 @@ class Menu : UIViewController{
         level.resetData()
     }
     
+    @IBAction func play(_ sender: Any) {
+        level.newScene(scene: "Play")
+        
+        let VC = self.storyboard!.instantiateViewController(withIdentifier: level.nextScene) as! UINavigationController
+        self.navigationController?.present(VC, animated: false, completion: nil)
+
+    }
     
 
     }

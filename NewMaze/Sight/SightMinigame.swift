@@ -41,11 +41,12 @@ class SightGame: SKScene {
 //          WINNER
             if node.name == "Win"{
                 counter = 0
-                level.defaults.set(true, forKey: "SightGame")
+                level.getMinigame(game: "SightGame")
+                level.newScene(scene: "Win")
                 addChild(winLable)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
+                    let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
                     vc.view.frame = (self.view?.frame)!
                     vc.view.layoutIfNeeded()
                     UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
@@ -99,12 +100,26 @@ class SightGame: SKScene {
 //MARK:- GAME OVER SCENE
         if counter == 3 {
 
+            counter = 0
+            
             let movementLable = SKAction.move(to: CGPoint(x: size.width/2, y: size.height/2), duration: 2)
             let gameover = SKSpriteNode(imageNamed: "GameOver")
             gameover.position = CGPoint(x: size.width/2, y: size.height+30)
             gameover.addGlow()
             addChild(gameover)
             gameover.run(movementLable)
+            level.newScene(scene: "Lose")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
+                vc.view.frame = (self.view?.frame)!
+                vc.view.layoutIfNeeded()
+                UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                    {
+                        self.view?.window?.rootViewController = vc
+                }, completion: { completed in
+                })
+            }
             
         }
 //MARK:- NORMAL FLOW

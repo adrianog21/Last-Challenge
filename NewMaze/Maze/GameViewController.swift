@@ -23,7 +23,12 @@ class GameViewController: UIViewController {
     var minutes = 15
     
     func startTimer() {
-        OurTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action) , userInfo: nil, repeats: true)
+        if level.defaults.bool(forKey: "timer") == true{
+            minutesLabel.isHidden = false
+            secondsLabel.isHidden = false
+            OurTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action) , userInfo: nil, repeats: true)
+        }else{return}
+        
         
     }
     
@@ -72,7 +77,8 @@ class GameViewController: UIViewController {
                     view.showsPhysics = false
                     
                     UIView.animate(withDuration: 3, animations: {self.blackView.alpha = 0})
-                    
+                    minutesLabel.isHidden = true
+                    secondsLabel.isHidden = true
                     startTimer()
                 }
             }

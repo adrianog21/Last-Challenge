@@ -59,6 +59,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if selectedValues[0] == "H" && selectedValues[1] == "I" && selectedValues[2] == "F" && selectedValues[3] == "E" {
             
             level.newScene(scene: "Win")
+            level.getMinigame(game: "HapticGame")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
@@ -78,6 +79,17 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             label.text = "Riprova"
             label.textColor = .white
             self.view.addSubview(label)
+            
+            level.newScene(scene: "Lose")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
+            vc.view.frame = (self.view?.frame)!
+            vc.view.layoutIfNeeded()
+            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                {
+                    self.view?.window?.rootViewController = vc
+            }, completion: { completed in
+            })
         }
         
     }

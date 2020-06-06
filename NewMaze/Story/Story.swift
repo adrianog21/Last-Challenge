@@ -29,12 +29,18 @@ class Story : UIViewController{
     var allGamesDone1 = "You have never felt this human in a long time. \n And I am starting to fade back into your consciousness…"
     var allGamesDone2 = "Time is killer now. \n Here’s my last advice…"
     var allGamesDone3 = "Now you are able to feel the presence of three pulses. \n Before they were unreachable for your senseless essence."
-    var allGamesDone = "Find them and find your way out \n Hurry with the last help I can offer!"
+    var allGamesDone4 = "Find them and find your way out \n Hurry with the last help I can offer!"
     
     var firstFail1 = "Seems like you were not stable enough to withstand the impact of acquiring this sense back yet."
     var firstFail2 = "The attempt left you a bit disoriented… \n But don’t give up, find the right path again."
     
-    var words = [String]()
+    var words = [[String]]()
+    var words0 = [String]()
+    var words1 = [String]()
+    var words2 = [String]()
+    var words3 = [String]()
+    
+    var frase = [String]()
     
     var num = 0
     var wordNum = 0
@@ -46,25 +52,30 @@ class Story : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        scene = HB(size: view.bounds.size)
-//        let skView = view as! SKView
-//        skView.preferredFramesPerSecond = 30
-////        skView.showsFPS = false
-////        skView.showsNodeCount = false
-////        skView.ignoresSiblingOrder = true
-//        skView.backgroundColor = .black
-//        scene.scaleMode = .resizeFill
-//        skView.presentScene(scene)
+                
+        words0.append(start1)
+        words0.append(start2)
+        words0.append(start3)
+        words0.append(start4)
+        words0.append(start5)
         
-        words.append(start1)
-        words.append(start2)
-        words.append(start3)
-        words.append(start4)
-        words.append(start5)
-//        let gesture = UITapGestureRecognizer(target: self, action: #selector(start))
-//        self.view.addGestureRecognizer(gesture)
-//        loveText.alpha = 0
+        words1.append(firstGameDone1)
+        words1.append(firstGameDone2)
+        
+        words2.append(firstFail1)
+        words2.append(firstFail2)
+        
+        words3.append(allGamesDone1)
+        words3.append(allGamesDone2)
+        words3.append(allGamesDone3)
+        words3.append(allGamesDone4)
+        
+        words.append(words0)
+        words.append(words1)
+        words.append(words2)
+        words.append(words3)
+
+        frase = words[level.defaults.integer(forKey: "story")]
         
         UIView.animate(withDuration: 5, animations: {
             self.fadeView.alpha = 0
@@ -73,15 +84,15 @@ class Story : UIViewController{
     
         func start(){
         num += 1
-        if num - 1 < words.count {
+            if num - 1 < frase.count {
             
         textStory.text = ""
-        for i in words[num - 1] {
+        for i in frase[num - 1] {
             wordNum += 1
             AudioServicesPlaySystemSound(1105)
             textStory.text! += "\(i)"
-            RunLoop.current.run(until: Date()+0.1)
-            if wordNum == words[num - 1].count{
+            RunLoop.current.run(until: Date()+0.07)
+            if wordNum == frase[num - 1].count{
                 nextButton.isHidden = false
                 wordNum = 0
             }
