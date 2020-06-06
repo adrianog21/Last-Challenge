@@ -40,7 +40,7 @@ class Story : UIViewController{
     var wordNum = 0
     
     @IBOutlet weak var textStory: UILabel!
-//    @IBOutlet weak var loveText: UILabel!
+    //    @IBOutlet weak var loveText: UILabel!
     @IBOutlet weak var fadeView: UIImageView!
     
     
@@ -104,7 +104,7 @@ class Story : UIViewController{
         }
     }
     
-    @IBAction func nextWords(_ sender: Any) {
+    @IBAction func NextWord(_ sender: Any) {
         nextButton.isHidden = true
 
         start()

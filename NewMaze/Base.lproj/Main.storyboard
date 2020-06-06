@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IWk-7E-G4I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qxx-hc-cS0">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -199,6 +199,14 @@
                                     <segue destination="BV1-FR-VrT" kind="push" id="8eL-9m-H6d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJ2-FM-tVS">
+                                <rect key="frame" x="802" y="69" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="reset:" destination="kZ4-qr-A8P" eventType="touchUpInside" id="H8i-I5-erb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="Pbm-jt-Qfs"/>
@@ -288,19 +296,49 @@
                     <view key="view" contentMode="scaleToFill" id="WyC-JT-1H0">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="824-tk-FI3">
+                                <rect key="frame" x="194" y="87" width="542" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="21"/>
+                                <color key="textColor" white="0.97097067640000001" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="0.97097067640000001" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2l-SJ-m1O">
+                                <rect key="frame" x="733" y="297" width="103" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="NextWord:" destination="17f-Ax-Oou" eventType="touchUpInside" id="H9g-fb-qGu"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Znq-0e-aKB">
+                                <rect key="frame" x="0.0" y="-6" width="905" height="420"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VYQ-AX-oho"/>
                     </view>
                     <navigationItem key="navigationItem" id="B7s-LM-hsl"/>
+                    <connections>
+                        <outlet property="fadeView" destination="Znq-0e-aKB" id="zFz-kU-ORd"/>
+                        <outlet property="nextButton" destination="Q2l-SJ-m1O" id="deM-gN-Bq8"/>
+                        <outlet property="textStory" destination="824-tk-FI3" id="7qy-Ts-ze6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DhD-5A-FUi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966.29464285714278" y="1115.9420289855072"/>
+            <point key="canvasLocation" x="966.29464285714278" y="1114.4927536231885"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pVy-m7-Cyb">
             <objects>
-                <navigationController storyboardIdentifier="Story" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WUc-Vs-w7r" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Story" storyboardIdentifier="Story" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WUc-Vs-w7r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SrJ-zP-ti3">
                         <autoresizingMask key="autoresizingMask"/>
@@ -316,7 +354,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mn3-U6-JSZ"/>
+        <segue reference="8eL-9m-H6d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Artboard" width="357" height="392"/>

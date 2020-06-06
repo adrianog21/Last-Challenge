@@ -35,6 +35,9 @@ class Menu : UIViewController{
         }
     }
     
+    @IBAction func reset(_ sender: Any) {
+        level.resetData()
+    }
     
     
 
