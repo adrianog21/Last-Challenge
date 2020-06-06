@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let playerCategory:UInt32 = 0x1 << 1
     let wallCategory:UInt32 = 0x1 << 2
     let sightCategory:UInt32 = 0x1 << 4
+    let soundCategory:UInt32 = 0x1 << 8
     
     let velocity = CGFloat(7.5)
     
@@ -32,6 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var hapticKey = SKSpriteNode()
     var sightKey = SKSpriteNode()
+    var soundKey = SKSpriteNode()
     
     
     var move = false
@@ -168,6 +170,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
+            if (node.name == "SoundUp") {
+                if let scar:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                    
+                    scar.physicsBody?.isDynamic = false
+                    scar.lightingBitMask = 1
+                    scar.physicsBody?.categoryBitMask = soundCategory
+                    scar.physicsBody?.contactTestBitMask = playerCategory
+                }
+            }else if node.name == "SoundDown"{
+                if let scar:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    scar.lightingBitMask = 1
+                    
+                }
+            }
+            
             if node.name == "HapticKey"{
                 if let hk:SKSpriteNode = node as? SKSpriteNode{
                     hapticKey = hk
@@ -179,6 +199,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let sk:SKSpriteNode = node as? SKSpriteNode{
                     sightKey = sk
                     sightKey.position = sk.position
+                   
+                }
+            }
+            if node.name == "SoundKey"{
+                if let ak:SKSpriteNode = node as? SKSpriteNode{
+                    soundKey = ak
+                    soundKey.position = ak.position
                    
                 }
             }
@@ -427,6 +454,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if collisionA == playerCategory && collisionB == sightCategory {
 
             gamecontroller?.newScene(scene: "Sight")
+            
+            print("New Scene")
+            
+            enterAudio()
+
+        }
+        if collisionA == playerCategory && collisionB == soundCategory {
+
+            gamecontroller?.newScene(scene: "Sound")
             
             print("New Scene")
             
