@@ -5,6 +5,7 @@
 //  Created by Adriano Gatto on 01/06/2020.
 //  Copyright © 2020 Adriano Gatto. All rights reserved.
 //
+//
 import GameKit
 import UIKit
 import SpriteKit
@@ -13,6 +14,7 @@ weak var story = Story()
 
 class Story : UIViewController{
     
+    @IBOutlet weak var nextButton: UIButton!
     var audioPlayer: AVAudioPlayer?
     
     var start1 = "Welcome. \n Your body is lost somewhere along with your senses. \n You were not supposed to be conscious and hear me."
@@ -23,6 +25,7 @@ class Story : UIViewController{
     
     var firstGameDone1 = "You are starting to feel your senses again… \n It may feel frightening at first."
     var firstGameDone2 = "However you still need more to be free to live again. \n Continue your journey."
+    
     var allGamesDone1 = "You have never felt this human in a long time. \n And I am starting to fade back into your consciousness…"
     var allGamesDone2 = "Time is killer now. \n Here’s my last advice…"
     var allGamesDone3 = "Now you are able to feel the presence of three pulses. \n Before they were unreachable for your senseless essence."
@@ -34,9 +37,10 @@ class Story : UIViewController{
     var words = [String]()
     
     var num = 0
+    var wordNum = 0
     
-    @IBOutlet weak var textSong: UILabel!
-    @IBOutlet weak var loveText: UILabel!
+    @IBOutlet weak var textStory: UILabel!
+//    @IBOutlet weak var loveText: UILabel!
     @IBOutlet weak var fadeView: UIImageView!
     
     
@@ -53,37 +57,58 @@ class Story : UIViewController{
 //        scene.scaleMode = .resizeFill
 //        skView.presentScene(scene)
         
-//        words.append(third)
-//        words.append(fourth)
-//        words.append(first)
-//        words.append(second)
-//        words.append(fifth)
-//        words.append(sixth)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(start))
-        self.view.addGestureRecognizer(gesture)
-        loveText.alpha = 0
+        words.append(start1)
+        words.append(start2)
+        words.append(start3)
+        words.append(start4)
+        words.append(start5)
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(start))
+//        self.view.addGestureRecognizer(gesture)
+//        loveText.alpha = 0
         
-        UIView.animate(withDuration: 10, animations: {
+        UIView.animate(withDuration: 5, animations: {
             self.fadeView.alpha = 0
         })
     }
     
-    @objc func start(){
+        func start(){
         num += 1
         if num - 1 < words.count {
             
-        textSong.text = ""
+        textStory.text = ""
         for i in words[num - 1] {
+            wordNum += 1
             AudioServicesPlaySystemSound(1105)
-            textSong.text! += "\(i)"
+            textStory.text! += "\(i)"
             RunLoop.current.run(until: Date()+0.1)
+            if wordNum == words[num - 1].count{
+                nextButton.isHidden = false
+                wordNum = 0
+            }
         }
         
         }else {
-            UIView.animate(withDuration: 1, animations: {
-                self.loveText.alpha = 1
+   //         UIView.animate(withDuration: 1, animations: {
+//                let VC = self.storyboard!.instantiateViewController(withIdentifier: "MazeGame") as! UINavigationController
+//                self.navigationController?.present(VC, animated: false, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
+            vc.view.frame = (self.view?.frame)!
+            vc.view.layoutIfNeeded()
+            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                {
+                    self.view?.window?.rootViewController = vc
+            }, completion: { completed in
             })
+       //     })
         }
     }
+    
+    @IBAction func nextWords(_ sender: Any) {
+        nextButton.isHidden = true
+
+        start()
+    }
+    
     
 }
