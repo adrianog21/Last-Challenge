@@ -57,6 +57,8 @@ struct Level {
     mutating func resetData() {
         UserDefaults.resetStandardUserDefaults()
         defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        print("reset")
+        print(defaults.bool(forKey: "FirstPlay"))
     }
     
     mutating func getKey(key : String){
@@ -103,9 +105,13 @@ struct Level {
                  defaults.set(true, forKey: "FirstWin")
                  nextScene = "Story"
                 defaults.set(1, forKey: "story")
-             }else if scene == "Win" && defaults.bool(forKey: "FirstWin") == true{
-                 nextScene = "MazeGame"
+             }else if scene == "Win" && defaults.bool(forKey: "FirstWin") == true && defaults.bool(forKey: "timer") == true{
+                 nextScene = "Story"
+                defaults.set(3, forKey: "story")
              }
+             else if scene == "Win" && defaults.bool(forKey: "FirstWin") == true && defaults.bool(forKey: "timer") == false {
+                nextScene = "MazeGame"
+        }
 //        print(scene)
 //        print(defaults.bool(forKey: "FirstPlay"))
 //        print(nextScene)

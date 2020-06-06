@@ -44,7 +44,7 @@ class Menu : UIViewController{
         
         let VC = self.storyboard!.instantiateViewController(withIdentifier: level.nextScene) as! UINavigationController
         self.navigationController?.present(VC, animated: false, completion: nil)
-
+        print(level.nextScene)
     }
     
 

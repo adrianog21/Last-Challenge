@@ -104,6 +104,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         emitter?.advanceSimulationTime(30)
         addChild(emitter!)
         
+        showKeys()
+
+        
          }
     
     override func didMove(to view: SKView) {
@@ -320,8 +323,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if hapticX.magnitude + haptixY.magnitude < 100 && haptic2X.magnitude + haptic2Y.magnitude < 200{
 //            hapticKey.alpha = 0
             print("HK")
-//            getHaptic = true
             level.getKey(key: "HapticKey")
+            showKeys()
         }
         
         let sightX = sightKey.position.x.magnitude - npos.x.magnitude
@@ -334,7 +337,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            sightKey.alpha = 0
             print("SK")
             level.getKey(key: "SightKey")
-//            getSight = true
+            showKeys()
         }
         
         let soundX = soundKey.position.x.magnitude - npos.x.magnitude
@@ -347,7 +350,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //            sightKey.alpha = 0
             print("AK")
             level.getKey(key: "SoundKey")
-            //            getSight = true
+            showKeys()
         }
     }
     
@@ -423,23 +426,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerMovement()
        
         showShadows()
-        
-        showKeys()
-        
+                
     }
     
     func showKeys(){
-        if level.defaults.bool(forKey: "SightKey") == true || level.defaults.bool(forKey: "SightGame") == false {
+//        if level.defaults.bool(forKey: "SightKey") == true || level.defaults.bool(forKey: "SightGame") == false {
+//            sightKey.isHidden = true
+//        }
+//
+//        if level.defaults.bool(forKey: "HapticKey") == true || level.defaults.bool(forKey: "HapticGame") == false {
+//            hapticKey.isHidden = true
+//        }
+//
+//        if level.defaults.bool(forKey: "SoundKey") == true || level.defaults.bool(forKey: "SoundGame") == false {
+//                   soundKey.isHidden = true
+//               }
+        if level.defaults.bool(forKey: "timer") == true {
+            if level.defaults.bool(forKey: "SightKey") == true{
+                sightKey.isHidden = true
+            }
+            
+            if level.defaults.bool(forKey: "HapticKey") == true{
+                hapticKey.isHidden = true
+            }
+            
+            if level.defaults.bool(forKey: "SoundKey") == true{
+                soundKey.isHidden = true
+            }
+        }else {
+            hapticKey.isHidden = true
+            soundKey.isHidden = true
             sightKey.isHidden = true
         }
-        
-        if level.defaults.bool(forKey: "HapticKey") == true || level.defaults.bool(forKey: "HapticGame") == false {
-            hapticKey.isHidden = true
-        }
-        
-        if level.defaults.bool(forKey: "SoundKey") == true || level.defaults.bool(forKey: "SoundGame") == false {
-                   soundKey.isHidden = true
-               }
+               
+//        if level.defaults.bool(forKey: "timer") == true{
+//            soundKey.isHidden = false
+//            sightKey.isHidden = false
+//            hapticKey.isHidden = false
+//        }else{
+//            hapticKey.isHidden = true
+//            sightKey.isHidden = true
+//            soundKey.isHidden = true
+//        }
         
     }
     
