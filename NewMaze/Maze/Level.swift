@@ -6,7 +6,6 @@
 //  Copyright © 2020 Adriano Gatto. All rights reserved.
 //
 
-
 import Foundation
 import GameplayKit
 import UIKit
@@ -15,6 +14,8 @@ import SpriteKit
 var level = Level()
 
 struct Level {
+    var nextScene = ""
+
     var xPosition = Float()
     var yPosition = Float()
 //    var sightKey = false
@@ -28,7 +29,7 @@ struct Level {
         defaults.bool(forKey: "HapticGame")
         
         defaults.bool(forKey: "FirstPlay")
-        defaults.bool(forKey: "FirstGame")
+        defaults.bool(forKey: "FirstWin")
         defaults.bool(forKey: "FirstLose")
         defaults.bool(forKey: "Allgames")
     }
@@ -72,5 +73,35 @@ struct Level {
     
     mutating func story(progress : String){
         defaults.set(true, forKey: progress)
+    }
+    
+    mutating func newScene(scene : String){
+        //LOSE
+        if scene == "Lose" && defaults.bool(forKey: "FirstLose") == false{
+            defaults.set(true, forKey: "FirstLose")
+            nextScene = "Story"
+        }else if scene == "Lose" && defaults.bool(forKey: "FirstLose") == true{
+            nextScene = "MazeGame"
+        }
+        //PLAY
+        if scene == "Play" && defaults.bool(forKey: "FirstPlay") == false{
+                   defaults.set(true, forKey: "FirstPlay")
+                   nextScene = "Story"
+//            print(nextScene)
+               }else if scene == "Play" && defaults.bool(forKey: "FirstPlay") == true{
+                   nextScene = "MazeGame"
+            
+               }
+        //WIN
+             if scene == "Win" && defaults.bool(forKey: "FirstWin") == false{
+                 defaults.set(true, forKey: "FirstWin")
+                 nextScene = "Story"
+             }else if scene == "Win" && defaults.bool(forKey: "FirstWin") == true{
+                 nextScene = "MazeGame"
+             }
+//        print(scene)
+//        print(defaults.bool(forKey: "FirstPlay"))
+//        print(nextScene)
+//        return nextScene
     }
 }
