@@ -45,8 +45,8 @@ class SoundScene: SKScene {
         soundPos = CGFloat.random(in: -179...179)
         
         button.size = CGSize(width: 100, height: 50)
-        button.color = .red
-        button.position = CGPoint(x: 300, y: -100)
+        button.texture = SKTexture(imageNamed: "check")
+        button.position = CGPoint(x: 250, y: -130)
         button.name = "button"
         addChild(button)
         
@@ -92,8 +92,18 @@ class SoundScene: SKScene {
         
         roseDesign()
         
+        heart.position = CGPoint(x: 300, y: 150)
+        heart.texture = SKTexture(imageNamed: "heart")
+        heart.size = CGSize(width: (heart.texture?.size().width)! * 0.7, height: (heart.texture?.size().height)! * 0.7)
+        addChild(heart)
         
-        
+        let bigger = SKAction.scale(to: 1.3, duration: 0.2)
+        let smaller = SKAction.scale(to: 1.15, duration: 0.1)
+        let normale = SKAction.scale(to: 1, duration: 0.2)
+        let wait = SKAction.wait(forDuration: 0.75)
+        let animation = SKAction.sequence([bigger, smaller, bigger, normale, wait])
+        let loop = SKAction.repeatForever(animation)
+        heart.run(loop)
         
     }
     
