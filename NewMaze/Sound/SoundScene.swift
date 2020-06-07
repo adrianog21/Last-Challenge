@@ -96,6 +96,13 @@ class SoundScene: SKScene {
     }
     
     override func sceneDidLoad() {
+    
+             let emitter = SKEmitterNode(fileNamed: "Dust")
+             emitter?.position = .zero
+             emitter?.advanceSimulationTime(30)
+             emitter?.particleAlpha = 1
+             addChild(emitter!)
+        
     super.sceneDidLoad()
         
         roseDesign()
