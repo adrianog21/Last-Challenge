@@ -27,6 +27,8 @@ class SoundScene: SKScene {
     var din5 = SKSpriteNode()
     var din6 = SKSpriteNode()
     
+    var heart = SKSpriteNode()
+    
     var npos = CGPoint()
     var newAngle = CGFloat()
     var angle = CGFloat()
@@ -35,9 +37,7 @@ class SoundScene: SKScene {
     var lastpos = CGFloat()
     var soundPos = CGFloat()
     
-    override func sceneDidLoad() {
-    super.sceneDidLoad()
-        
+    fileprivate func roseDesign() {
         rose.texture = SKTexture(imageNamed: "windRose")
         rose.position = .zero
         rose.size = rose.texture?.size() as! CGSize
@@ -85,6 +85,13 @@ class SoundScene: SKScene {
         din6.position = CGPoint(x: 0, y: 150)
         din6.xScale = CGFloat(-0.75)
         rose.addChild(din6)
+    }
+    
+    override func sceneDidLoad() {
+    super.sceneDidLoad()
+        
+        roseDesign()
+        
         
         
         
@@ -125,21 +132,20 @@ class SoundScene: SKScene {
     }
     
     fileprivate func checkPosition() {
-        newAngle = rose.zRotation * CGFloat(180/Float.pi)
         
-        if newAngle > soundPos - 10 && newAngle < soundPos + 10 {
+        if newAngle > soundPos - 5 && newAngle < soundPos + 5 {
             level.lastY(yPos: Float(level.getPosition().y - 30))
             level.getMinigame(game: "SoundGame")
             level.newScene(scene: "Win")
             guard let delegate = self.delegate else { return }
             self.view?.presentScene(nil)
             (delegate as! TransitionDelegate).returnToMainMenu()
-            soundPos = CGFloat.random(in: -179...179)
+            soundPos = CGFloat.random(in: -175...175)
             print(soundPos)
         }
     }
     
-    override func update(_ currentTime: TimeInterval) {
+    fileprivate func diamante() {
         var rotation = -0.01
         
         din3.xScale += CGFloat(rotation)
@@ -157,6 +163,34 @@ class SoundScene: SKScene {
         }
         if din6.xScale <= -1 {
             din6.xScale = 1
+        }
+    }
+    
+    
+    
+    fileprivate func soundDirection() {
+        if newAngle < soundPos - 5 && newAngle > soundPos - 180{
+            print("left")
+        }else if newAngle > soundPos + 5 && newAngle < soundPos + 180{
+            print("right")
+        }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        diamante()
+        roseAngle()
+        soundDirection()
+        
+        
+    }
+    
+    fileprivate func roseAngle() {
+        newAngle = rose.zRotation * CGFloat(180/Float.pi)
+        if newAngle > 180 {
+            rose.zRotation -= CGFloat( 360 * (Float.pi/180))
+        }
+        else if newAngle < -180 {
+            rose.zRotation += CGFloat( 360 * (Float.pi/180))
         }
     }
 }
