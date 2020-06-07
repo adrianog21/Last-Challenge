@@ -46,9 +46,9 @@ class SoundScene: SKScene {
         addChild(rose)
         soundPos = CGFloat.random(in: -179...179)
         
-        button.size = CGSize(width: 100, height: 50)
+        button.size = CGSize(width: 70, height: 35)
         button.texture = SKTexture(imageNamed: "check")
-        button.position = CGPoint(x: 250, y: -130)
+        button.position = CGPoint(x: 290, y: -125)
         button.name = "button"
         addChild(button)
         
