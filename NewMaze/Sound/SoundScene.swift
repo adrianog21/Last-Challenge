@@ -27,6 +27,8 @@ class SoundScene: SKScene {
     var din5 = SKSpriteNode()
     var din6 = SKSpriteNode()
     
+    var clock = SKSpriteNode()
+    
     var heart = SKSpriteNode()
     
     var npos = CGPoint()
@@ -51,40 +53,46 @@ class SoundScene: SKScene {
         addChild(button)
         
         din.texture = SKTexture(imageNamed: "plumbobùùù")
-        din.size = CGSize(width: 10.3, height: 17)
-        din.position = CGPoint(x: 0, y: 150)
+        din.size = CGSize(width: 14, height: 22)
+        din.position = CGPoint(x: 0, y: 143)
         din.xScale = CGFloat(1)
         rose.addChild(din)
         
         din2.texture = SKTexture(imageNamed: "plumbobùùù")
-        din2.size = CGSize(width: 10.3, height: 17)
-        din2.position = CGPoint(x: 0, y: 150)
+        din2.size = CGSize(width: 14, height: 22)
+        din2.position = CGPoint(x: 0, y: 143)
         din2.xScale = CGFloat(-1)
         rose.addChild(din2)
         
         din3.texture = SKTexture(imageNamed: "plumbobùùù")
-        din3.size = CGSize(width: 10.3, height: 17)
-        din3.position = CGPoint(x: 0, y: 150)
+        din3.size = CGSize(width: 14, height: 22)
+        din3.position = CGPoint(x: 0, y: 143)
         din3.xScale = CGFloat(0.75)
         rose.addChild(din3)
         
         din4.texture = SKTexture(imageNamed: "plumbobùùù")
-        din4.size = CGSize(width: 10.3, height: 17)
-        din4.position = CGPoint(x: 0, y: 150)
+        din4.size = CGSize(width: 14, height: 22)
+        din4.position = CGPoint(x: 0, y: 143)
         din4.xScale = CGFloat(0.25)
         rose.addChild(din4)
         
         din5.texture = SKTexture(imageNamed: "plumbobùùù")
-        din5.size = CGSize(width: 10.3, height: 17)
-        din5.position = CGPoint(x: 0, y: 150)
+        din5.size = CGSize(width: 14, height: 22)
+        din5.position = CGPoint(x: 0, y: 143)
         din5.xScale = CGFloat(-0.25)
         rose.addChild(din5)
         
         din6.texture = SKTexture(imageNamed: "plumbobùùù")
-        din6.size = CGSize(width: 10.3, height: 17)
-        din6.position = CGPoint(x: 0, y: 150)
+        din6.size = CGSize(width: 14, height: 22)
+        din6.position = CGPoint(x: 0, y: 143)
         din6.xScale = CGFloat(-0.75)
         rose.addChild(din6)
+        
+        clock.texture = SKTexture(imageNamed: "clock")
+        clock.position = .zero
+        clock.size = clock.texture?.size() as! CGSize
+        addChild(clock)
+        
     }
     
     override func sceneDidLoad() {
