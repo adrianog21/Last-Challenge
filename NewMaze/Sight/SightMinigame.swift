@@ -125,7 +125,7 @@ class SightGame: SKScene {
 //MARK:- NORMAL FLOW
         else{
         let lives = 3-counter
-        let heart = SKSpriteNode(imageNamed: "heart25")
+        let heart = SKSpriteNode(imageNamed: "heart")
             heart.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             heart.position = CGPoint(x: size.width-100, y: size.height-30)
         let livesLable = SKLabelNode(text: "\(lives)")
@@ -241,7 +241,7 @@ class SightGame: SKScene {
         let movementRU = SKAction.move(to: CGPoint(x: right, y: up), duration: 1)
 
         
-        let decision = SKLabelNode(text: "Quale immagine hai appena visto?")
+        let decision = SKLabelNode(text: "Which image did you see?")
         decision.fontSize = 20
         decision.position = CGPoint(x: size.width/2, y: size.height-30)
         decision.zPosition = 0
