@@ -44,10 +44,12 @@ class ThirdSight: SKScene {
 
     
     override func sceneDidLoad() {
+        addBackground()
         let mirror = antiCheat()
         
         if firsTime3 == true{
             lives3 = lives2
+            showLives(livesInScene: lives3, heart: heartBeating())
             firsTime3 = false
             let index = group.randomElement()!
             group = removeComparison(array: group, element: index)
@@ -60,7 +62,7 @@ class ThirdSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
@@ -68,6 +70,7 @@ class ThirdSight: SKScene {
         }
         
         else if lives3 != 0{
+            showLives(livesInScene: lives3, heart: heartBeating())
             let index = UserDefaults.standard.integer(forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
@@ -75,12 +78,13 @@ class ThirdSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
         }
         else{
+            showLives(livesInScene: lives3, heart: heartBeating())
             let movementLable = SKAction.move(to: CGPoint(x: size.width/2, y: size.height/2), duration: 2)
             let gameover = SKLabelNode(text: "GAMEOVER")
             gameover.position = CGPoint(x: size.width/2, y: size.height+30)

@@ -114,17 +114,55 @@ public extension SKScene{
         let down = size.height*0.25
         node.position = CGPoint(x: right, y: down)
     }
-    func poseToCorners(array: [SKSpriteNode]){
+    func poseToCorners(array: [SKSpriteNode], glowingIndex: Int){
         var arrayshuffled = array
+        var arrayTemp = array
+        arrayTemp.remove(at: glowingIndex)
+        for item in arrayTemp{
+            item.addGlow()
+        }
         arrayshuffled.shuffle()
         posetoupleft(node: arrayshuffled[0])
         posetodownleft(node: arrayshuffled[1])
         posetoupright(node: arrayshuffled[2])
         posetodownright(node: arrayshuffled[3])
         for item in arrayshuffled {
-            
             addChild(item)
         }
+    }
+    
+    func addBackground(){
+        self.backgroundColor = UIColor.black
+        let emitter = SKEmitterNode(fileNamed: "Dust")
+        emitter?.position = .zero
+        emitter?.advanceSimulationTime(30)
+        addChild(emitter!)
+    }
+   
+    func heartBeating() -> SKSpriteNode{
+        let heart = SKSpriteNode()
+        heart.position = CGPoint(x: size.width*0.90, y: size.height*0.90)
+                heart.texture = SKTexture(imageNamed: "heart")
+                heart.size = CGSize(width: (heart.texture?.size().width)! * 0.7, height: (heart.texture?.size().height)! * 0.7)
+        heart.addGlow()
+                addChild(heart)
+
+                let bigger = SKAction.scale(to: 1.2, duration: 0.2)
+                let smaller = SKAction.scale(to: 1.1, duration: 0.1)
+                let normale = SKAction.scale(to: 1, duration: 0.2)
+                let wait = SKAction.wait(forDuration: 0.70)
+                let animation = SKAction.sequence([bigger, smaller, bigger, normale, wait])
+                let loop = SKAction.repeatForever(animation)
+                heart.run(loop)
+        return heart
+    }
+    
+    func showLives(livesInScene: Int, heart: SKSpriteNode){
+        let livesLable = SKLabelNode(text:"\(livesInScene)" )
+        livesLable.fontColor = .white
+        livesLable.fontSize = 20
+        livesLable.position = CGPoint(x: heart.position.x+20, y: heart.position.y-7)
+        addChild(livesLable)
     }
 
 }

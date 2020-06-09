@@ -44,10 +44,13 @@ class SecondSight: SKScene {
     
     
     override func sceneDidLoad() {
+        addBackground()
+        
         let mirror = antiCheat()
         
         if firsTime2 == true{
             lives2 = lives
+            showLives(livesInScene: lives2, heart: heartBeating())
             firsTime2 = false
             let index = group.randomElement()!
             group = removeComparison(array: group, element: index)
@@ -59,7 +62,7 @@ class SecondSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
@@ -67,6 +70,7 @@ class SecondSight: SKScene {
         }
         
         else if lives2 != 0{
+            showLives(livesInScene: lives2, heart: heartBeating())
             let index = UserDefaults.standard.integer(forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
@@ -74,12 +78,13 @@ class SecondSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
         }
         else{
+            showLives(livesInScene: lives2, heart: heartBeating())
             let movementLable = SKAction.move(to: CGPoint(x: size.width/2, y: size.height/2), duration: 2)
             let gameover = SKLabelNode(text: "GAMEOVER")
             gameover.position = CGPoint(x: size.width/2, y: size.height+30)

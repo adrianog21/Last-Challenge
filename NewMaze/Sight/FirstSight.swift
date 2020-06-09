@@ -40,7 +40,11 @@ class FirstSight: SKScene {
     
     
     override func sceneDidLoad() {
+        addBackground()
+        
+        showLives(livesInScene: lives, heart: heartBeating() )
         let mirror = antiCheat()
+        
         
         if lives == 3{
             let index = group.randomElement()!
@@ -53,7 +57,7 @@ class FirstSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
@@ -67,7 +71,7 @@ class FirstSight: SKScene {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                     imageArray[yesIndex].removeFromParent()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                        self.poseToCorners(array: imageArray)
+                        self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                         mirror.removeFromParent()
                     }
                 }

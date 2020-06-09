@@ -17,9 +17,11 @@ class FourthSight: SKScene {
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             if node.name == "YES"{
+                removeAllChildren()
                 let labelWin = SKLabelNode(text: "HAI VINTO")
-                labelWin.color = UIColor.green
+                labelWin.fontColor = UIColor.green
                 labelWin.fontSize = 40
+                labelWin.position = CGPoint(x: size.width*0.5, y: size.height*0.5)
                 addChild(labelWin)
             }
             else if node.name == "NO"{
@@ -45,9 +47,11 @@ class FourthSight: SKScene {
     
     
     override func sceneDidLoad() {
+        addBackground()
         let mirror = antiCheat()
         if firsTime4 == true{
             lives4 = lives3
+            showLives(livesInScene: lives4, heart: heartBeating())
             firsTime4 = false
             let index = group.randomElement()!
             group = removeComparison(array: group, element: index)
@@ -59,7 +63,7 @@ class FourthSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
@@ -67,6 +71,7 @@ class FourthSight: SKScene {
         }
         
         else if lives4 != 0{
+            showLives(livesInScene: lives4, heart: heartBeating())
             let index = UserDefaults.standard.integer(forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
@@ -74,12 +79,13 @@ class FourthSight: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                    self.poseToCorners(array: imageArray)
+                    self.poseToCorners(array: imageArray, glowingIndex: yesIndex)
                     mirror.removeFromParent()
                 }
             }
         }
         else{
+            showLives(livesInScene: lives4, heart: heartBeating())
             let movementLable = SKAction.move(to: CGPoint(x: size.width/2, y: size.height/2), duration: 2)
             let gameover = SKLabelNode(text: "GAMEOVER")
             gameover.position = CGPoint(x: size.width/2, y: size.height+30)
