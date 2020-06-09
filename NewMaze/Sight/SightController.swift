@@ -20,7 +20,7 @@ class SightController: UIViewController {
 
         super.viewDidLoad()
 
-        let scene = SightGame(size: view.bounds.size)
+        let scene = FirstSight(size: view.bounds.size)
         let skView = view as! SKView
         skView.preferredFramesPerSecond = 30
         skView.showsFPS = false

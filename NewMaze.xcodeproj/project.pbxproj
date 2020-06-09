@@ -39,7 +39,12 @@
 		7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BC910CA247ED1EB000D5979 /* enter.mp3 */; };
 		7BE02ED12481A7B100E21A65 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE02ED02481A7B100E21A65 /* Level.swift */; };
 		7BE02ED424855B1A00E21A65 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE02ED324855B1A00E21A65 /* Story.swift */; };
-		9A658677247C0B75008FA5D0 /* SightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A658676247C0B75008FA5D0 /* SightController.swift */; };
+		9A5B4905248FFC0800B04D50 /* FirstSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B48FF248FFC0800B04D50 /* FirstSight.swift */; };
+		9A5B4906248FFC0800B04D50 /* ThirdSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4900248FFC0800B04D50 /* ThirdSight.swift */; };
+		9A5B4907248FFC0800B04D50 /* SecondSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4901248FFC0800B04D50 /* SecondSight.swift */; };
+		9A5B4908248FFC0800B04D50 /* FuncSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4902248FFC0800B04D50 /* FuncSight.swift */; };
+		9A5B4909248FFC0800B04D50 /* SightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4903248FFC0800B04D50 /* SightController.swift */; };
+		9A5B490A248FFC0800B04D50 /* FourthSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4904248FFC0800B04D50 /* FourthSight.swift */; };
 		9A7501E924756B4800D6B5B1 /* SightMinigame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7501E824756B4800D6B5B1 /* SightMinigame.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +83,12 @@
 		7BC910CA247ED1EB000D5979 /* enter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = enter.mp3; sourceTree = "<group>"; };
 		7BE02ED02481A7B100E21A65 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		7BE02ED324855B1A00E21A65 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
-		9A658676247C0B75008FA5D0 /* SightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightController.swift; sourceTree = "<group>"; };
+		9A5B48FF248FFC0800B04D50 /* FirstSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstSight.swift; sourceTree = "<group>"; };
+		9A5B4900248FFC0800B04D50 /* ThirdSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdSight.swift; sourceTree = "<group>"; };
+		9A5B4901248FFC0800B04D50 /* SecondSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondSight.swift; sourceTree = "<group>"; };
+		9A5B4902248FFC0800B04D50 /* FuncSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSight.swift; sourceTree = "<group>"; };
+		9A5B4903248FFC0800B04D50 /* SightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SightController.swift; path = ../../../../Sight/SightController.swift; sourceTree = "<group>"; };
+		9A5B4904248FFC0800B04D50 /* FourthSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthSight.swift; sourceTree = "<group>"; };
 		9A7501E824756B4800D6B5B1 /* SightMinigame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightMinigame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,8 +211,13 @@
 		9A7501E32475692600D6B5B1 /* Sight */ = {
 			isa = PBXGroup;
 			children = (
+				9A5B48FF248FFC0800B04D50 /* FirstSight.swift */,
+				9A5B4901248FFC0800B04D50 /* SecondSight.swift */,
+				9A5B4900248FFC0800B04D50 /* ThirdSight.swift */,
+				9A5B4904248FFC0800B04D50 /* FourthSight.swift */,
+				9A5B4903248FFC0800B04D50 /* SightController.swift */,
+				9A5B4902248FFC0800B04D50 /* FuncSight.swift */,
 				9A7501E824756B4800D6B5B1 /* SightMinigame.swift */,
-				9A658676247C0B75008FA5D0 /* SightController.swift */,
 			);
 			path = Sight;
 			sourceTree = "<group>";
@@ -292,22 +307,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5C3F28248A89D6006282C7 /* SoundScene.swift in Sources */,
-				9A658677247C0B75008FA5D0 /* SightController.swift in Sources */,
 				13B72C132472E4F500732BC8 /* ThirdHaptic.swift in Sources */,
 				13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */,
 				13B72C152472E51600732BC8 /* FourthHaptic.swift in Sources */,
 				7B5C62D7246D6269008244C0 /* GameScene.swift in Sources */,
 				13B72C0D246D974700732BC8 /* secondScene.swift in Sources */,
+				9A5B4905248FFC0800B04D50 /* FirstSight.swift in Sources */,
 				7B2214192473F3BD00410A2D /* MenuController.swift in Sources */,
+				9A5B4906248FFC0800B04D50 /* ThirdSight.swift in Sources */,
 				7BE02ED424855B1A00E21A65 /* Story.swift in Sources */,
 				7B5C62D9246D6269008244C0 /* GameViewController.swift in Sources */,
 				4E5C3F24248A895E006282C7 /* SoundViewController.swift in Sources */,
 				13B72C112472E4E400732BC8 /* SecondHaptic.swift in Sources */,
 				7B5C62ED246D79C4008244C0 /* secondvc.swift in Sources */,
 				7B1D3A4724745C9800588D10 /* MenuScene.swift in Sources */,
+				9A5B4907248FFC0800B04D50 /* SecondSight.swift in Sources */,
+				9A5B4908248FFC0800B04D50 /* FuncSight.swift in Sources */,
 				7B5C62D1246D6269008244C0 /* AppDelegate.swift in Sources */,
+				9A5B490A248FFC0800B04D50 /* FourthSight.swift in Sources */,
 				13B72C0F2472E4CD00732BC8 /* FirstHaptic.swift in Sources */,
 				7BE02ED12481A7B100E21A65 /* Level.swift in Sources */,
+				9A5B4909248FFC0800B04D50 /* SightController.swift in Sources */,
 				9A7501E924756B4800D6B5B1 /* SightMinigame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZMTKR653B3;
+				DEVELOPMENT_TEAM = 9P87Y7WRW6;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZMTKR653B3;
+				DEVELOPMENT_TEAM = 9P87Y7WRW6;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
