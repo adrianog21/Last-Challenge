@@ -45,6 +45,7 @@ class FourthSight: SKScene {
     
     
     override func sceneDidLoad() {
+        let mirror = antiCheat()
         if firsTime4 == true{
             lives4 = lives3
             firsTime4 = false
@@ -54,7 +55,6 @@ class FourthSight: SKScene {
             defaults.set(index, forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
-            let mirror = antiCheat()
             addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
@@ -70,7 +70,6 @@ class FourthSight: SKScene {
             let index = UserDefaults.standard.integer(forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
-            let mirror = antiCheat()
             addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()

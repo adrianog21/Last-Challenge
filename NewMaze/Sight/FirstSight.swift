@@ -40,10 +40,9 @@ class FirstSight: SKScene {
     
     
     override func sceneDidLoad() {
-        
+        let mirror = antiCheat()
         
         if lives == 3{
-            let mirror = antiCheat()
             let index = group.randomElement()!
             group = removeComparison(array: group, element: index)
             let defaults = UserDefaults.standard
@@ -64,7 +63,6 @@ class FirstSight: SKScene {
                 let index = UserDefaults.standard.integer(forKey: "index")
                 let imageArray = declareAssets(index: index)
                 let yesIndex = setRightImage(array: imageArray)
-                let mirror = antiCheat()
                 addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                     imageArray[yesIndex].removeFromParent()

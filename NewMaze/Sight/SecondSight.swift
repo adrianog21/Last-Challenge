@@ -44,7 +44,7 @@ class SecondSight: SKScene {
     
     
     override func sceneDidLoad() {
-        
+        let mirror = antiCheat()
         
         if firsTime2 == true{
             lives2 = lives
@@ -55,7 +55,6 @@ class SecondSight: SKScene {
             defaults.set(index, forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
-            let mirror = antiCheat()
             addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
@@ -71,7 +70,6 @@ class SecondSight: SKScene {
             let index = UserDefaults.standard.integer(forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
-            let mirror = antiCheat()
             addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()

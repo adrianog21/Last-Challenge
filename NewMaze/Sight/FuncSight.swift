@@ -68,8 +68,9 @@ public extension SKScene{
     
     func antiCheat() -> SKSpriteNode{
         let mirror = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
-        addNode(node: mirror, xpos: size.width/2, ypos: size.height/2)
         mirror.name = "CIAO"
+        addNode(node: mirror, xpos: size.width/2, ypos: size.height/2)
+        mirror.zPosition = 2
         return mirror
        }
     
@@ -86,7 +87,7 @@ public extension SKScene{
     func addNode(node: SKSpriteNode, xpos: CGFloat, ypos: CGFloat) {
         node.position = CGPoint(x: xpos, y: ypos)
         node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.zPosition = 0
+        node.zPosition = 1
         node.addGlow()
         addChild(node)
     }

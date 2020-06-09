@@ -44,7 +44,7 @@ class ThirdSight: SKScene {
 
     
     override func sceneDidLoad() {
-        
+        let mirror = antiCheat()
         
         if firsTime3 == true{
             lives3 = lives2
@@ -55,7 +55,7 @@ class ThirdSight: SKScene {
             defaults.set(index, forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
-            let mirror = antiCheat()
+            
             addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
@@ -71,7 +71,6 @@ class ThirdSight: SKScene {
             let index = UserDefaults.standard.integer(forKey: "index")
             let imageArray = declareAssets(index: index)
             let yesIndex = setRightImage(array: imageArray)
-            let mirror = antiCheat()
             addNode(node: imageArray[yesIndex], xpos: size.width/2, ypos: size.height/2)
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
                 imageArray[yesIndex].removeFromParent()
