@@ -13,16 +13,6 @@ import Foundation
 var counter = 0
 
 //  MARK:- GLOW EFFECT
-extension SKSpriteNode {
-    func addGlow(radius: Float = 30) {
-        let effectNode = SKEffectNode()
-        effectNode.zPosition = -2
-        effectNode.shouldRasterize = true
-        addChild(effectNode)
-        effectNode.addChild(SKSpriteNode(texture: texture))
-        effectNode.filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius":radius])
-    }
-}
 
 class SightGame: SKScene {
 //    MARK:- WINNER OR LOSER?
