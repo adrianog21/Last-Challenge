@@ -10,7 +10,20 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+
+
 class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var counter = 3
+    
+    
+    @IBOutlet weak var lives: UILabel!
+    
+    
+    
+    
+    
+        
     
     
     
@@ -52,9 +65,15 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     
+    
+    
     @IBOutlet weak var picker: UIPickerView!
     
     @IBAction func control(_ sender: Any) {
+        
+        counter -= 1
+        
+        self.lives.text = String(counter);
         
         if selectedValues[0] == "H" && selectedValues[1] == "I" && selectedValues[2] == "F" && selectedValues[3] == "E" {
             
@@ -73,14 +92,22 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
         else {
             
-            let label = UILabel(frame: CGRect(x: 400, y: 200, width: 200, height: 21))
-            label.center = CGPoint(x: 160, y: 285)
-            label.textAlignment = .center
-            label.text = "Riprova"
-            label.textColor = .white
-            self.view.addSubview(label)
+//            let label = UILabel(frame: CGRect(x: 400, y: 200, width: 200, height: 200))
+//            label.center = CGPoint(x: 0, y: 190)
+//            label.textAlignment = .center
+//            label.text = "Try Again"
+//            label.textColor = .white
+//            label.font = UIFont.boldSystemFont(ofSize: 36)
+//            
+//            UIView.animate(withDuration: 2, delay: 0, options: [.transitionCurlDown], animations: {
+//                label.center.x += self.view.bounds.width
+//                  self.view.layoutIfNeeded()
+//            }, completion: nil)
+//            self.view.addSubview(label)
             
-            level.newScene(scene: "Lose")
+            
+            if counter == 0 {
+                level.newScene(scene: "Lose")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
             vc.view.frame = (self.view?.frame)!
@@ -91,11 +118,33 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             }, completion: { completed in
             })
         }
-        
+        }
+    }
+    
+    
+    let emitterNode = SKEmitterNode(fileNamed: "Dust.sks")!
+    
+    private func addRain() {
+        let skView = SKView(frame: view.frame)
+        skView.backgroundColor = .clear
+        let scene = SKScene(size: view.frame.size)
+        scene.backgroundColor = .clear
+        skView.presentScene(scene)
+        skView.isUserInteractionEnabled = false
+        scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        scene.addChild(emitterNode)
+        emitterNode.position.y = scene.frame.maxY
+        emitterNode.particlePositionRange.dx = scene.frame.width
+        view.addSubview(skView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lives.textColor = .white
+        lives.text = "\(counter)"
+        
+        addRain()
         
         if let view = self.view as! SKView? {
                // Load the SKScene from 'GameScene.sks'
@@ -118,10 +167,10 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 //       picker.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
         
     }
+        
+        
 
-   
-
-    
+ 
 
     
 }
