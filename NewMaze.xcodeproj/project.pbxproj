@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1336B3592494E3780026EDF2 /* SightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336B3582494E3780026EDF2 /* SightController.swift */; };
 		13534BB9247C0F0A0092B21B /* fourthHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13534BB8247C0F0A0092B21B /* fourthHaptic.sks */; };
 		13B72C0B246D95D500732BC8 /* secondvc.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C0A246D95D500732BC8 /* secondvc.sks */; };
 		13B72C0D246D974700732BC8 /* secondScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C0C246D974700732BC8 /* secondScene.swift */; };
@@ -43,12 +44,12 @@
 		9A5B4906248FFC0800B04D50 /* ThirdSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4900248FFC0800B04D50 /* ThirdSight.swift */; };
 		9A5B4907248FFC0800B04D50 /* SecondSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4901248FFC0800B04D50 /* SecondSight.swift */; };
 		9A5B4908248FFC0800B04D50 /* FuncSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4902248FFC0800B04D50 /* FuncSight.swift */; };
-		9A5B4909248FFC0800B04D50 /* SightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4903248FFC0800B04D50 /* SightController.swift */; };
 		9A5B490A248FFC0800B04D50 /* FourthSight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5B4904248FFC0800B04D50 /* FourthSight.swift */; };
 		9A7501E924756B4800D6B5B1 /* SightMinigame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7501E824756B4800D6B5B1 /* SightMinigame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1336B3582494E3780026EDF2 /* SightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SightController.swift; path = "../../../../Downloads/NewMaze-master/NewMaze/Sight/SightController.swift"; sourceTree = "<group>"; };
 		13534BB8247C0F0A0092B21B /* fourthHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fourthHaptic.sks; sourceTree = "<group>"; };
 		13B72C0A246D95D500732BC8 /* secondvc.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondvc.sks; sourceTree = "<group>"; };
 		13B72C0C246D974700732BC8 /* secondScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondScene.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		9A5B4900248FFC0800B04D50 /* ThirdSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdSight.swift; sourceTree = "<group>"; };
 		9A5B4901248FFC0800B04D50 /* SecondSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondSight.swift; sourceTree = "<group>"; };
 		9A5B4902248FFC0800B04D50 /* FuncSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncSight.swift; sourceTree = "<group>"; };
-		9A5B4903248FFC0800B04D50 /* SightController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SightController.swift; path = ../../../../Sight/SightController.swift; sourceTree = "<group>"; };
 		9A5B4904248FFC0800B04D50 /* FourthSight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthSight.swift; sourceTree = "<group>"; };
 		9A7501E824756B4800D6B5B1 /* SightMinigame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightMinigame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,7 +215,7 @@
 				9A5B4901248FFC0800B04D50 /* SecondSight.swift */,
 				9A5B4900248FFC0800B04D50 /* ThirdSight.swift */,
 				9A5B4904248FFC0800B04D50 /* FourthSight.swift */,
-				9A5B4903248FFC0800B04D50 /* SightController.swift */,
+				1336B3582494E3780026EDF2 /* SightController.swift */,
 				9A5B4902248FFC0800B04D50 /* FuncSight.swift */,
 				9A7501E824756B4800D6B5B1 /* SightMinigame.swift */,
 			);
@@ -325,9 +325,9 @@
 				9A5B4908248FFC0800B04D50 /* FuncSight.swift in Sources */,
 				7B5C62D1246D6269008244C0 /* AppDelegate.swift in Sources */,
 				9A5B490A248FFC0800B04D50 /* FourthSight.swift in Sources */,
+				1336B3592494E3780026EDF2 /* SightController.swift in Sources */,
 				13B72C0F2472E4CD00732BC8 /* FirstHaptic.swift in Sources */,
 				7BE02ED12481A7B100E21A65 /* Level.swift in Sources */,
-				9A5B4909248FFC0800B04D50 /* SightController.swift in Sources */,
 				9A7501E924756B4800D6B5B1 /* SightMinigame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,7 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9P87Y7WRW6;
+				DEVELOPMENT_TEAM = 2Z8XQCA75N;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,7 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9P87Y7WRW6;
+				DEVELOPMENT_TEAM = 2Z8XQCA75N;
 				INFOPLIST_FILE = NewMaze/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
