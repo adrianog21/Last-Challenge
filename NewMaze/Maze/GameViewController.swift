@@ -18,6 +18,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var duePunti: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     
+    @IBOutlet weak var keysView: UIView!
+    
+    
     var OurTimer = Timer()
     var seconds = Int()
     var minutes = Int()
@@ -92,12 +95,6 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func reset(_ sender: Any) {
-        level.resetData()
-    }
-    
-    
 
         func newScene(scene : String) {
             print(scene)

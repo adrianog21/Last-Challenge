@@ -18,8 +18,14 @@ struct Level {
 
     var xPosition = Float()
     var yPosition = Float()
-//    var sightKey = false
-//    var hapticKaey = false
+    let losePosition = [CGPoint()]
+    //-1540 , -2108     3200 2076       -2813  2716
+    // minigame position u 839,625 3069,987  d 839,625 3005,988
+    // u 2492,455 -1541,457   , -1605,456
+    // u -3457,322 -376,25  ,    -440,249
+    
+    // keys 253,801 , -2974,536      2036,803 ,  261,825      -1721,803 , 2691,973
+    
     var defaults = UserDefaults.standard
     
     init() {
@@ -65,6 +71,7 @@ struct Level {
         print(defaults.bool(forKey: key))
         defaults.set(true, forKey: key)
         print(defaults.bool(forKey: key))
+        defaults.set(defaults.integer(forKey: "keys") + 1, forKey: "keys")
         
         if defaults.bool(forKey: "HapticKey") == true && defaults.bool(forKey: "SightKey") == true && defaults.bool(forKey: "SoundKey") == true {
                   defaults.set(true, forKey: "exit")
@@ -81,6 +88,8 @@ struct Level {
             
                   defaults.set(14, forKey: "minutes")
                   defaults.set(60, forKey: "seconds")
+            
+            defaults.set(0, forKey: "keys")
         }
     }
     

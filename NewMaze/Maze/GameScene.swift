@@ -401,53 +401,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    fileprivate func keyTouch() {
-        
-        let hapticX = hapticKey.position.x.magnitude - npos.x.magnitude
-        let haptixY = hapticKey.position.y.magnitude - npos.y.magnitude
-        
-        let haptic2X = hapticKey.position.x.magnitude - player.position.x.magnitude
-        let haptic2Y = hapticKey.position.y.magnitude - player.position.y.magnitude
-        
-        if hapticX.magnitude + haptixY.magnitude < 100 && haptic2X.magnitude + haptic2Y.magnitude < 200{
-//            hapticKey.alpha = 0
-            print("HK")
-            level.getKey(key: "HapticKey")
-            showKeys()
-        }
-        
-        let sightX = sightKey.position.x.magnitude - npos.x.magnitude
-        let sightY = sightKey.position.y.magnitude - npos.y.magnitude
-        
-        let sight2X = sightKey.position.x.magnitude - player.position.x.magnitude
-        let sight2Y = sightKey.position.y.magnitude - player.position.y.magnitude
-        
-        if sightX.magnitude + sightY.magnitude < 100 && sight2X.magnitude + sight2Y.magnitude < 200{
-//            sightKey.alpha = 0
-            print("SK")
-            level.getKey(key: "SightKey")
-            showKeys()
-        }
-        
-        let soundX = soundKey.position.x.magnitude - npos.x.magnitude
-        let soundY = soundKey.position.y.magnitude - npos.y.magnitude
-        
-        let sound2X = soundKey.position.x.magnitude - player.position.x.magnitude
-        let sound2Y = soundKey.position.y.magnitude - player.position.y.magnitude
-        
-        if soundX.magnitude + soundY.magnitude < 100 && sound2X.magnitude + sound2Y.magnitude < 200{
-            //            sightKey.alpha = 0
-            print("AK")
-            level.getKey(key: "SoundKey")
-            showKeys()
-        }
-    }
+//    fileprivate func keyTouch() {
+//
+//        let hapticX = hapticKey.position.x.magnitude - npos.x.magnitude
+//        let haptixY = hapticKey.position.y.magnitude - npos.y.magnitude
+//
+//        let haptic2X = hapticKey.position.x.magnitude - player.position.x.magnitude
+//        let haptic2Y = hapticKey.position.y.magnitude - player.position.y.magnitude
+//
+//        if hapticX.magnitude + haptixY.magnitude < 100 && haptic2X.magnitude + haptic2Y.magnitude < 200{
+////            hapticKey.alpha = 0
+//            print("HK")
+//            level.getKey(key: "HapticKey")
+//            showKeys()
+//        }
+//
+//        let sightX = sightKey.position.x.magnitude - npos.x.magnitude
+//        let sightY = sightKey.position.y.magnitude - npos.y.magnitude
+//
+//        let sight2X = sightKey.position.x.magnitude - player.position.x.magnitude
+//        let sight2Y = sightKey.position.y.magnitude - player.position.y.magnitude
+//
+//        if sightX.magnitude + sightY.magnitude < 100 && sight2X.magnitude + sight2Y.magnitude < 200{
+////            sightKey.alpha = 0
+//            print("SK")
+//            level.getKey(key: "SightKey")
+//            showKeys()
+//        }
+//
+//        let soundX = soundKey.position.x.magnitude - npos.x.magnitude
+//        let soundY = soundKey.position.y.magnitude - npos.y.magnitude
+//
+//        let sound2X = soundKey.position.x.magnitude - player.position.x.magnitude
+//        let sound2Y = soundKey.position.y.magnitude - player.position.y.magnitude
+//
+//        if soundX.magnitude + soundY.magnitude < 100 && sound2X.magnitude + sound2Y.magnitude < 200{
+//            //            sightKey.alpha = 0
+//            print("AK")
+//            level.getKey(key: "SoundKey")
+//            showKeys()
+//        }
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             npos = touch.location(in: scene!)
             
-            keyTouch()
+ //           keyTouch()
           }
         move = true
     }
