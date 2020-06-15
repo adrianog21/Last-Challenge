@@ -15,16 +15,17 @@ weak var gamecontroller = GameViewController()
 class GameViewController: UIViewController {
     
     @IBOutlet weak var minutesLabel: UILabel!
-    
+    @IBOutlet weak var duePunti: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     
     var OurTimer = Timer()
-    var seconds = 60
-    var minutes = 15
+    var seconds = Int()
+    var minutes = Int()
     
     func startTimer() {
         if level.defaults.bool(forKey: "timer") == true{
             minutesLabel.isHidden = false
+            duePunti.isHidden = false
             secondsLabel.isHidden = false
             OurTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action) , userInfo: nil, repeats: true)
         }else{return}
@@ -34,7 +35,9 @@ class GameViewController: UIViewController {
     
     @objc func Action() {
         seconds -= 1
-        if seconds == 0 {
+        level.defaults.set(seconds, forKey: "seconds")
+        level.defaults.set(minutes, forKey: "minutes")
+        if seconds == -1 {
          minutes -= 1
             seconds = 59
         }
@@ -49,6 +52,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gamecontroller = self
+        
+            minutes = level.defaults.integer(forKey: "minutes")
+            seconds = level.defaults.integer(forKey: "seconds")
+        
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -78,6 +85,7 @@ class GameViewController: UIViewController {
                     
                     UIView.animate(withDuration: 3, animations: {self.blackView.alpha = 0})
                     minutesLabel.isHidden = true
+                    duePunti.isHidden = true
                     secondsLabel.isHidden = true
                     startTimer()
                 }

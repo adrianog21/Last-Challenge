@@ -11,7 +11,13 @@ import SpriteKit
 import GameplayKit
 
 
-class SightController: UIViewController {
+class SightController: UIViewController, TransitionDelegate {
+    func returnToMainMenu() {
+                
+                let VC = self.storyboard!.instantiateViewController(withIdentifier: level.nextScene) as! UINavigationController
+                self.navigationController?.present(VC, animated: false, completion: nil)
+    }
+    
     
 
     
@@ -21,6 +27,7 @@ class SightController: UIViewController {
         super.viewDidLoad()
 
         let scene = FirstSight(size: view.bounds.size)
+        scene.delegate = self as TransitionDelegate
         let skView = view as! SKView
         skView.preferredFramesPerSecond = 30
         skView.showsFPS = false

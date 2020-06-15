@@ -49,7 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1336B35A24950B7B0026EDF2 /* SightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightController.swift; sourceTree = "<group>"; };
+		1336B35A24950B7B0026EDF2 /* SightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SightController.swift; path = ../../SightController.swift; sourceTree = "<group>"; };
 		13534BB8247C0F0A0092B21B /* fourthHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fourthHaptic.sks; sourceTree = "<group>"; };
 		13B72C0A246D95D500732BC8 /* secondvc.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondvc.sks; sourceTree = "<group>"; };
 		13B72C0C246D974700732BC8 /* secondScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondScene.swift; sourceTree = "<group>"; };
@@ -156,7 +156,6 @@
 		7B5C62C4246D6269008244C0 = {
 			isa = PBXGroup;
 			children = (
-				1336B35A24950B7B0026EDF2 /* SightController.swift */,
 				7B5C62CF246D6269008244C0 /* NewMaze */,
 				7B5C62CE246D6269008244C0 /* Products */,
 				7B5C62D0246D6269008244C0 /* AppDelegate.swift */,
@@ -212,6 +211,7 @@
 		9A7501E32475692600D6B5B1 /* Sight */ = {
 			isa = PBXGroup;
 			children = (
+				1336B35A24950B7B0026EDF2 /* SightController.swift */,
 				9A5B48FF248FFC0800B04D50 /* FirstSight.swift */,
 				9A5B4901248FFC0800B04D50 /* SecondSight.swift */,
 				9A5B4900248FFC0800B04D50 /* ThirdSight.swift */,
