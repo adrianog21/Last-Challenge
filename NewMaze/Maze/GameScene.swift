@@ -13,101 +13,168 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    let hapticCategory:UInt32 = 0x1 << 0
-    let playerCategory:UInt32 = 0x1 << 1
-    let wallCategory:UInt32 = 0x1 << 2
-    let sightCategory:UInt32 = 0x1 << 4
-    let soundCategory:UInt32 = 0x1 << 8
-    
-    let velocity = CGFloat(7.5)
-    
-    var audioPlayer: AVAudioPlayer?
-    
-    var tileNodes = [SKSpriteNode]()
-    
-    var npos = CGPoint()
-    
-    let lightNode = SKLightNode()
-    let player = SKSpriteNode()
-    let pointing = SKSpriteNode()
-    
-    var hapticKey = SKSpriteNode()
-    var sightKey = SKSpriteNode()
-    var soundKey = SKSpriteNode()
-    
-    
-    var move = false
-    var getHaptic = false
-    var getSight = false
-    
-    var point = SKNode()
-    
-    let gameCamera = SKCameraNode()
-    
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+     let hapticCategory:UInt32 = 0x1 << 0
+       let playerCategory:UInt32 = 0x1 << 1
+       let wallCategory:UInt32 = 0x1 << 2
+       let sightCategory:UInt32 = 0x1 << 4
+       let soundCategory:UInt32 = 0x1 << 8
+       
+       let velocity = CGFloat(7.5)
+       
+       var sightD = CGFloat()
+       var soundD = CGFloat()
+       var hapticD = CGFloat()
+       
+       var audioPlayer: AVAudioPlayer?
+       var soundAudio: AVAudioPlayer?
+       
+       var tileNodes = [SKSpriteNode]()
+       
+       var npos = CGPoint()
+       var keyPosition = CGPoint()
+       
+       let lightNode = SKLightNode()
+       let player = SKSpriteNode()
+       let pointing = SKSpriteNode()
+       
+       let arrow = SKSpriteNode()
+       let body1 = SKSpriteNode()
+       let body2 = SKSpriteNode()
+       let body3 = SKSpriteNode()
+       let head1 = SKSpriteNode()
+       let head2 = SKSpriteNode()
+       let head3 = SKSpriteNode()
+       
+       var hapticKey = SKSpriteNode()
+       var sightKey = SKSpriteNode()
+       var soundKey = SKSpriteNode()
+       
+       var exit = SKSpriteNode()
+       
+       //BOOL
+       var move = false
+       var getHaptic = false
+       var getSight = false
+       
+       var soundPlay = true
+       var sightShow = true
+       var hapticVibrate = true
+       
+       var point = SKNode()
+       
+       let gameCamera = SKCameraNode()
+       
+       private var lastUpdateTime : TimeInterval = 0
+       private var label : SKLabelNode?
+       private var spinnyNode : SKShapeNode?
     
     //Scene
-    override func sceneDidLoad() {
-
-        self.lastUpdateTime = 0
-
-        lightNode.position = CGPoint(x: 0, y: 0)
-        lightNode.categoryBitMask = 0b0001
-        lightNode.lightColor = .white
-        lightNode.falloff = 1.3
-//        scene!.addChild(lightNode)
-        
-        pointing.position = CGPoint(x: 0, y: 64)
-//        pointing.color = .white
-        pointing.size = CGSize(width: 10, height: 35)
-        pointing.physicsBody = SKPhysicsBody(rectangleOf: pointing.size)
-        pointing.physicsBody?.affectedByGravity = false
-        pointing.physicsBody?.contactTestBitMask = hapticCategory
-        pointing.physicsBody?.collisionBitMask = playerCategory
-        pointing.physicsBody?.categoryBitMask = playerCategory
-        let constraint = SKConstraint.distance(SKRange(lowerLimit: 50 , upperLimit: 72), to: player)
-        pointing.constraints = [constraint]
-
-        
-        player.texture = SKTexture(imageNamed: "sphere cream.png")
-//        player.size = CGSize(width: 80, height: 80)
-        player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
-        player.physicsBody?.affectedByGravity = false
-        player.physicsBody?.allowsRotation = false
-        
-        var textures:[SKTexture] = []
-        for i in 1...5 {
-            textures.append(SKTexture(imageNamed: "player\(i)"))
+        fileprivate func createPlayer() {
+            lightNode.position = CGPoint(x: 0, y: 0)
+            lightNode.categoryBitMask = 0b0001
+            lightNode.lightColor = .white
+            lightNode.falloff = 1.3
+            //        scene!.addChild(lightNode)
+            
+            pointing.position = CGPoint(x: 0, y: 64)
+            //        pointing.color = .white
+            pointing.size = CGSize(width: 10, height: 35)
+            pointing.physicsBody = SKPhysicsBody(rectangleOf: pointing.size)
+            pointing.physicsBody?.affectedByGravity = false
+            pointing.physicsBody?.contactTestBitMask = hapticCategory
+            pointing.physicsBody?.collisionBitMask = playerCategory
+            pointing.physicsBody?.categoryBitMask = playerCategory
+            let constraint = SKConstraint.distance(SKRange(lowerLimit: 50 , upperLimit: 72), to: player)
+            pointing.constraints = [constraint]
+            
+            
+            player.texture = SKTexture(imageNamed: "sphere cream.png")
+            //        player.size = CGSize(width: 80, height: 80)
+            player.physicsBody = SKPhysicsBody(circleOfRadius: 25)
+            player.physicsBody?.affectedByGravity = false
+            player.physicsBody?.allowsRotation = false
+            
+            var textures:[SKTexture] = []
+            for i in 1...5 {
+                textures.append(SKTexture(imageNamed: "player\(i)"))
+            }
+            textures.append(textures[3])
+            textures.append(textures[2])
+            textures.append(textures[1])
+            
+            let playerAnimation = SKAction.animate(with: textures, timePerFrame: 0.1)
+            //        let rotatePlayer = SKAction.rotate(byAngle: 90, duration: 1)
+            
+            scene!.addChild(player)
+            player.addChild(lightNode)
+            player.addChild(pointing)
+            player.run(SKAction.repeatForever(playerAnimation))
         }
-        textures.append(textures[3])
-        textures.append(textures[2])
-        textures.append(textures[1])
         
-        let playerAnimation = SKAction.animate(with: textures, timePerFrame: 0.1)
-//        let rotatePlayer = SKAction.rotate(byAngle: 90, duration: 1)
+        fileprivate func pointingArrow() {
+            body1.texture = SKTexture(imageNamed: "arrowBody")
+            body1.size = body1.texture?.size() as! CGSize
+            body1.position = CGPoint(x: 0, y: 100)
+    //        body1.alpha = 0
+            
+            body2.texture = SKTexture(imageNamed: "arrowBody")
+            body2.size = body1.texture?.size() as! CGSize
+            body2.position = CGPoint(x: 0, y: 120)
+    //        body2.alpha = 0
+            
+            body3.texture = SKTexture(imageNamed: "arrowBody")
+            body3.size = body1.texture?.size() as! CGSize
+            body3.position = CGPoint(x: 0, y: 140)
+    //        body3.alpha = 0
+            
+            head1.texture = SKTexture(imageNamed: "arrowBody")
+            head1.size = body1.texture?.size() as! CGSize
+            head1.position = CGPoint(x: 15, y: 150)
+            head1.zRotation = -40
+    //        head1.alpha = 0
+            
+            head2.texture = SKTexture(imageNamed: "arrowBody")
+            head2.size = body1.texture?.size() as! CGSize
+            head2.position = CGPoint(x: -15, y: 150)
+            head2.zRotation = 40
+    //        head2.alpha = 0
+            
+            head3.texture = SKTexture(imageNamed: "arrowHead")
+            head3.size = head3.texture?.size() as! CGSize
+            head3.position = CGPoint(x: 0, y: 160)
+    //        head3.alpha = 0
+            arrow.alpha = 0
+            
+            arrow.position = CGPoint(x: 0, y: 0)
+            arrow.zRotation = 0
+            arrow.addChild(body1)
+            arrow.addChild(body2)
+            arrow.addChild(body3)
+            arrow.addChild(head1)
+            arrow.addChild(head2)
+            arrow.addChild(head3)
+            player.addChild(arrow)
+        }
         
-        scene!.addChild(player)
-        player.addChild(lightNode)
-        player.addChild(pointing)
-        player.run(SKAction.repeatForever(playerAnimation))
-//        player.run(SKAction.repeatForever(rotatePlayer))
-        
-        scene!.addChild(gameCamera)
-        camera = gameCamera
-        gameCamera.xScale = gameCamera.xScale * 1.9
-        gameCamera.yScale = gameCamera.yScale * 1.9
-        
-        let emitter = SKEmitterNode(fileNamed: "Dust")
-        emitter?.position = .zero
-        emitter?.advanceSimulationTime(30)
-        addChild(emitter!)
-        
-        showKeys()
+        override func sceneDidLoad() {
 
-        
-         }
+            self.lastUpdateTime = 0
+
+            createPlayer()
+
+            pointingArrow()
+            
+            scene!.addChild(gameCamera)
+            camera = gameCamera
+            gameCamera.xScale = gameCamera.xScale * 1.9
+            gameCamera.yScale = gameCamera.yScale * 1.9
+            
+            let emitter = SKEmitterNode(fileNamed: "Dust")
+            emitter?.position = .zero
+            emitter?.advanceSimulationTime(30)
+            addChild(emitter!)
+            
+             }
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -191,6 +258,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
+            if node.name == "Exit"{
+                if let door:SKSpriteNode = node as? SKSpriteNode{
+                    
+                    exit = door
+                    exit.lightingBitMask = 1
+                    exit.zPosition = 15
+                    if level.defaults.bool(forKey: "timer") == true {
+                        exit.isHidden = false
+                        exit.alpha = 0
+                    }
+                    if level.defaults.bool(forKey: "exit") == true{
+                        exit.isHidden = false
+                        print("1")
+                    }else{
+                        exit.isHidden = true
+                        print("11")
+
+                    }
+                }
+            }
+            
             if node.name == "HapticKey"{
                 if let hk:SKSpriteNode = node as? SKSpriteNode{
                     hapticKey = hk
@@ -202,6 +290,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let sk:SKSpriteNode = node as? SKSpriteNode{
                     sightKey = sk
                     sightKey.position = sk.position
+                    keyPosition = sk.position
                    
                 }
             }
@@ -214,6 +303,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         }
+        showKeys()
         
     }
         
@@ -296,7 +386,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            }
        
        }
-    
     
     
     func touchDown(atPoint pos : CGPoint) {
@@ -421,54 +510,149 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func update(_ currentTime: TimeInterval) {
-      
-        playerMovement()
-       
-        showShadows()
+       fileprivate func searchKeys() {
+            let soundX = soundKey.position.x - player.position.x
+            let soundY = soundKey.position.y - player.position.y
+            soundD = soundX.magnitude + soundY.magnitude
+            
+            let hapticX = hapticKey.position.x - player.position.x
+            let hapticY = hapticKey.position.y - player.position.y
+            hapticD = hapticX.magnitude + hapticY.magnitude
+            
+            let sightX = sightKey.position.x.magnitude - player.position.x.magnitude
+            let sightY = sightKey.position.y.magnitude - player.position.y.magnitude
+            sightD = sightX.magnitude + sightY.magnitude
+            
+            if level.defaults.bool(forKey: "HapticKey") == false{
+            if hapticD < 1500 && hapticVibrate == true {
+                _ = Timer.scheduledTimer(timeInterval: TimeInterval(hapticD / 500), target: self, selector: #selector(vibrate), userInfo: nil, repeats: false)
+                hapticVibrate = false
                 
-    }
+                if hapticD < 50{
+                    level.getKey(key: "HapticKey")
+                    showKeys()
+                    
+                    if level.defaults.bool(forKey: "exit") == true{
+                        exit.isHidden = false
+                    }
+                }
+                }
+            }
+            if level.defaults.bool(forKey: "SightKey") == false{
+            if sightD < 1500 && sightShow == true {
+               _ = Timer.scheduledTimer(timeInterval: TimeInterval(sightD / 500), target: self, selector: #selector(show), userInfo: nil, repeats: false)
+               sightShow = false
+                
+                if sightD < 50{
+                    level.getKey(key: "SightKey")
+                    showKeys()
+                    if level.defaults.bool(forKey: "exit") == true{
+                        exit.isHidden = false
+                    }
+                }
+            }
+            }
+            if level.defaults.bool(forKey: "SoundKey") == false{
+            if soundD < 1500 && soundPlay == true{
+                _ = Timer.scheduledTimer(timeInterval: TimeInterval(soundD / 500), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+                soundPlay = false
+                
+                if soundD < 50{
+                    level.getKey(key: "SoundKey")
+                    showKeys()
+                    
+                }
+            }
+            }
+        }
+        
+        @objc func vibrate(){
+            let impact = UIImpactFeedbackGenerator()
+            impact.impactOccurred(intensity: 10)
+    //        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            hapticVibrate = true
+        }
+        
+        @objc func show(){
+            
+            
+            let angleArrow = atan2((keyPosition.y - player.position.y) , (keyPosition.x - player.position.x))
+            arrow.zRotation = angleArrow - 1.5708
+            
+            let wait = sightD / 3000
+    //
+    //        let n1 = SKAction.sequence([SKAction.wait(forDuration: TimeInterval(wait)), SKAction.fadeIn(withDuration: TimeInterval(0.1)), SKAction.wait(forDuration: TimeInterval(wait * 5)), SKAction.fadeOut(withDuration: TimeInterval(0.1))])
+            
+            let n1 = SKAction.sequence([SKAction.fadeIn(withDuration: TimeInterval(wait)), SKAction.wait(forDuration: TimeInterval(wait)), SKAction.fadeOut(withDuration: TimeInterval(wait))])
+            arrow.run(n1)
+    //
+    //        let n2 = SKAction.sequence([SKAction.wait(forDuration: TimeInterval(wait * 2)), SKAction.fadeIn(withDuration: TimeInterval(0.1)), SKAction.wait(forDuration: TimeInterval(wait * 5)), SKAction.fadeOut(withDuration: TimeInterval(0.1))])
+    //        body2.run(n2)
+    //
+    //        let n3 = SKAction.sequence([SKAction.wait(forDuration: TimeInterval(wait * 3)), SKAction.fadeIn(withDuration: TimeInterval(0.1)), SKAction.wait(forDuration: TimeInterval(wait * 5)), SKAction.fadeOut(withDuration: TimeInterval(0.1))])
+    //        body3.run(n3)
+    //
+    //        let n4 = SKAction.sequence([SKAction.wait(forDuration: TimeInterval(wait * 4)), SKAction.fadeIn(withDuration: TimeInterval(0.1)), SKAction.wait(forDuration: TimeInterval(wait * 5)), SKAction.fadeOut(withDuration: TimeInterval(0.1))])
+    //        head1.run(n4)
+    //        head2.run(n4)
+    //
+    //        let n6 = SKAction.sequence([SKAction.wait(forDuration: TimeInterval(wait * 5)), SKAction.fadeIn(withDuration: TimeInterval(0.1)), SKAction.wait(forDuration: TimeInterval(wait * 5)), SKAction.fadeOut(withDuration: TimeInterval(0.1))])
+    //        head3.run(n6)
+    //
+    //
+            sightShow = true
+        }
+        
+        @objc func play(){
+            let music = Bundle.main.path(forResource: "beep.mp3", ofType: nil)
+            let url = URL(fileURLWithPath: music!)
+            do {
+                self.soundAudio = try AVAudioPlayer(contentsOf: url)
+                self.soundAudio?.play()
+                //print("playA")
+                self.soundPlay = false
+            } catch {
+                print(error)
+            }
+            soundPlay = true
+        }
+        
+        override func update(_ currentTime: TimeInterval) {
+          
+            playerMovement()
+           
+            showShadows()
+                    
+            if level.defaults.bool(forKey: "timer") == true {
+
+                searchKeys()
+                if level.defaults.bool(forKey: "exit") == true{
+                    exit.isHidden = false
+                    exit.run(SKAction.fadeIn(withDuration: 1))
+                    print("aaa")
+                }
+            }
+        }
     
     func showKeys(){
-//        if level.defaults.bool(forKey: "SightKey") == true || level.defaults.bool(forKey: "SightGame") == false {
-//            sightKey.isHidden = true
-//        }
-//
-//        if level.defaults.bool(forKey: "HapticKey") == true || level.defaults.bool(forKey: "HapticGame") == false {
-//            hapticKey.isHidden = true
-//        }
-//
-//        if level.defaults.bool(forKey: "SoundKey") == true || level.defaults.bool(forKey: "SoundGame") == false {
-//                   soundKey.isHidden = true
-//               }
-        if level.defaults.bool(forKey: "timer") == true {
-            if level.defaults.bool(forKey: "SightKey") == true{
-                sightKey.isHidden = true
-            }
-            
-            if level.defaults.bool(forKey: "HapticKey") == true{
-                hapticKey.isHidden = true
-            }
-            
-            if level.defaults.bool(forKey: "SoundKey") == true{
-                soundKey.isHidden = true
-            }
-        }else {
-            hapticKey.isHidden = true
-            soundKey.isHidden = true
-            sightKey.isHidden = true
-        }
-               
-//        if level.defaults.bool(forKey: "timer") == true{
-//            soundKey.isHidden = false
-//            sightKey.isHidden = false
-//            hapticKey.isHidden = false
-//        }else{
-//            hapticKey.isHidden = true
-//            sightKey.isHidden = true
-//            soundKey.isHidden = true
-//        }
         
+        if level.defaults.bool(forKey: "timer") == true {
+                   if level.defaults.bool(forKey: "SightKey") == true{
+                       sightKey.isHidden = true
+                   }else{ sightKey.isHidden = false}
+                   
+                   if level.defaults.bool(forKey: "HapticKey") == true{
+                       hapticKey.isHidden = true
+                   }else{ hapticKey.isHidden = false}
+                   
+                   if level.defaults.bool(forKey: "SoundKey") == true{
+                       soundKey.isHidden = true
+                   }else{ soundKey.isHidden = false}
+               }else {
+                   hapticKey.isHidden = true
+                   soundKey.isHidden = true
+                   sightKey.isHidden = true
+               }
     }
     
     fileprivate func enterAudio() {

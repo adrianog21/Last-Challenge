@@ -32,7 +32,6 @@ struct Level {
         defaults.bool(forKey: "FirstWin")
         defaults.bool(forKey: "FirstLose")
         defaults.bool(forKey: "Allgames")
-      
     }
     
     mutating func lastX(xPos: Float) {
@@ -66,6 +65,10 @@ struct Level {
         print(defaults.bool(forKey: key))
         defaults.set(true, forKey: key)
         print(defaults.bool(forKey: key))
+        
+        if defaults.bool(forKey: "HapticKey") == true && defaults.bool(forKey: "SightKey") == true && defaults.bool(forKey: "SoundKey") == true {
+                  defaults.set(true, forKey: "exit")
+              }
     }
     
     mutating func getMinigame(game : String){
