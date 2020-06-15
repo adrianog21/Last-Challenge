@@ -27,6 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
        var audioPlayer: AVAudioPlayer?
        var soundAudio: AVAudioPlayer?
+       var soundAudio2: AVAudioPlayer?
        
        var tileNodes = [SKSpriteNode]()
        
@@ -552,7 +553,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if hapticD < 50{
                     level.getKey(key: "HapticKey")
                     showKeys()
-                    
+                    let music = Bundle.main.path(forResource: "01.wav", ofType: nil)
+                    let url = URL(fileURLWithPath: music!)
+                    do {
+                        self.soundAudio = try AVAudioPlayer(contentsOf: url)
+                        self.soundAudio?.play()
+                        //print("playA")
+                    } catch {
+                        print(error)
+                    }
+                    let impact = UIImpactFeedbackGenerator()
+                    impact.impactOccurred(intensity: 10)
                     if level.defaults.bool(forKey: "exit") == true{
                         exit.isHidden = false
                     }
@@ -567,6 +578,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if sightD < 50{
                     level.getKey(key: "SightKey")
                     showKeys()
+                    let music = Bundle.main.path(forResource: "01.wav", ofType: nil)
+                    let url = URL(fileURLWithPath: music!)
+                    do {
+                        self.soundAudio = try AVAudioPlayer(contentsOf: url)
+                        self.soundAudio?.play()
+                        //print("playA")
+                    } catch {
+                        print(error)
+                    }
+                    let impact = UIImpactFeedbackGenerator()
+                    impact.impactOccurred(intensity: 10)
                     if level.defaults.bool(forKey: "exit") == true{
                         exit.isHidden = false
                     }
@@ -581,7 +603,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if soundD < 50{
                     level.getKey(key: "SoundKey")
                     showKeys()
-                    
+                    let music = Bundle.main.path(forResource: "01.wav", ofType: nil)
+                               let url = URL(fileURLWithPath: music!)
+                               do {
+                                   self.soundAudio = try AVAudioPlayer(contentsOf: url)
+                                   self.soundAudio?.play()
+                                   //print("playA")
+                               } catch {
+                                   print(error)
+                               }
+                    let impact = UIImpactFeedbackGenerator()
+                    impact.impactOccurred(intensity: 10)
+                    if level.defaults.bool(forKey: "exit") == true{
+                        exit.isHidden = false
+                    }
                 }
             }
             }
@@ -628,8 +663,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let music = Bundle.main.path(forResource: "beep.mp3", ofType: nil)
             let url = URL(fileURLWithPath: music!)
             do {
-                self.soundAudio = try AVAudioPlayer(contentsOf: url)
-                self.soundAudio?.play()
+                self.soundAudio2 = try AVAudioPlayer(contentsOf: url)
+                self.soundAudio2?.play()
                 //print("playA")
                 self.soundPlay = false
             } catch {

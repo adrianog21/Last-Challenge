@@ -125,7 +125,8 @@ class SoundScene: SKScene {
         
         lives = 3
         livesText = SKLabelNode(text: "\(lives)")
-        livesText.position = CGPoint(x: heart.position.x + 39, y: heart.position.y)
+        livesText.position = CGPoint(x: heart.position.x + 30, y: heart.position.y - 7)
+        livesText.fontSize = 17
         addChild(livesText)
         
     }
@@ -182,6 +183,21 @@ class SoundScene: SKScene {
             })
             soundPos = CGFloat.random(in: -175...175)
             print(soundPos)
+        } else {
+            lives -= 1
+            if lives == 0 {
+                level.newScene(scene: "Win")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                    {
+                        let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
+                        vc.view.frame = (self.view?.frame)!
+                        vc.view.layoutIfNeeded()
+                        self.view?.window?.rootViewController = vc
+                }, completion: { completed in
+                })
+            }
         }
     }
     
@@ -221,7 +237,8 @@ class SoundScene: SKScene {
         roseAngle()
         soundDirection()
         
-        
+        livesText = SKLabelNode(text: "\(lives)")
+
     }
     
     fileprivate func roseAngle() {

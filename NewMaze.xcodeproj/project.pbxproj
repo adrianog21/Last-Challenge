@@ -37,6 +37,7 @@
 		7B5C62E9246D62DD008244C0 /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B5C62E8246D62DD008244C0 /* MyTileSet.sks */; };
 		7B5C62ED246D79C4008244C0 /* secondvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62EC246D79C4008244C0 /* secondvc.swift */; };
 		7B79BBE42497CFE4000DFF82 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B79BBE32497CFE4000DFF82 /* beep.mp3 */; };
+		7B79BBE624980871000DFF82 /* 01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B79BBE524980871000DFF82 /* 01.wav */; };
 		7BC910C9247ED1D9000D5979 /* unsecure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BC910C8247ED1D9000D5979 /* unsecure.mp3 */; };
 		7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BC910CA247ED1EB000D5979 /* enter.mp3 */; };
 		7BE02ED12481A7B100E21A65 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE02ED02481A7B100E21A65 /* Level.swift */; };
@@ -82,6 +83,7 @@
 		7B5C62E8246D62DD008244C0 /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		7B5C62EC246D79C4008244C0 /* secondvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondvc.swift; sourceTree = "<group>"; };
 		7B79BBE32497CFE4000DFF82 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		7B79BBE524980871000DFF82 /* 01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 01.wav; sourceTree = "<group>"; };
 		7BC910C8247ED1D9000D5979 /* unsecure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unsecure.mp3; sourceTree = "<group>"; };
 		7BC910CA247ED1EB000D5979 /* enter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = enter.mp3; sourceTree = "<group>"; };
 		7BE02ED02481A7B100E21A65 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC910CA247ED1EB000D5979 /* enter.mp3 */,
+				7B79BBE524980871000DFF82 /* 01.wav */,
 				7B79BBE32497CFE4000DFF82 /* beep.mp3 */,
 				7BC910C8247ED1D9000D5979 /* unsecure.mp3 */,
 			);
@@ -296,6 +299,7 @@
 				13534BB9247C0F0A0092B21B /* fourthHaptic.sks in Resources */,
 				13B72C0B246D95D500732BC8 /* secondvc.sks in Resources */,
 				7B5C62DE246D626B008244C0 /* Assets.xcassets in Resources */,
+				7B79BBE624980871000DFF82 /* 01.wav in Resources */,
 				7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */,
 				7B1D3A4A2476B0F900588D10 /* Dust.sks in Resources */,
 				7B1D3A4B2476B0F900588D10 /* Assets.xcassets in Resources */,

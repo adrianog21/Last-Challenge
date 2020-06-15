@@ -26,7 +26,6 @@ class FirstSight: SKScene {
                 lives -= 1
                 if lives == 0 {
                     lives = 3
-                    showLives(livesInScene: lives, heart: heartBeating())
                     level.newScene(scene: "Lose")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
@@ -93,7 +92,6 @@ class FirstSight: SKScene {
                 }
             }
             else{
-                showLives(livesInScene: lives, heart: heartBeating())
                 let movementLable = SKAction.move(to: CGPoint(x: size.width/2, y: size.height/2), duration: 2)
                 let gameover = SKSpriteNode(imageNamed: "GameOver")
                 gameover.position = CGPoint(x: size.width/2, y: size.height+30)

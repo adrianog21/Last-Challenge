@@ -38,10 +38,9 @@ class FourthSight: SKScene {
                 
             }
             else if node.name == "NO"{
-                lives -= 1
-                if lives == 0 {
+                lives4 -= 1
+                if lives4 == 0 {
                     lives = 3
-                    showLives(livesInScene: lives4, heart: heartBeating())
                     level.newScene(scene: "Lose")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     
@@ -54,7 +53,7 @@ class FourthSight: SKScene {
                     }, completion: { completed in
                     })
                 }else {
-                    let scene:SKScene = FirstSight(size: self.size)
+                    let scene:SKScene = FourthSight(size: self.size)
                     self.view?.presentScene(scene)
                 }
             }

@@ -22,8 +22,8 @@ class ThirdSight: SKScene {
                 print("SI")
             }
             else if node.name == "NO"{
-                lives -= 1
-                if lives == 0 {
+                lives3 -= 1
+                if lives3 == 0 {
                     lives = 3
                     level.newScene(scene: "Lose")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -37,7 +37,7 @@ class ThirdSight: SKScene {
                     }, completion: { completed in
                     })
                 }else {
-                    let scene:SKScene = FirstSight(size: self.size)
+                    let scene:SKScene = ThirdSight(size: self.size)
                     self.view?.presentScene(scene)
                 }
             }
