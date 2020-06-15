@@ -76,7 +76,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lightNode.falloff = 1.3
             //        scene!.addChild(lightNode)
             
-            pointing.position = CGPoint(x: 0, y: 64)
+            pointing.position = CGPoint(x: 0, y: 72)
             //        pointing.color = .white
             pointing.size = CGSize(width: 10, height: 35)
             pointing.physicsBody = SKPhysicsBody(rectangleOf: pointing.size)
@@ -86,6 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             pointing.physicsBody?.categoryBitMask = playerCategory
             let constraint = SKConstraint.distance(SKRange(lowerLimit: 50 , upperLimit: 72), to: player)
             pointing.constraints = [constraint]
+            point.zRotation = 0
             
             
             player.texture = SKTexture(imageNamed: "sphere cream.png")
@@ -147,6 +148,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             arrow.position = CGPoint(x: 0, y: 0)
             arrow.zRotation = 0
+            arrow.zPosition = 3
             arrow.addChild(body1)
             arrow.addChild(body2)
             arrow.addChild(body3)
@@ -207,54 +209,72 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if (node.name == "HapticUp") {
                 if let scar:SKSpriteNode = node as? SKSpriteNode{
                     
-                    scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-                    
-                    scar.physicsBody?.isDynamic = false
-                    scar.lightingBitMask = 1
-                    scar.physicsBody?.categoryBitMask = hapticCategory
-                    scar.physicsBody?.contactTestBitMask = playerCategory
+                    if level.defaults.bool(forKey: "HapticGame") == true{
+                        scar.isHidden = true
+                    }else{
+                        scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                        
+                        scar.physicsBody?.isDynamic = false
+                        scar.lightingBitMask = 1
+                        scar.physicsBody?.categoryBitMask = sightCategory
+                        scar.physicsBody?.contactTestBitMask = playerCategory
+                    }
                 }
             }else if node.name == "HapticDown"{
                 if let scar:SKSpriteNode = node as? SKSpriteNode{
                     
                     scar.lightingBitMask = 1
-                    
+                    if level.defaults.bool(forKey: "HapticGame") == true{
+                        scar.isHidden = true
+                    }
                 }
             }
             
             if (node.name == "SightUp") {
                 if let scar:SKSpriteNode = node as? SKSpriteNode{
                     
-                    scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-                    
-                    scar.physicsBody?.isDynamic = false
-                    scar.lightingBitMask = 1
-                    scar.physicsBody?.categoryBitMask = sightCategory
-                    scar.physicsBody?.contactTestBitMask = playerCategory
+                    if level.defaults.bool(forKey: "SightGame") == true{
+                        scar.isHidden = true
+                    }else{
+                        scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                        
+                        scar.physicsBody?.isDynamic = false
+                        scar.lightingBitMask = 1
+                        scar.physicsBody?.categoryBitMask = sightCategory
+                        scar.physicsBody?.contactTestBitMask = playerCategory
+                    }
                 }
             }else if node.name == "SightDown"{
                 if let scar:SKSpriteNode = node as? SKSpriteNode{
                     
                     scar.lightingBitMask = 1
-                    
+                    if level.defaults.bool(forKey: "SightGame") == true{
+                        scar.isHidden = true
+                    }
                 }
             }
             
             if (node.name == "SoundUp") {
                 if let scar:SKSpriteNode = node as? SKSpriteNode{
                     
-                    scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
-                    
-                    scar.physicsBody?.isDynamic = false
-                    scar.lightingBitMask = 1
-                    scar.physicsBody?.categoryBitMask = soundCategory
-                    scar.physicsBody?.contactTestBitMask = playerCategory
+                    if level.defaults.bool(forKey: "SoundGame") == true{
+                        scar.isHidden = true
+                    }else{
+                        scar.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                        
+                        scar.physicsBody?.isDynamic = false
+                        scar.lightingBitMask = 1
+                        scar.physicsBody?.categoryBitMask = sightCategory
+                        scar.physicsBody?.contactTestBitMask = playerCategory
+                    }
                 }
             }else if node.name == "SoundDown"{
                 if let scar:SKSpriteNode = node as? SKSpriteNode{
                     
                     scar.lightingBitMask = 1
-                    
+                    if level.defaults.bool(forKey: "SoundGame") == true{
+                        scar.isHidden = true
+                    }
                 }
             }
             
@@ -349,6 +369,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         scene!.run(action, completion:
                             {
                                 tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
+                                tileNode.physicsBody?.categoryBitMask = self.wallCategory
                               
                                 tileNode.physicsBody?.isDynamic = false
                                 tileNode.lightingBitMask = 1
@@ -672,7 +693,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let collisionB:UInt32 = contact.bodyB.categoryBitMask
         
         if collisionA == playerCategory && collisionB == hapticCategory {
-            level.lastY(yPos: Float(player.position.y - 30))
+            level.lastY(yPos: Float(player.position.y - 40))
 
             gamecontroller?.newScene(scene: "Haptic")
             
@@ -681,7 +702,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enterAudio()
         }
         if collisionA == playerCategory && collisionB == sightCategory {
-            level.lastY(yPos: Float(player.position.y - 30))
+            level.lastY(yPos: Float(player.position.y - 40))
 
             gamecontroller?.newScene(scene: "Sight")
             
@@ -690,7 +711,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enterAudio()
         }
         if collisionA == playerCategory && collisionB == soundCategory {
-            level.lastY(yPos: Float(player.position.y - 30))
+            level.lastY(yPos: Float(player.position.y - 40))
 
             gamecontroller?.newScene(scene: "Sound")
             

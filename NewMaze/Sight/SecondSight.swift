@@ -24,6 +24,7 @@ class SecondSight: SKScene {
             else if node.name == "NO"{
                 lives -= 1
                 if lives == 0 {
+                    lives = 3
                     level.newScene(scene: "Lose")
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     

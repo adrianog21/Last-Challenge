@@ -27,6 +27,9 @@ class SoundScene: SKScene {
     var din5 = SKSpriteNode()
     var din6 = SKSpriteNode()
     
+    var livesText = SKLabelNode()
+    var lives = Int()
+    
     var clock = SKSpriteNode()
     
     var heart = SKSpriteNode()
@@ -112,10 +115,6 @@ class SoundScene: SKScene {
         heart.size = CGSize(width: (heart.texture?.size().width)! * 0.7, height: (heart.texture?.size().height)! * 0.7)
         addChild(heart)
         
-//        1.1
-//        1.05
-//        1
-        
         let bigger = SKAction.scale(to: 1.2, duration: 0.2)
         let smaller = SKAction.scale(to: 1.1, duration: 0.1)
         let normale = SKAction.scale(to: 1, duration: 0.2)
@@ -123,6 +122,11 @@ class SoundScene: SKScene {
         let animation = SKAction.sequence([bigger, smaller, bigger, normale, wait])
         let loop = SKAction.repeatForever(animation)
         heart.run(loop)
+        
+        lives = 3
+        livesText = SKLabelNode(text: "\(lives)")
+        livesText.position = CGPoint(x: heart.position.x + 39, y: heart.position.y)
+        addChild(livesText)
         
     }
     
@@ -166,9 +170,16 @@ class SoundScene: SKScene {
             level.lastY(yPos: Float(level.getPosition().y - 30))
             level.getMinigame(game: "SoundGame")
             level.newScene(scene: "Win")
-            guard let delegate = self.delegate else { return }
-            self.view?.presentScene(nil)
-            (delegate as! TransitionDelegate).returnToMainMenu()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                {
+                    let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
+                    vc.view.frame = (self.view?.frame)!
+                    vc.view.layoutIfNeeded()
+                    self.view?.window?.rootViewController = vc
+            }, completion: { completed in
+            })
             soundPos = CGFloat.random(in: -175...175)
             print(soundPos)
         }
