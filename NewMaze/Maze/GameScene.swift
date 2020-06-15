@@ -216,7 +216,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         
                         scar.physicsBody?.isDynamic = false
                         scar.lightingBitMask = 1
-                        scar.physicsBody?.categoryBitMask = sightCategory
+                        scar.physicsBody?.categoryBitMask = hapticCategory
                         scar.physicsBody?.contactTestBitMask = playerCategory
                     }
                 }
@@ -264,7 +264,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         
                         scar.physicsBody?.isDynamic = false
                         scar.lightingBitMask = 1
-                        scar.physicsBody?.categoryBitMask = sightCategory
+                        scar.physicsBody?.categoryBitMask = soundCategory
                         scar.physicsBody?.contactTestBitMask = playerCategory
                     }
                 }
