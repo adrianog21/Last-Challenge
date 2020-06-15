@@ -84,7 +84,7 @@ class GameViewController: UIViewController {
                     view.showsFPS = true
 //                    view.showsNodeCount = true
                     
-                    view.showsPhysics = false
+                    view.showsPhysics = true
                     
                     UIView.animate(withDuration: 3, animations: {self.blackView.alpha = 0})
                     minutesLabel.isHidden = true
@@ -100,8 +100,8 @@ class GameViewController: UIViewController {
             print(scene)
 
             if scene == "MazeGame"{
-                _ = navigationController?.popViewController(animated: true)
-                _ = navigationController?.popToRootViewController(animated: true)
+                let VC = self.storyboard!.instantiateViewController(withIdentifier: level.nextScene) as! UINavigationController
+                self.navigationController?.present(VC, animated: false, completion: nil)
             }else{
 //            let VC = UIStoryboard(name: "Main", bundle:  Bundle.main).instantiateViewController(withIdentifier: scene) as? UINavigationController
 //            print(VC as Any)

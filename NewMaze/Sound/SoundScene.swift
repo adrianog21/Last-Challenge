@@ -52,37 +52,37 @@ class SoundScene: SKScene {
         button.name = "button"
         addChild(button)
         
-        din.texture = SKTexture(imageNamed: "plumbobùùù")
+        din.texture = SKTexture(imageNamed: "plumbobu")
         din.size = CGSize(width: 14, height: 22)
         din.position = CGPoint(x: 0, y: 143)
         din.xScale = CGFloat(1)
         rose.addChild(din)
         
-        din2.texture = SKTexture(imageNamed: "plumbobùùù")
+        din2.texture = SKTexture(imageNamed: "plumbobu")
         din2.size = CGSize(width: 14, height: 22)
         din2.position = CGPoint(x: 0, y: 143)
         din2.xScale = CGFloat(-1)
         rose.addChild(din2)
         
-        din3.texture = SKTexture(imageNamed: "plumbobùùù")
+        din3.texture = SKTexture(imageNamed: "plumbobu")
         din3.size = CGSize(width: 14, height: 22)
         din3.position = CGPoint(x: 0, y: 143)
         din3.xScale = CGFloat(0.75)
         rose.addChild(din3)
         
-        din4.texture = SKTexture(imageNamed: "plumbobùùù")
+        din4.texture = SKTexture(imageNamed: "plumbobu")
         din4.size = CGSize(width: 14, height: 22)
         din4.position = CGPoint(x: 0, y: 143)
         din4.xScale = CGFloat(0.25)
         rose.addChild(din4)
         
-        din5.texture = SKTexture(imageNamed: "plumbobùùù")
+        din5.texture = SKTexture(imageNamed: "plumbobu")
         din5.size = CGSize(width: 14, height: 22)
         din5.position = CGPoint(x: 0, y: 143)
         din5.xScale = CGFloat(-0.25)
         rose.addChild(din5)
         
-        din6.texture = SKTexture(imageNamed: "plumbobùùù")
+        din6.texture = SKTexture(imageNamed: "plumbobu")
         din6.size = CGSize(width: 14, height: 22)
         din6.position = CGPoint(x: 0, y: 143)
         din6.xScale = CGFloat(-0.75)

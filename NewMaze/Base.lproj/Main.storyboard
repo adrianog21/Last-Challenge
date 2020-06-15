@@ -40,25 +40,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hZc-j7-5k0" userLabel="KeysView">
-                                <rect key="frame" x="672" y="20" width="188" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Qd-Ze-RxG">
+                                <rect key="frame" x="683" y="20" width="153" height="50"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBN-fU-ABa" userLabel="1">
-                                        <rect key="frame" x="0.0" y="0.0" width="68" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBN-fU-ABa" userLabel="1">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXH-fI-RFl" userLabel="2">
-                                        <rect key="frame" x="64" y="0.0" width="79" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hoG-mf-BWE" userLabel="1">
+                                        <rect key="frame" x="51" y="0.0" width="51" height="50"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkw-p7-NFb" userLabel="3">
-                                        <rect key="frame" x="141" y="0.0" width="47" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwl-k5-9OE" userLabel="1">
+                                        <rect key="frame" x="102" y="0.0" width="51" height="50"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -67,7 +65,6 @@
                     <connections>
                         <outlet property="blackView" destination="eLC-Oe-wem" id="pv9-Rn-Mph"/>
                         <outlet property="duePunti" destination="5Ew-ZL-lWB" id="omU-tJ-hbl"/>
-                        <outlet property="keysView" destination="hZc-j7-5k0" id="WE1-07-bdZ"/>
                         <outlet property="minutesLabel" destination="4II-SA-gys" id="cHc-z4-4VX"/>
                         <outlet property="secondsLabel" destination="uLi-7p-4Cm" id="cKr-g7-Hy4"/>
                     </connections>
@@ -227,12 +224,12 @@
                                 <rect key="frame" x="230" y="123" width="437" height="237"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjk-CM-ADp">
-                                        <rect key="frame" x="0.0" y="0.0" width="437" height="237"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Reset" translatesAutoresizingMaskIntoConstraints="NO" id="qjk-CM-ADp">
+                                        <rect key="frame" x="-11" y="0.0" width="457" height="237"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpa-jx-Zo0" userLabel="No">
-                                        <rect key="frame" x="8" y="169" width="106" height="60"/>
+                                        <rect key="frame" x="49" y="143" width="119" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal">
@@ -243,14 +240,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJ2-FM-tVS" userLabel="Yes">
-                                        <rect key="frame" x="313" y="169" width="109" height="57"/>
+                                        <rect key="frame" x="265" y="142" width="120" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="reset:" destination="kZ4-qr-A8P" eventType="touchUpInside" id="H8i-I5-erb"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -406,6 +403,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Artboard" width="357" height="392"/>
+        <image name="Reset" width="479" height="235"/>
         <image name="check" width="111" height="68"/>
         <image name="heart" width="25" height="22"/>
         <image name="new game" width="123" height="43"/>

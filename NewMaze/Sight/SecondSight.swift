@@ -22,10 +22,23 @@ class SecondSight: SKScene {
                 print("SI")
             }
             else if node.name == "NO"{
-                lives2 -= 1
-                let scene: SKScene = SecondSight(size: self.size)
-                self.view?.presentScene(scene)
-                print("NO")
+                lives -= 1
+                if lives == 0 {
+                    level.newScene(scene: "Lose")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                        {
+                            let vc = storyboard.instantiateViewController(withIdentifier: level.nextScene)
+                            vc.view.frame = (self.view?.frame)!
+                            vc.view.layoutIfNeeded()
+                            self.view?.window?.rootViewController = vc
+                    }, completion: { completed in
+                    })
+                }else {
+                    let scene:SKScene = FirstSight(size: self.size)
+                    self.view?.presentScene(scene)
+                }
             }
                 
             else{
@@ -90,7 +103,6 @@ class SecondSight: SKScene {
             gameover.position = CGPoint(x: size.width/2, y: size.height+30)
             addChild(gameover)
             gameover.run(movementLable)
-            
-        }
+       }
     }
 }
