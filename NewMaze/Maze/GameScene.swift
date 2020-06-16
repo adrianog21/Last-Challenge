@@ -685,7 +685,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if level.defaults.bool(forKey: "exit") == true{
                     exit.isHidden = false
                     exit.run(SKAction.fadeIn(withDuration: 1))
-                    print("aaa")
                 }
             }
         }

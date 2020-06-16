@@ -27,8 +27,15 @@ class SoundScene: SKScene {
     var din5 = SKSpriteNode()
     var din6 = SKSpriteNode()
     
-    var livesText = SKLabelNode()
-    var lives = Int()
+    var livesX = 3
+
+   lazy var livesText: SKLabelNode = {
+    var livesTextX = SKLabelNode(fontNamed: "Chalkduster")
+           livesTextX.text = "\(livesX)"
+           livesTextX.position = CGPoint(x: heart.position.x + 30, y: heart.position.y - 7)
+           livesTextX.fontSize = 17
+        return livesTextX
+    }()
     
     var clock = SKSpriteNode()
     
@@ -123,15 +130,13 @@ class SoundScene: SKScene {
         let loop = SKAction.repeatForever(animation)
         heart.run(loop)
         
-        lives = 3
-        livesText = SKLabelNode(text: "\(lives)")
-        livesText.position = CGPoint(x: heart.position.x + 30, y: heart.position.y - 7)
-        livesText.fontSize = 17
-        addChild(livesText)
         
     }
     
     override func didMove(to view: SKView) {
+        livesText.position = CGPoint(x: heart.position.x + 30, y: heart.position.y - 7)
+        livesText.fontSize = 17
+        addChild(livesText)
     }
     
     
@@ -184,9 +189,11 @@ class SoundScene: SKScene {
             soundPos = CGFloat.random(in: -175...175)
             print(soundPos)
         } else {
-            lives -= 1
-            if lives == 0 {
-                level.newScene(scene: "Win")
+            livesX -= 1
+            livesText.text = "\(livesX)"
+
+            if livesX == 0 {
+                level.newScene(scene: "Lose")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 
                 UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:

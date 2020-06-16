@@ -18,13 +18,23 @@ class SightController: UIViewController, TransitionDelegate {
                 self.navigationController?.present(VC, animated: false, completion: nil)
     }
     
+    @IBOutlet weak var blackView: UIView!
+    @IBOutlet weak var explainView: UIImageView!
+    var count = 0
+    let images = [#imageLiteral(resourceName: "sight 1.pdf"), #imageLiteral(resourceName: "sight 2.pdf"), #imageLiteral(resourceName: "sight 3.pdf")]
     
 
     
     override func viewDidLoad() {
 
-
         super.viewDidLoad()
+        
+        if level.defaults.bool(forKey: "FisrtSight") == false {
+            explainView.image = images[count]
+            level.defaults.set(true, forKey: "FirstSight")
+        }else {
+            blackView.isHidden = true
+        }
 
         let scene = FirstSight(size: view.bounds.size)
         scene.delegate = self as TransitionDelegate
@@ -53,6 +63,14 @@ class SightController: UIViewController, TransitionDelegate {
         return true
     }
 
+    @IBAction func next(_ sender: Any) {
+        count += 1
+        if count < 3 {
+            explainView.image = images[count]
+        }else if count == 3 {
+            blackView.isHidden = true
+        }
+    }
     
     
 }

@@ -19,14 +19,12 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBOutlet weak var lives: UILabel!
     
+    @IBOutlet weak var blackView: UIView!
     
+    @IBOutlet weak var explainView: UIImageView!
     
-    
-    
-    
-        
-    
-    
+    var count = 0
+    var images = [#imageLiteral(resourceName: "touch 1.pdf"), #imageLiteral(resourceName: "touch 2.pdf"), #imageLiteral(resourceName: "touch 3.pdf")]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 4
@@ -141,6 +139,13 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if level.defaults.bool(forKey: "FirstHaptic") == false {
+            explainView.image = images[count]
+            level.defaults.set(true, forKey: "FirstHaptic")
+        }else {
+            blackView.isHidden = true
+        }
         
         lives.textColor = .white
         lives.text = "\(counter)"
@@ -271,5 +276,13 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-
+    @IBAction func next(_ sender: Any) {
+        count += 1
+        if count < 3 {
+            explainView.image = images[count]
+        } else if count == 3 {
+            blackView.isHidden = true
+        }
+    }
+    
 }

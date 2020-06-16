@@ -11,10 +11,22 @@ import SpriteKit
 import GameplayKit
 
 class SoundViewController: UIViewController, TransitionDelegate {
+        
+    @IBOutlet weak var blackView: UIView!
+    @IBOutlet weak var explaiView: UIImageView!
+    var count = 0
     
+    let images = [#imageLiteral(resourceName: "sound 1.pdf"), #imageLiteral(resourceName: "sound 2.pdf"), #imageLiteral(resourceName: "sound 3.pdf")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        if level.defaults.bool(forKey: "FirstSound") == false {
+            explaiView.image = images[count]
+            level.defaults.set(true, forKey: "FirstSound")
+        }else {
+            blackView.isHidden = true
+        }
         
        if let view = self.view as! SKView? {
                    // Load the SKScene from 'GameScene.sks'
@@ -46,6 +58,15 @@ class SoundViewController: UIViewController, TransitionDelegate {
         
          var prefersStatusBarHidden: Bool {
             return true
+        }
+    }
+    
+    @IBAction func nextView(_ sender: Any) {
+        count += 1
+        if count < 3 {
+            explaiView.image = images[count]
+        }else if count == 3 {
+            blackView.isHidden = true
         }
     }
     
