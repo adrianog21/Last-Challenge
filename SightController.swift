@@ -36,7 +36,7 @@ class SightController: UIViewController, TransitionDelegate {
             blackView.isHidden = true
         }
 
-        let scene = FirstSight(size: view.bounds.size)
+        let scene = ReadyScene(size: view.bounds.size)
         scene.delegate = self as TransitionDelegate
         let skView = view as! SKView
         skView.preferredFramesPerSecond = 30
