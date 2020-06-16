@@ -133,7 +133,7 @@ class hapticViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         scene.addChild(emitterNode)
         emitterNode.position.y = scene.frame.maxY
-        emitterNode.particlePositionRange.dx = scene.frame.width
+        emitterNode.particlePositionRange.dx = scene.frame.width * 10
         view.addSubview(skView)
     }
     
