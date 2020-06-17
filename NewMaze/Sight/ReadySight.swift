@@ -45,21 +45,21 @@ class ReadyScene: SKScene {
         label.position = CGPoint(x: size.width * 0.5, y: size.height - 30)
         addChild(label)
         
-        let buttonStart = SKShapeNode(rectOf: CGSize(width: 150, height: 100), cornerRadius: 25)
-        buttonStart.name = "START"
-        buttonStart.lineWidth = 1
-        buttonStart.position = CGPoint(x: size.width*0.5, y: size.height*0.5 + 30)
+
         let textStart = SKLabelNode(text: "Si")
-        buttonStart.addChild(textStart)
-        addChild(buttonStart)
+        textStart.name = "START"
+        textStart.position = CGPoint(x: size.width*0.25, y: size.height*0.5)
+        textStart.fontColor = .white
+        textStart.fontSize = 40
+        addChild(textStart)
         
-        let buttonBack = SKShapeNode(rectOf: CGSize(width: 150, height: 100), cornerRadius: 25)
-        buttonBack.name = "MAZE"
-        buttonBack.lineWidth = 1
-        buttonBack.position = CGPoint(x: buttonStart.position.x, y: buttonStart.position.y - 110)
+
         let textBack = SKLabelNode(text: "No")
-        buttonBack.addChild(textBack)
-        addChild(buttonBack)
+        textBack.position = CGPoint(x: size.width*0.75, y: size.height*0.5)
+        textBack.fontColor = .white
+        textBack.fontSize = 40
+        addChild(textBack)
+        textBack.name = "MAZE"
     }
 }
 
