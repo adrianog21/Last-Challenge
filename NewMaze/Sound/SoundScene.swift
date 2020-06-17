@@ -28,14 +28,7 @@ class SoundScene: SKScene {
     var din6 = SKSpriteNode()
     
     var livesX = 3
-
-   lazy var livesText: SKLabelNode = {
-    var livesTextX = SKLabelNode(fontNamed: "Chalkduster")
-           livesTextX.text = "\(livesX)"
-           livesTextX.position = CGPoint(x: heart.position.x + 30, y: heart.position.y - 7)
-           livesTextX.fontSize = 17
-        return livesTextX
-    }()
+    var win = 0
     
     var clock = SKSpriteNode()
     
@@ -134,9 +127,6 @@ class SoundScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        livesText.position = CGPoint(x: heart.position.x + 30, y: heart.position.y - 7)
-        livesText.fontSize = 17
-        addChild(livesText)
     }
     
     
@@ -174,6 +164,10 @@ class SoundScene: SKScene {
         
         if newAngle > soundPos - 5 && newAngle < soundPos + 5 {
             level.lastY(yPos: Float(level.getPosition().y - 30))
+            soundPos = CGFloat.random(in: -175...175)
+            win += 1
+
+            if win == 3 {
             level.getMinigame(game: "SoundGame")
             level.newScene(scene: "Win")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -186,11 +180,11 @@ class SoundScene: SKScene {
                     self.view?.window?.rootViewController = vc
             }, completion: { completed in
             })
-            soundPos = CGFloat.random(in: -175...175)
-            print(soundPos)
+                print(soundPos)
+                
+            }
         } else {
             livesX -= 1
-            livesText.text = "\(livesX)"
 
             if livesX == 0 {
                 level.newScene(scene: "Lose")
@@ -243,9 +237,7 @@ class SoundScene: SKScene {
         diamante()
         roseAngle()
         soundDirection()
-        
-        livesText = SKLabelNode(text: "\(lives)")
-
+        level.defaults.set(livesX, forKey: "SoundLives")
     }
     
     fileprivate func roseAngle() {

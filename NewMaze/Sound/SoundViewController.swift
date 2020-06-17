@@ -16,6 +16,9 @@ class SoundViewController: UIViewController, TransitionDelegate {
     @IBOutlet weak var explaiView: UIImageView!
     var count = 0
     
+    @IBOutlet weak var livesText: UILabel!
+    
+    
     let images = [#imageLiteral(resourceName: "sound 1.pdf"), #imageLiteral(resourceName: "sound 2.pdf"), #imageLiteral(resourceName: "sound 3.pdf")]
     
     override func viewDidLoad() {
@@ -59,6 +62,11 @@ class SoundViewController: UIViewController, TransitionDelegate {
          var prefersStatusBarHidden: Bool {
             return true
         }
+        
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(livesUpdate) , userInfo: nil, repeats: true)
+    }
+    @objc func livesUpdate(){
+        livesText.text = "\(level.defaults.integer(forKey: "SoundLives"))"
     }
     
     @IBAction func nextView(_ sender: Any) {
