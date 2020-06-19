@@ -49,6 +49,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        var hapticKey = SKSpriteNode()
        var sightKey = SKSpriteNode()
        var soundKey = SKSpriteNode()
+    
+       var pulse1 = SKSpriteNode()
        
        var exit = SKSpriteNode()
        
@@ -158,11 +160,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             arrow.addChild(head3)
             player.addChild(arrow)
         }
-        
+    
+    
+    
         override func sceneDidLoad() {
 
             self.lastUpdateTime = 0
+        
+//          60 di differenza sulle ascisse fra le icone
+            
+            pulse1.texture = SKTexture(imageNamed: "pulse1")
+            pulse1.position = CGPoint(x: -750, y: -100)
+            pulse1.size = pulse1.texture?.size() as! CGSize
+            addChild(pulse1)
+            pulse1.isHidden = true
 
+            if level.defaults.bool(forKey: "timer") == true {
+                pulse1.isHidden = false }
+            
             createPlayer()
 
             pointingArrow()
