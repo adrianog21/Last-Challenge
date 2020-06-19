@@ -74,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lightNode.position = CGPoint(x: 0, y: 0)
             lightNode.categoryBitMask = 0b0001
             lightNode.lightColor = .white
-            lightNode.falloff = 1.3
+            lightNode.falloff = 1.7
             //        scene!.addChild(lightNode)
             
             pointing.position = CGPoint(x: 0, y: 72)
@@ -678,7 +678,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             playerMovement()
            
             showShadows()
-                    
+            
+            if level.defaults.bool(forKey: "exit") == true{
+            let exitD = CGPoint(x: (exit.position.x - player.position.x), y: (exit.position.y - player.position.y))
+                let distance = exitD.x.magnitude + exitD.y.magnitude
+                lightNode.falloff = 1 + distance/2100
+            }
             if level.defaults.bool(forKey: "timer") == true {
 
                 searchKeys()

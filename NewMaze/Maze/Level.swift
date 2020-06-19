@@ -18,8 +18,7 @@ struct Level {
 
     var xPosition = Float()
     var yPosition = Float()
-    let losePosition = [CGPoint()]
-    //-1540 , -2108     3200 2076       -2813  2716
+    let losePosition = [CGPoint(x: -1540, y: -2108), CGPoint(x: 3200, y: 2076), CGPoint(x: -2813, y: 2716)]
     // minigame position u 839,625 3069,987  d 839,625 3005,988
     // u 2492,455 -1541,457   , -1605,456
     // u -3457,322 -376,25  ,    -440,249
@@ -100,10 +99,16 @@ struct Level {
     mutating func newScene(scene : String){
         //LOSE
         if scene == "Lose" && defaults.bool(forKey: "FirstLose") == false{
+            let random = Int.random(in: 0...2)
+            lastX(xPos: Float(losePosition[random].x))
+            lastY(yPos: Float(losePosition[random].y))
             defaults.set(true, forKey: "FirstLose")
             nextScene = "Story"
             defaults.set(2, forKey: "story")
         }else if scene == "Lose" && defaults.bool(forKey: "FirstLose") == true{
+            let random = Int.random(in: 0...2)
+            lastX(xPos: Float(losePosition[random].x))
+            lastY(yPos: Float(losePosition[random].y))
             nextScene = "MazeGame"
         }
         //PLAY

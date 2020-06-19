@@ -27,6 +27,9 @@
 		7B1D3A4B2476B0F900588D10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D3A492476B0F900588D10 /* Assets.xcassets */; };
 		7B2214192473F3BD00410A2D /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2214182473F3BD00410A2D /* MenuController.swift */; };
 		7B22141F2473FBA900410A2D /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B22141E2473FBA900410A2D /* MenuScene.sks */; };
+		7B40067A249D03BA000D2E70 /* fast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B400677249D03BA000D2E70 /* fast.mp3 */; };
+		7B40067B249D03BA000D2E70 /* normal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B400678249D03BA000D2E70 /* normal.mp3 */; };
+		7B40067C249D03BA000D2E70 /* slow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B400679249D03BA000D2E70 /* slow.mp3 */; };
 		7B5C62D1246D6269008244C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62D0246D6269008244C0 /* AppDelegate.swift */; };
 		7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B5C62D2246D6269008244C0 /* GameScene.sks */; };
 		7B5C62D7246D6269008244C0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5C62D6246D6269008244C0 /* GameScene.swift */; };
@@ -72,6 +75,9 @@
 		7B1D3A492476B0F900588D10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B2214182473F3BD00410A2D /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		7B22141E2473FBA900410A2D /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		7B400677249D03BA000D2E70 /* fast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fast.mp3; sourceTree = "<group>"; };
+		7B400678249D03BA000D2E70 /* normal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = normal.mp3; sourceTree = "<group>"; };
+		7B400679249D03BA000D2E70 /* slow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slow.mp3; sourceTree = "<group>"; };
 		7B5C62CD246D6269008244C0 /* Last Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Last Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5C62D0246D6269008244C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5C62D2246D6269008244C0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -200,6 +206,9 @@
 		7BC910C7247ED1B6000D5979 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				7B400677249D03BA000D2E70 /* fast.mp3 */,
+				7B400678249D03BA000D2E70 /* normal.mp3 */,
+				7B400679249D03BA000D2E70 /* slow.mp3 */,
 				7BC910CA247ED1EB000D5979 /* enter.mp3 */,
 				7B79BBE524980871000DFF82 /* 01.wav */,
 				7B79BBE32497CFE4000DFF82 /* beep.mp3 */,
@@ -290,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5C62E9246D62DD008244C0 /* MyTileSet.sks in Resources */,
+				7B40067B249D03BA000D2E70 /* normal.mp3 in Resources */,
 				13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */,
 				13B72C172472E53300732BC8 /* firstHaptic.sks in Resources */,
 				7B79BBE42497CFE4000DFF82 /* beep.mp3 in Resources */,
@@ -299,6 +309,7 @@
 				7B5C62DC246D6269008244C0 /* Main.storyboard in Resources */,
 				7B5C62D3246D6269008244C0 /* GameScene.sks in Resources */,
 				13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */,
+				7B40067C249D03BA000D2E70 /* slow.mp3 in Resources */,
 				13534BB9247C0F0A0092B21B /* fourthHaptic.sks in Resources */,
 				13B72C0B246D95D500732BC8 /* secondvc.sks in Resources */,
 				7B5C62DE246D626B008244C0 /* Assets.xcassets in Resources */,
@@ -306,6 +317,7 @@
 				7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */,
 				7B1D3A4A2476B0F900588D10 /* Dust.sks in Resources */,
 				7B1D3A4B2476B0F900588D10 /* Assets.xcassets in Resources */,
+				7B40067A249D03BA000D2E70 /* fast.mp3 in Resources */,
 				7B5C62E1246D626B008244C0 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
