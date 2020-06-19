@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
         seconds -= 1
         level.defaults.set(seconds, forKey: "seconds")
         level.defaults.set(minutes, forKey: "minutes")
-        if seconds == -1 {
+        if seconds < 0 {
          minutes -= 1
             seconds = 59
         }

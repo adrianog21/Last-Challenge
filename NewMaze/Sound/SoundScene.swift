@@ -30,6 +30,11 @@ class SoundScene: SKScene {
     var livesX = 3
     var win = 0
     
+    var audioPlayer: AVAudioPlayer?
+    var sound = String()
+    var soundPlay = false
+
+    
     var clock = SKSpriteNode()
     
     var heart = SKSpriteNode()
@@ -168,6 +173,7 @@ class SoundScene: SKScene {
             win += 1
 
             if win == 3 {
+                audioPlayer?.stop()
             level.getMinigame(game: "SoundGame")
             level.newScene(scene: "Win")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -187,6 +193,7 @@ class SoundScene: SKScene {
             livesX -= 1
 
             if livesX == 0 {
+                audioPlayer?.stop()
                 level.newScene(scene: "Lose")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 
@@ -226,12 +233,35 @@ class SoundScene: SKScene {
     
     
     fileprivate func soundDirection() {
-        if newAngle < soundPos - 5 && newAngle > soundPos - 180{
+        if newAngle < soundPos - 5 && newAngle > soundPos - 180 && soundPlay == false{
             print("left")
-        }else if newAngle > soundPos + 5 && newAngle < soundPos + 180{
+            sound = "fast.mp3"
+            soundPlay = true
+            _ = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+        }else if newAngle > soundPos + 5 && newAngle < soundPos + 180 && soundPlay == false{
             print("right")
+            sound = "slow.mp3"
+            soundPlay = true
+            _ = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+        }else if newAngle > soundPos - 5 && newAngle < soundPos + 5 && soundPlay == false {
+            sound = "normal.mp3"
+            soundPlay = true
+            _ = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
         }
     }
+    
+    @objc func play(){
+              let music = Bundle.main.path(forResource: sound, ofType: nil)
+              let url = URL(fileURLWithPath: music!)
+              do {
+                  self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                  self.audioPlayer?.play()
+                  //print("playA")
+              } catch {
+                  print(error)
+              }
+        soundPlay = false
+          }
     
     override func update(_ currentTime: TimeInterval) {
         diamante()
