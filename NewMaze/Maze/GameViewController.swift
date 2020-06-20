@@ -18,9 +18,15 @@ class GameViewController: UIViewController {
     @IBOutlet weak var duePunti: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
     
+    @IBOutlet weak var pulse1: UIImageView!
+    @IBOutlet weak var pulse2: UIImageView!
+    @IBOutlet weak var pulse3: UIImageView!
+    
+    var pulses = [UIImageView]()
+    
     @IBOutlet weak var keysView: UIView!
     
-    
+    var timer2 = Timer()
     var OurTimer = Timer()
     var seconds = Int()
     var minutes = Int()
@@ -31,9 +37,22 @@ class GameViewController: UIViewController {
             duePunti.isHidden = false
             secondsLabel.isHidden = false
             OurTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Action) , userInfo: nil, repeats: true)
+            timer2 = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(CheckPulses) , userInfo: nil, repeats: true)
         }else{return}
-        
-        
+    }
+    
+    @objc func CheckPulses(){
+        let n = level.defaults.integer(forKey: "keys")
+        if n > 0 && n < 4 {
+        for i in 1...n {
+            pulses[i - 1].image = UIImage(named: "pulse11")
+        }
+        }
+        if n == 4 {
+            pulse1.image = UIImage(named: "pulse11")
+            pulse2.image = UIImage(named: "pulse11")
+            pulse3.image = UIImage(named: "pulse11")
+        }
     }
     
     @objc func Action() {
@@ -58,6 +77,21 @@ class GameViewController: UIViewController {
         
             minutes = level.defaults.integer(forKey: "minutes")
             seconds = level.defaults.integer(forKey: "seconds")
+        
+        pulses.append(pulse1)
+        pulses.append(pulse2)
+        pulses.append(pulse3)
+        
+          if level.defaults.bool(forKey: "timer") == true {
+            pulse1.isHidden = false
+            pulse2.isHidden = false
+            pulse3.isHidden = false
+          }else {
+             pulse1.isHidden = true
+             pulse2.isHidden = true
+             pulse3.isHidden = true
+        }
+        
         
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content

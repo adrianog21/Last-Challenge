@@ -33,7 +33,11 @@ class SoundScene: SKScene {
     var audioPlayer: AVAudioPlayer?
     var sound = String()
     var soundPlay = false
-
+    
+    var timer1 = Timer()
+    var timer2 = Timer()
+    var timer3 = Timer()
+    
     
     var clock = SKSpriteNode()
     
@@ -173,6 +177,9 @@ class SoundScene: SKScene {
             win += 1
 
             if win == 3 {
+                timer1.invalidate()
+                timer2.invalidate()
+                timer3.invalidate()
                 audioPlayer?.stop()
             level.getMinigame(game: "SoundGame")
             level.newScene(scene: "Win")
@@ -187,7 +194,8 @@ class SoundScene: SKScene {
             }, completion: { completed in
             })
                 print(soundPos)
-                
+                audioPlayer?.stop()
+                soundPlay = true
             }
         } else {
             livesX -= 1
@@ -237,16 +245,16 @@ class SoundScene: SKScene {
             print("left")
             sound = "fast.mp3"
             soundPlay = true
-            _ = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+            timer1 = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
         }else if newAngle > soundPos + 5 && newAngle < soundPos + 180 && soundPlay == false{
             print("right")
             sound = "slow.mp3"
             soundPlay = true
-            _ = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+            timer2 = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
         }else if newAngle > soundPos - 5 && newAngle < soundPos + 5 && soundPlay == false {
             sound = "normal.mp3"
             soundPlay = true
-            _ = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+            timer3 = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
         }
     }
     

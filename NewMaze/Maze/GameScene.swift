@@ -50,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        var sightKey = SKSpriteNode()
        var soundKey = SKSpriteNode()
     
-       var pulse1 = SKSpriteNode()
+//       var pulse1 = SKSpriteNode()
        
        var exit = SKSpriteNode()
        
@@ -169,14 +169,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 //          60 di differenza sulle ascisse fra le icone
             
-            pulse1.texture = SKTexture(imageNamed: "pulse1")
-            pulse1.position = CGPoint(x: -750, y: -100)
-            pulse1.size = pulse1.texture?.size() as! CGSize
-            addChild(pulse1)
-            pulse1.isHidden = true
-
-            if level.defaults.bool(forKey: "timer") == true {
-                pulse1.isHidden = false }
+//            pulse1.texture = SKTexture(imageNamed: "pulse1")
+//            pulse1.position = CGPoint(x: -750, y: -100)
+//            pulse1.size = pulse1.texture?.size() as! CGSize
+//            addChild(pulse1)
+//            pulse1.isHidden = true
+//
+//            if level.defaults.bool(forKey: "timer") == true {
+//                pulse1.isHidden = false }
+            
+//            pulse1.isHidden = true
+//            pulse2.isHidden = true
+//            pulse3.isHidden = true
             
             createPlayer()
 
@@ -694,10 +698,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            
             showShadows()
             
+            
+            
             if level.defaults.bool(forKey: "exit") == true{
+                if level.defaults.integer(forKey: "keys") == 3 {
+                    audioPlayer?.stop()
+                    level.newScene(scene: "End")
+                    gamecontroller!.newScene(scene: level.nextScene)
+                    
+                }
             let exitD = CGPoint(x: (exit.position.x - player.position.x), y: (exit.position.y - player.position.y))
                 let distance = exitD.x.magnitude + exitD.y.magnitude
-                lightNode.falloff = 1 + distance/2100
+                gamecontroller?.blackView.alpha = 0 + distance/5000
+//                lightNode.falloff = 1 + distance/2100
             }
             if level.defaults.bool(forKey: "timer") == true {
 

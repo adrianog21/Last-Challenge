@@ -69,8 +69,8 @@ struct Level {
     mutating func getKey(key : String){
         print(defaults.bool(forKey: key))
         defaults.set(true, forKey: key)
-        print(defaults.bool(forKey: key))
         defaults.set(defaults.integer(forKey: "keys") + 1, forKey: "keys")
+        print(defaults.integer(forKey: "keys"))
         
         if defaults.bool(forKey: "HapticKey") == true && defaults.bool(forKey: "SightKey") == true && defaults.bool(forKey: "SoundKey") == true {
                   defaults.set(true, forKey: "exit")
@@ -132,6 +132,12 @@ struct Level {
              }
              else if scene == "Win" && defaults.bool(forKey: "FirstWin") == true && defaults.bool(forKey: "timer") == false {
                 nextScene = "MazeGame"
+        }
+        
+        if scene == "End"{
+            defaults.set(4, forKey: "keys")
+            nextScene = "Story"
+            defaults.set(4, forKey: "story")
         }
 //        print(scene)
 //        print(defaults.bool(forKey: "FirstPlay"))

@@ -34,11 +34,15 @@ class Story : UIViewController{
     var firstFail1 = "Seems like you were not stable enough to withstand the impact of acquiring this sense back yet."
     var firstFail2 = "The attempt left you a bit disoriented… \nBut don’t give up, find the right path again."
     
+    var ending1 = "The time has come for you to win your last challenge."
+     var ending2 = "My light will enlighten your way towards the end of your mind, if it starts to fade you are on the wrong path. \nFind the exit and...live."
+    
     var words = [[String]]()
     var words0 = [String]()
     var words1 = [String]()
     var words2 = [String]()
     var words3 = [String]()
+    var words4 = [String]()
     
     var frase = [String]()
     
@@ -70,10 +74,14 @@ class Story : UIViewController{
         words3.append(allGamesDone3)
         words3.append(allGamesDone4)
         
+        words4.append(ending1)
+        words4.append(ending2)
+        
         words.append(words0)
         words.append(words1)
         words.append(words2)
         words.append(words3)
+        words.append(words4)
 
         frase = words[level.defaults.integer(forKey: "story")]
         
