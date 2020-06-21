@@ -6,6 +6,8 @@
 //  Copyright © 2020 Adriano Gatto. All rights reserved.
 //
 
+import AVKit
+import AVFoundation
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -65,6 +67,12 @@ class GameViewController: UIViewController {
         }
         secondsLabel.text = String(seconds)
         minutesLabel.text = String(minutes)
+        if seconds == 0 && minutes == 0 {
+            level.defaults.set(true, forKey: "stopAudio")
+            level.newScene(scene: "GameOver")
+            let VC = self.storyboard!.instantiateViewController(withIdentifier: level.nextScene) as! UINavigationController
+            self.navigationController?.present(VC, animated: false, completion: nil)
+        }
     }
     
     
@@ -161,4 +169,20 @@ class GameViewController: UIViewController {
         return true
     }
     
+//    l'ha fatto Marti <3
+    func VideoPlayer() {
+        
+        let player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "exitVideo", ofType: "mp4")!))
+        let layer = AVPlayerLayer(player: player)
+        layer.frame = view.bounds
+        layer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(layer)
+        
+        player.play()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 21){
+            self.newScene(scene: "Start")
+    }
+    
+  }
 }

@@ -699,8 +699,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            
             showShadows()
             
-            
-            
             if level.defaults.bool(forKey: "exit") == true{
                 if level.defaults.integer(forKey: "keys") == 3 {
                     audioPlayer?.stop()
@@ -714,6 +712,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                lightNode.falloff = 1 + distance/2100
             }
             if level.defaults.bool(forKey: "timer") == true {
+                if level.defaults.bool(forKey: "stopAudio") == true {
+                    audioPlayer?.stop()
+                    soundAudio?.stop()
+                    soundAudio2?.stop()
+                }
 
                 searchKeys()
                 if level.defaults.bool(forKey: "exit") == true{
@@ -795,6 +798,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if collisionA == playerCategory && collisionB == exitCategory {
             level.lastY(yPos: Float(player.position.y - 40))
             enterAudio()
+            
+            gamecontroller?.VideoPlayer()
             
         }
     }

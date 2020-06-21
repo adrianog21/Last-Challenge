@@ -35,7 +35,10 @@ class Story : UIViewController{
     var firstFail2 = "The attempt left you a bit disoriented… \nBut don’t give up, find the right path again."
     
     var ending1 = "The time has come for you to win your last challenge."
-     var ending2 = "My light will enlighten your way towards the end of your mind, if it starts to fade you are on the wrong path. \nFind the exit and...live."
+     var ending2 = "My light will enlight your way towards the end of your mind, if it starts to fade you are on the wrong path. \nFind the exit and...live."
+    
+    var gameOver1 = "Mourning and giref weight on your beloved ones"
+    var gameOver2 = "May fading out with your soul be peaceful."
     
     var words = [[String]]()
     var words0 = [String]()
@@ -43,6 +46,7 @@ class Story : UIViewController{
     var words2 = [String]()
     var words3 = [String]()
     var words4 = [String]()
+    var words5 = [String]()
     
     var frase = [String]()
     
@@ -77,12 +81,16 @@ class Story : UIViewController{
         words4.append(ending1)
         words4.append(ending2)
         
+        words5.append(gameOver1)
+        words5.append(gameOver2)
+        
         words.append(words0)
         words.append(words1)
         words.append(words2)
         words.append(words3)
         words.append(words4)
-
+        words.append(words5)
+        
         frase = words[level.defaults.integer(forKey: "story")]
         
         UIView.animate(withDuration: 5, animations: {
@@ -106,19 +114,34 @@ class Story : UIViewController{
             }
         }
         
-        }else {
-   //         UIView.animate(withDuration: 1, animations: {
-//                let VC = self.storyboard!.instantiateViewController(withIdentifier: "MazeGame") as! UINavigationController
-//                self.navigationController?.present(VC, animated: false, completion: nil)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
-            vc.view.frame = (self.view?.frame)!
-            vc.view.layoutIfNeeded()
-            UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
-                {
-                    self.view?.window?.rootViewController = vc
-            }, completion: { completed in
-            })
+            }else {
+                if level.defaults.integer(forKey: "story") == 5 {
+                    level.resetData()
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "Start")
+                    vc.view.frame = (self.view?.frame)!
+                    vc.view.layoutIfNeeded()
+                    UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                        {
+                            self.view?.window?.rootViewController = vc
+                    }, completion: { completed in
+                    })
+                }else {
+                    
+                    //         UIView.animate(withDuration: 1, animations: {
+                    //                let VC = self.storyboard!.instantiateViewController(withIdentifier: "MazeGame") as! UINavigationController
+                    //                self.navigationController?.present(VC, animated: false, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "MazeGame")
+                    vc.view.frame = (self.view?.frame)!
+                    vc.view.layoutIfNeeded()
+                    UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations:
+                        {
+                            self.view?.window?.rootViewController = vc
+                    }, completion: { completed in
+                    })
+                    
+                }
        //     })
         }
     }
