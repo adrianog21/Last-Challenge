@@ -118,6 +118,15 @@ class SightGame: SKScene {
         let heart = SKSpriteNode(imageNamed: "heart")
             heart.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             heart.position = CGPoint(x: size.width-100, y: size.height-30)
+            
+        let bigger = SKAction.scale(to: 1.2, duration: 0.2)
+        let smaller = SKAction.scale(to: 1.1, duration: 0.1)
+        let normale = SKAction.scale(to: 1, duration: 0.2)
+        let wait = SKAction.wait(forDuration: 0.70)
+        let animation = SKAction.sequence([bigger, smaller, bigger, normale, wait])
+        let loop = SKAction.repeatForever(animation)
+        heart.run(loop)
+            
         let livesLable = SKLabelNode(text: "\(lives)")
             livesLable.fontColor = UIColor.white
             livesLable.fontSize = 20

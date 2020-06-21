@@ -18,6 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        let wallCategory:UInt32 = 0x1 << 2
        let sightCategory:UInt32 = 0x1 << 4
        let soundCategory:UInt32 = 0x1 << 8
+       let exitCategory:UInt32 = 0x1 << 16
        
        let velocity = CGFloat(7.5)
        
@@ -718,6 +719,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if level.defaults.bool(forKey: "exit") == true{
                     exit.isHidden = false
                     exit.run(SKAction.fadeIn(withDuration: 1))
+                    exit.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 64, height: 64))
+                    
+                    exit.physicsBody?.isDynamic = false
+                    exit.physicsBody?.categoryBitMask = exitCategory
+                    exit.physicsBody?.contactTestBitMask = playerCategory
                 }
             }
         }
@@ -786,7 +792,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             enterAudio()
         }
-        
+        if collisionA == playerCategory && collisionB == exitCategory {
+            level.lastY(yPos: Float(player.position.y - 40))
+            enterAudio()
+            
+        }
     }
 }
 
