@@ -19,7 +19,6 @@
 		13B72C192472E54900732BC8 /* secondHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C182472E54900732BC8 /* secondHaptic.sks */; };
 		13B72C1B2472E56400732BC8 /* thirdHaptic.sks in Resources */ = {isa = PBXBuildFile; fileRef = 13B72C1A2472E56400732BC8 /* thirdHaptic.sks */; };
 		13B72C212472EF6600732BC8 /* hapticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B72C202472EF6600732BC8 /* hapticViewController.swift */; };
-		4E0C7D97249FA89800228A40 /* exitVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4E0C7D96249FA89800228A40 /* exitVideo.mp4 */; };
 		4E5C3F24248A895E006282C7 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C3F23248A895E006282C7 /* SoundViewController.swift */; };
 		4E5C3F28248A89D6006282C7 /* SoundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C3F27248A89D6006282C7 /* SoundScene.swift */; };
 		4E5C3F2A248A8CFB006282C7 /* SoundScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C3F29248A8CFB006282C7 /* SoundScene.sks */; };
@@ -68,7 +67,6 @@
 		13B72C182472E54900732BC8 /* secondHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondHaptic.sks; sourceTree = "<group>"; };
 		13B72C1A2472E56400732BC8 /* thirdHaptic.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdHaptic.sks; sourceTree = "<group>"; };
 		13B72C202472EF6600732BC8 /* hapticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hapticViewController.swift; sourceTree = "<group>"; };
-		4E0C7D96249FA89800228A40 /* exitVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = exitVideo.mp4; sourceTree = "<group>"; };
 		4E5C3F23248A895E006282C7 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 		4E5C3F27248A89D6006282C7 /* SoundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundScene.swift; sourceTree = "<group>"; };
 		4E5C3F29248A8CFB006282C7 /* SoundScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SoundScene.sks; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 		7BC910C7247ED1B6000D5979 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				4E0C7D96249FA89800228A40 /* exitVideo.mp4 */,
 				7B400677249D03BA000D2E70 /* fast.mp3 */,
 				7B400678249D03BA000D2E70 /* normal.mp3 */,
 				7B400679249D03BA000D2E70 /* slow.mp3 */,
@@ -320,7 +317,6 @@
 				7BC910CB247ED1EB000D5979 /* enter.mp3 in Resources */,
 				7B1D3A4A2476B0F900588D10 /* Dust.sks in Resources */,
 				7B1D3A4B2476B0F900588D10 /* Assets.xcassets in Resources */,
-				4E0C7D97249FA89800228A40 /* exitVideo.mp4 in Resources */,
 				7B40067A249D03BA000D2E70 /* fast.mp3 in Resources */,
 				7B5C62E1246D626B008244C0 /* LaunchScreen.storyboard in Resources */,
 			);
