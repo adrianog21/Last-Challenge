@@ -40,13 +40,13 @@ class ReadyScene: SKScene {
     
     override func sceneDidLoad(){
         addBackground()
-        let label = SKLabelNode(text: "Sei Pronto?")
+        let label = SKLabelNode(text: "Are You Ready?")
         label.color = .white
         label.position = CGPoint(x: size.width * 0.5, y: size.height - 30)
         addChild(label)
         
 
-        let textStart = SKLabelNode(text: "Si")
+        let textStart = SKLabelNode(text: "Yes")
         textStart.name = "START"
         textStart.position = CGPoint(x: size.width*0.25, y: size.height*0.5)
         textStart.fontColor = .white

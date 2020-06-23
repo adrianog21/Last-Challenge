@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qxx-hc-cS0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qxx-hc-cS0">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -95,6 +95,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle empty" translatesAutoresizingMaskIntoConstraints="NO" id="pJR-00-t5C" userLabel="Circle1">
+                                <rect key="frame" x="50" y="350" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle empty" translatesAutoresizingMaskIntoConstraints="NO" id="F3B-pf-Vfc" userLabel="Circle2">
+                                <rect key="frame" x="100" y="350" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle empty" translatesAutoresizingMaskIntoConstraints="NO" id="RDE-DY-jN0" userLabel="Circle3">
+                                <rect key="frame" x="150" y="350" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaa" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vx2-8o-vGz" userLabel="Lives">
                                 <rect key="frame" x="805" y="14" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -131,6 +143,9 @@
                     <navigationItem key="navigationItem" id="Y4J-Sf-oZq"/>
                     <connections>
                         <outlet property="blackView" destination="VDB-vP-i7q" id="B3h-xq-wwn"/>
+                        <outlet property="circle1" destination="pJR-00-t5C" id="tg9-9k-jG6"/>
+                        <outlet property="circle2" destination="F3B-pf-Vfc" id="yit-p1-SIr"/>
+                        <outlet property="circle3" destination="RDE-DY-jN0" id="yjK-36-lK8"/>
                         <outlet property="explaiView" destination="SMf-zy-so7" id="rrL-BC-JtZ"/>
                         <outlet property="livesText" destination="Vx2-8o-vGz" id="dEM-rh-Rqq"/>
                     </connections>
@@ -507,6 +522,7 @@
         <image name="Artboard" width="357" height="392"/>
         <image name="Reset" width="479" height="235"/>
         <image name="check" width="111" height="68"/>
+        <image name="circle empty" width="73" height="73"/>
         <image name="heart" width="25" height="22"/>
         <image name="new game" width="123" height="43"/>
         <image name="play button 2" width="60" height="43"/>

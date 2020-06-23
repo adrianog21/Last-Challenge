@@ -16,14 +16,24 @@ class SoundViewController: UIViewController, TransitionDelegate {
     @IBOutlet weak var explaiView: UIImageView!
     var count = 0
     
+    @IBOutlet weak var circle1: UIImageView!
+    @IBOutlet weak var circle2: UIImageView!
+    @IBOutlet weak var circle3: UIImageView!
+    
+    
     @IBOutlet weak var livesText: UILabel!
     
     
     let images = [#imageLiteral(resourceName: "sound 1.pdf"), #imageLiteral(resourceName: "sound 2.pdf"), #imageLiteral(resourceName: "sound 3.pdf")]
+    var circles = [UIImageView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        circles.append(circle1)
+        circles.append(circle2)
+        circles.append(circle3)
+        
         if level.defaults.bool(forKey: "FirstSound") == false {
             explaiView.image = images[count]
             level.defaults.set(true, forKey: "FirstSound")
@@ -67,6 +77,13 @@ class SoundViewController: UIViewController, TransitionDelegate {
     }
     @objc func livesUpdate(){
         livesText.text = "\(level.defaults.integer(forKey: "SoundLives"))"
+        
+        let livesS = level.defaults.integer(forKey: "WinCount")
+        if livesS > 0 {
+            for i in 0...(livesS - 1) {
+                circles[i].image = UIImage(named: "circle fill")
+            }
+        }
     }
     
     @IBAction func nextView(_ sender: Any) {

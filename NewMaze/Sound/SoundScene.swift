@@ -175,7 +175,9 @@ class SoundScene: SKScene {
             level.lastY(yPos: Float(level.getPosition().y - 30))
             soundPos = CGFloat.random(in: -175...175)
             win += 1
-
+            
+            level.defaults.set(win, forKey: "WinCount")
+            
             if win == 3 {
                 timer1.invalidate()
                 timer2.invalidate()
