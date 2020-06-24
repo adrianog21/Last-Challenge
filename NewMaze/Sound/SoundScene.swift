@@ -38,6 +38,8 @@ class SoundScene: SKScene {
     var timer2 = Timer()
     var timer3 = Timer()
     
+    var canPlay = true
+    
     
     var clock = SKSpriteNode()
     
@@ -203,6 +205,7 @@ class SoundScene: SKScene {
             livesX -= 1
 
             if livesX == 0 {
+                canPlay = false
                 audioPlayer?.stop()
                 level.newScene(scene: "Lose")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -215,6 +218,8 @@ class SoundScene: SKScene {
                         self.view?.window?.rootViewController = vc
                 }, completion: { completed in
                 })
+                audioPlayer?.stop()
+
             }
         }
     }
@@ -243,6 +248,8 @@ class SoundScene: SKScene {
     
     
     fileprivate func soundDirection() {
+        
+        if canPlay == true{
         if newAngle < soundPos - 5 && newAngle > soundPos - 180 && soundPlay == false{
             print("left")
             sound = "fast.mp3"
@@ -257,6 +264,7 @@ class SoundScene: SKScene {
             sound = "normal.mp3"
             soundPlay = true
             timer3 = Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(play), userInfo: nil, repeats: false)
+            }
         }
     }
     

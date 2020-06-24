@@ -85,8 +85,8 @@ struct Level {
         if defaults.bool(forKey: "HapticGame") == true && defaults.bool(forKey: "SightGame") == true && defaults.bool(forKey: "SoundGame") == true {
             defaults.set(true, forKey: "timer")
             
-                  defaults.set(0, forKey: "minutes")
-                  defaults.set(6, forKey: "seconds")
+                  defaults.set(14, forKey: "minutes")
+                  defaults.set(60, forKey: "seconds")
             
             defaults.set(0, forKey: "keys")
         }
